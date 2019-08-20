@@ -1,6 +1,6 @@
 /*                                                    * * * * * * * * * * * * * * * * * * * * * * * * *  * * * *  *
-                                                      |          Bhagvan bharose attempt by KEVIV SINGH		  |
-                                  		      |								  |
+                                                      |          Bhagvan bharose attempt by KEVIV SINGH		 	  |
+                                  		     		  |			 												  |
                                                       * * * * * * * **  ** * * ** * * * * * * * * * * * * * * * * *
 */
 
@@ -9,88 +9,372 @@
 #include<string.h>
 #include "y.tab.h"
 %}
-spac		    	 [ \t]+
-punc             	(\.|\,|\!|\?%)
-word		        ({punc}|[a-zA-Z0-9])+
+
+spac		  	[ \t]+
+punc            (\.|\,|\!|\?%)
+word		    ({punc}|[a-zA-Z0-9])+
 text			(({word}|{spac})+[\n]*({word}|{spac})+)
-%x 			S1
+
 
 %%
-"<!doctype"[^>]+">"			{printf("METADATA\n");
-					return METADATA;					
-					}
+"<!doctype"[^>]+">"			{
+							printf("METADATA\n");
+							return METADATA;					
+							}
 
-"<html>"				{
-					printf("HTML\n");
-					return HTML;
-					}
-"</html>"				{
-					printf("HTMLE\n");
-					return HTMLE;
-					}
-"<head>"				{
-					printf("HEAD\n");
-					return HEAD;
-					}
-"</head>"				{
-					printf("HEADE\n");
-					return HEADE;
-					}
-"<body>"				{
-					printf("BODY\n");
-					return BODY;
-					}
-"</body>"				{
-					printf("BODYE\n");
-					return BODYE;
-					}
-"<title>"				{
-					printf("TITLE\n");
-					return TITLE;
-					}
-"</title>"				{
-					printf("TITLEE\n");
-					return TITLEE;
-					}
-"<h1>"					{
-					printf("H1\n");
-					return H1;
-					}
-"</h1>"					{
-					printf("H1E\n");
-					return H1E;
-					}
-"<a"([ =."/]|[a-zA-z0-9])*">"		{
-					char *ss =yytext;
-					int length=strlen(ss);
-					char link[length+1];
-					sscanf(ss, "%*[^\"]\"%[^\"]",link);
-					printf("%s\n",link);
-					return HREF;
-					}
-"</a>"					{
-					printf("AEND\n");
-					return AEND;
-					}
+"<html>"					{
+							printf("HTML\n");
+							return HTML;
+							}
+
+"</html>"					{
+							printf("HTMLE\n");
+							return HTMLE;
+							}
+
+"<head>"					{
+							printf("HEAD\n");
+							return HEAD;
+							}
+
+"</head>"					{
+							printf("HEADE\n");
+							return HEADE;
+							}
+
+"<body>"					{
+							printf("BODY\n");
+							return BODY;
+							}
+							
+"</body>"					{
+							printf("BODYE\n");
+							return BODYE;
+							}
+							
+"<title>"					{
+							printf("TITLE\n");
+							return TITLE;
+							}
+							
+"</title>"					{
+							printf("TITLEE\n");
+							return TITLEE;
+							}
+							
+							
+"<a"([ =."/]|[a-zA-z0-9])*">" {
+							char *ss =yytext;
+							int length=strlen(ss);
+							char link[length+1];
+							sscanf(ss, "%*[^\"]\"%[^\"]",link);
+							printf("%s\n",link);
+							return HREF;
+							}
+							
+"</a>"						{
+							printf("AEND\n");
+							return AEND;
+							}
+							
 "<font"([ =."/]|[a-zA-z0-9])*">"	{
-					char *ss =yytext;
-					int length=strlen(ss);
-					char link[length+1];
-					sscanf(ss, "%*[^\"]\"%[^\"]",link);
-					printf("%s\n",link);
-					return SIZE;
-					}
+							char *ss =yytext;
+							int length=strlen(ss);
+							char link[length+1];
+							sscanf(ss, "%*[^\"]\"%[^\"]",link);
+							printf("%s\n",link);
+							return SIZE;
+							}
+							
 "</font>"					{
-					printf("FONTE\n");
-					return FONTE;
-					}
-{text}					{
-					printf("%s\n",yytext);
-					yylval.s = strdup(yytext);
-					return TEXT;
-					}
-"\n"					;
-.					;
+							printf("FONTE\n");
+							return FONTE;
+							}
+							
+"<center>"					{
+							printf("CENTER\n");
+							return CENTER;	
+							}
+							
+"</center>"					{
+							printf("CENTERE\n");
+							return CENTERE;	
+							}
+							
+"<br>"						{
+							printf("BR\n");
+							return BR;	
+							}
+							
+"<p>"						{
+							printf("P\n");
+							return P;	
+							}
+							
+"</p>"						{
+							printf("PE\n");
+							return PE;	
+							}
+							
+"<h1>"						{
+							printf("H1\n");
+							return H1;	
+							}
+							
+"</h1>"						{
+							printf("H1E\n");
+							return H1E;	
+							}
+							
+"<h2>"						{
+							printf("H2\n");
+							return H2;	
+							}
+							
+"</h2>"						{
+							printf("H2E\n");
+							return H2E;	
+							}
+							
+"<h3>"						{
+							printf("H3\n");
+							return H3;	
+							}
+							
+"</h3>"						{
+							printf("H3E\n");
+							return H3E;	
+							}
+							
+"<h4>"						{
+							printf("H4\n");
+							return H4;	
+							}
+							
+"</h4>"						{
+							printf("H4E\n");
+							return H4E;	
+							}
+							
+"<ul>"						{
+							printf("UL\n");
+							return UL;	
+							}
+							
+"</ul>"						{
+							printf("ULE\n");
+							return ULE;	
+							}
+							
+"<li>"						{
+							printf("LI\n");
+							return LI;	
+							}
+							
+"</li>"						{
+							printf("LIE\n");
+							return LIE;	
+							}
+							
+"<ol>"						{
+							printf("OL\n");
+							return OL;	
+							}
+							
+"</ol>"						{
+							printf("OLE\n");
+							return OLE;	
+							}
+							
+"<dl>"						{
+							printf("DL\n");
+							return DL;	
+							}
+							
+"</dl>"						{
+							printf("DLE\n");
+							return DLE;	
+							}
+							
+"<dt>"						{
+							printf("DT\n");
+							return DT;	
+							}
+							
+"</dt>"						{
+							printf("DTE\n");
+							return DTE;	
+							}
+							
+"<dd>"						{
+							printf("DD\n");
+							return DD;	
+							}
+							
+"</dd>"						{
+							printf("DDE\n");
+							return DDE;	
+							}
+							
+"<div>"						{
+							printf("DIV\n");
+							return DIV;	
+							}
+							
+"</div>"					{
+							printf("DIVE\n");
+							return DIVE;	
+							}
+							
+"<u>"						{
+							printf("U\n");
+							return U;	
+							}
+							
+"</u>"						{
+							printf("UE\n");
+							return UE;	
+							}
+							
+"<b>"						{
+							printf("B\n");
+							return B;	
+							}
+							
+"</b>"						{
+							printf("BE\n");
+							return BE;	
+							}
+							
+"<i>"						{
+							printf("I\n");
+							return I;	
+							}
+							
+"</i>"						{
+							printf("IE\n");
+							return IE;	
+							}
+							
+"<em>"						{
+							printf("EM\n");
+							return EM;	
+							}
+							
+"</em>"						{
+							printf("EME\n");
+							return EME;	
+							}
+							
+"<tt>"						{
+							printf("TT\n");
+							return TT;	
+							}
+							
+"</tt>"						{
+							printf("TTE\n");
+							return TTE;	
+							}
+							
+"<strong>"					{
+							printf("STRONG\n");
+							return STRONG;	
+							}
+							
+"</strong>"					{
+							printf("STRONGE\n");
+							return STRONGE;	
+							}
+							
+"<small>"					{
+							printf("SMALL\n");
+							return SMALL;	
+							}
+							
+"</small>"					{
+							printf("SMALLE\n");
+							return SMALLE;	
+							}
+							
+"<sub>"						{
+							printf("SUB\n");
+							return SUB;	
+							}
+							
+"</sub>"					{
+							printf("SUBE\n");
+							return SUBE;	
+							}
+							
+"<sup>"						{
+							printf("SUP\n");
+							return SUP;	
+							}
+							
+"</sup>"					{
+							printf("SUPE\n");
+							return SUPE;	
+							}
+							
+"<table>"					{
+							printf("TABLE\n");
+							return TABLE;	
+							}
+							
+"</table>"					{
+							printf("TABLEE\n");
+							return TABLEE;	
+							}
+							
+"<caption>"					{
+							printf("CAPTION\n");
+							return CAPTION;	
+							}
+							
+"</caption>"				{
+							printf("CAPTIONE\n");
+							return CAPTIONE;	
+							}
+							
+"<th>"						{
+							printf("TH\n");
+							return TH;	
+							}
+							
+"</th>"						{
+							printf("THE\n");
+							return THE;	
+							}
+							
+"<tr>"						{
+							printf("TR\n");
+							return TR;	
+							}
+							
+"</tr>"						{
+							printf("TRE\n");
+							return TRE;	
+							}
+							
+"<td>"						{
+							printf("TD\n");
+							return TD;	
+							}
+							
+"</td>"						{
+							printf("TDE\n");
+							return TDE;	
+							}
+							
+{text}						{
+							printf("%s\n",yytext);
+							yylval.s = strdup(yytext);
+							return TEXT;
+							}
+							
+"\n"						;
+
+.							;
 
 
 %%
@@ -102,7 +386,7 @@ return 1;
 
 /*
 int main(void){
-yyin=fopen("sample.html","r");
+yyin=fopen("sample.html","r\n");
 yylex();
 }
 */

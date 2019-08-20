@@ -16,11 +16,23 @@ char *s;
 int i;
 }
 
-%start doc_start
-%token	HTML	HTMLE	BODY	BODYE	HEAD		HEADE	AEND	SIZE
-%token	H1	H1E	TITLE	TITLEE	METADATA	HREF	FONTE	
+%start	doc_start
+%token	HTML	HTMLE	HEAD	HEADE	METADATA
+%token	BODY	BODYE	TITLE	TITLEE	HREF
+%token	AEND	SIZE	FONTE	CENTER	CENTERE
+%token	BR				P		PE		H1
+%token	H1E 	H2		H2E		H3 		H3E
+%token	H4		H4E		UL		ULE		DL
+%token	DLE		DT		DTE		DD		DDE
+%token	DIV		DIVE	U		UE		B
+%token	BE		I		IE		EM		EME
+%token	TT		TTE		STRONG	STRONGE	SMALL
+%token	SMALLE	SUB		SUBE	SUP		SUPE
+%token 	TABLE 	TABLEE	CAPTION	TH		CAPTIONE
+%token	THE		TR		TRE		TD		TDE	
+%token	LI		LIE		OL		OLE
 %token	<s>	TEXT	
-%type	<s>	doc_start content body_s
+%type	<s>	doc_start	content	 body_s
 
 %%
 
