@@ -1,0 +1,4 @@
+\\document{article}
+\\usepackage{blindwrite}
+ first page 
+ a quick brown fox jumped over a lazy dog shitty shit
