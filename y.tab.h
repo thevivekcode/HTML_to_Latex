@@ -108,14 +108,21 @@ extern int yydebug;
     TRE = 318,
     TD = 319,
     TDE = 320,
-    LI = 321,
-    LIE = 322,
-    OL = 323,
-    OLE = 324,
-    TEXT = 325,
-    GREEK = 326,
-    HREF = 327,
-    SIZE = 328
+    IMG = 321,
+    LI = 322,
+    LIE = 323,
+    OL = 324,
+    OLE = 325,
+    TEXT = 326,
+    GREEK = 327,
+    HREF = 328,
+    SIZE = 329,
+    ATITLE = 330,
+    IMGSRC = 331,
+    IMGWIDTH = 332,
+    IMGHEIGHT = 333,
+    IMGFIGURE = 334,
+    IMGFIGCAPTION = 335
   };
 #endif
 /* Tokens.  */
@@ -182,14 +189,21 @@ extern int yydebug;
 #define TRE 318
 #define TD 319
 #define TDE 320
-#define LI 321
-#define LIE 322
-#define OL 323
-#define OLE 324
-#define TEXT 325
-#define GREEK 326
-#define HREF 327
-#define SIZE 328
+#define IMG 321
+#define LI 322
+#define LIE 323
+#define OL 324
+#define OLE 325
+#define TEXT 326
+#define GREEK 327
+#define HREF 328
+#define SIZE 329
+#define ATITLE 330
+#define IMGSRC 331
+#define IMGWIDTH 332
+#define IMGHEIGHT 333
+#define IMGFIGURE 334
+#define IMGFIGCAPTION 335
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -201,7 +215,7 @@ union YYSTYPE
 char *s;
 int i;
 
-#line 205 "y.tab.h" /* yacc.c:1909  */
+#line 219 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

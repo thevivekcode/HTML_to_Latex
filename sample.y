@@ -17,22 +17,24 @@ int i;
 }
 
 %start	doc_start
-%token	HTML	HTMLE	HEAD	HEADE	A
-%token	BODY	BODYE	TITLE	TITLEE	FONT
-%token	AE		FONTE	CENTER	CENTERE
-%token	BR				P		PE		H1
-%token	H1E 	H2		H2E		H3 		H3E
-%token	H4		H4E		UL		ULE		DL
-%token	DLE		DT		DTE		DD		DDE
-%token	DIV		DIVE	U		UE		B
-%token	BE		I		IE		EM		EME
-%token	TT		TTE		STRONG	STRONGE	SMALL
-%token	SMALLE	SUB		SUBE	SUP		SUPE
-%token 	TABLE 	TABLEE	CAPTION	TH		CAPTIONE
-%token	THE		TR		TRE		TD		TDE	
-%token	LI		LIE		OL		OLE
-%token	<s>		TEXT	GREEK	HREF	SIZE
-%type	<s>	doc_start	content	 body_s
+%token	HTML		HTMLE		HEAD		HEADE			A
+%token	BODY		BODYE		TITLE		TITLEE			FONT
+%token	AE			FONTE		CENTER		CENTERE
+%token	BR						P			PE				H1
+%token	H1E 		H2			H2E			H3 				H3E
+%token	H4			H4E			UL			ULE				DL
+%token	DLE			DT			DTE			DD				DDE
+%token	DIV			DIVE		U			UE				B
+%token	BE			I			IE			EM				EME
+%token	TT			TTE			STRONG		STRONGE			SMALL
+%token	SMALLE		SUB			SUBE		SUP				SUPE
+%token 	TABLE 		TABLEE		CAPTION		TH				CAPTIONE
+%token	THE			TR			TRE			TD				TDE			
+%token	LI			LIE			OL			OLE				IMG
+%token	<s>			TEXT		GREEK		HREF			SIZE		
+%token	<s>			IMGSRC		IMGWIDTH	IMGHEIGHT		IMGFIGURE		
+%token 	<s>			ANAME		ATITLE		IMGFIGCAPTION
+%type	<s>			doc_start	content		body_s
 
 %%
 
@@ -47,7 +49,7 @@ body_s	:	TITLE TEXT TITLEE content				{char* s=malloc(150);
 													$$=s; }
 								
 
-content	: 	BODY 	GREEK  FONT SIZE TEXT FONTE A HREF AE BODYE			{char *s=malloc(150);
+content	: 	BODY 	GREEK  FONT SIZE TEXT FONTE A HREF ATITLE AE BODYE			{char *s=malloc(150);
 																		strcpy(s,$2);
 																		strcat(s,"\n");
 																		strcat(s,$4);
@@ -55,6 +57,8 @@ content	: 	BODY 	GREEK  FONT SIZE TEXT FONTE A HREF AE BODYE			{char *s=malloc(1
 																		strcat(s,$5);
 																		strcat(s,"\n");
 																		strcat(s,$8);
+																		strcat(s,"\n");
+																		strcat(s,$9);
 																		$$=s;	}
 	
 %%
