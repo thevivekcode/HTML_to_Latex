@@ -17,9 +17,9 @@ int i;
 }
 
 %start	doc_start
-%token	HTML	HTMLE	HEAD	HEADE	
-%token	BODY	BODYE	TITLE	TITLEE	HREF
-%token	AEND	SIZE	FONTE	CENTER	CENTERE
+%token	HTML	HTMLE	HEAD	HEADE	A
+%token	BODY	BODYE	TITLE	TITLEE	FONT
+%token	AE		FONTE	CENTER	CENTERE
 %token	BR				P		PE		H1
 %token	H1E 	H2		H2E		H3 		H3E
 %token	H4		H4E		UL		ULE		DL
@@ -31,27 +31,31 @@ int i;
 %token 	TABLE 	TABLEE	CAPTION	TH		CAPTIONE
 %token	THE		TR		TRE		TD		TDE	
 %token	LI		LIE		OL		OLE
-%token	<s>		TEXT	GREEK
+%token	<s>		TEXT	GREEK	HREF	SIZE
 %type	<s>	doc_start	content	 body_s
 
 %%
 
 doc_start :		HTML	HEAD 	HEADE body_s	HTMLE	{fprintf(fileout,"\\\\document{article}\n");
-									fprintf(fileout,"\\\\usepackage{blindwrite}\n");
-									fprintf(fileout,"%s\n",$4);}
+														fprintf(fileout,"\\\\usepackage{blindwrite}\n");
+														fprintf(fileout,"%s\n",$4);}
 
 body_s	:	TITLE TEXT TITLEE content				{char* s=malloc(150);
-									strcpy(s,$2);
-									strcat(s,"\n");
-									strcat(s,$4);
-									$$=s; }
+													strcpy(s,$2);
+													strcat(s,"\n");
+													strcat(s,$4);
+													$$=s; }
 								
 
-content	: 	BODY 	GREEK  SIZE TEXT FONTE HREF AEND BODYE		{char *s=malloc(150);
-																strcpy(s,$2);
-																strcat(s,"\n");
-																strcat(s,$4);
-																$$=s;	}
+content	: 	BODY 	GREEK  FONT SIZE TEXT FONTE A HREF AE BODYE			{char *s=malloc(150);
+																		strcpy(s,$2);
+																		strcat(s,"\n");
+																		strcat(s,$4);
+																		strcat(s,"\n");
+																		strcat(s,$5);
+																		strcat(s,"\n");
+																		strcat(s,$8);
+																		$$=s;	}
 	
 %%
 

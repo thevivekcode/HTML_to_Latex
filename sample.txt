@@ -2,4 +2,6 @@
 \\usepackage{blindwrite}
  first page 
 &Alpha;
+15
 shitty shit
+https://www.google.com/faster

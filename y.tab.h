@@ -49,13 +49,13 @@ extern int yydebug;
     HTMLE = 259,
     HEAD = 260,
     HEADE = 261,
-    BODY = 262,
-    BODYE = 263,
-    TITLE = 264,
-    TITLEE = 265,
-    HREF = 266,
-    AEND = 267,
-    SIZE = 268,
+    A = 262,
+    BODY = 263,
+    BODYE = 264,
+    TITLE = 265,
+    TITLEE = 266,
+    FONT = 267,
+    AE = 268,
     FONTE = 269,
     CENTER = 270,
     CENTERE = 271,
@@ -113,7 +113,9 @@ extern int yydebug;
     OL = 323,
     OLE = 324,
     TEXT = 325,
-    GREEK = 326
+    GREEK = 326,
+    HREF = 327,
+    SIZE = 328
   };
 #endif
 /* Tokens.  */
@@ -121,13 +123,13 @@ extern int yydebug;
 #define HTMLE 259
 #define HEAD 260
 #define HEADE 261
-#define BODY 262
-#define BODYE 263
-#define TITLE 264
-#define TITLEE 265
-#define HREF 266
-#define AEND 267
-#define SIZE 268
+#define A 262
+#define BODY 263
+#define BODYE 264
+#define TITLE 265
+#define TITLEE 266
+#define FONT 267
+#define AE 268
 #define FONTE 269
 #define CENTER 270
 #define CENTERE 271
@@ -186,6 +188,8 @@ extern int yydebug;
 #define OLE 324
 #define TEXT 325
 #define GREEK 326
+#define HREF 327
+#define SIZE 328
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -197,7 +201,7 @@ union YYSTYPE
 char *s;
 int i;
 
-#line 201 "y.tab.h" /* yacc.c:1909  */
+#line 205 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

@@ -16,7 +16,8 @@ punc            (\.|\,|\!|\?%)
 word		    ({punc}|[a-zA-Z0-9])+
 text			(({word}|{spac})+[\n]*({word}|{spac})+)
 greek			(&{word};)
-
+%x 				href
+%x 				fsize
 %%
 
 "<html>"					{
@@ -58,35 +59,53 @@ greek			(&{word};)
 							printf("TITLEE\n");
 							return TITLEE;
 							}
-							
-							
-"<a"([ =."/]|[a-zA-Z0-9])*">" {
-							char *ss =yytext;
-							int length=strlen(ss);
-							char link[length+1];
-							sscanf(ss, "%*[^\"]\"%[^\"]",link);
-							printf("%s\n",link);
-							return HREF;
+"<a"[ ]*					{ 
+							BEGIN href;
+							printf("A\n");
+							return A;
 							}
+
+
+<href>([ =.":/]|[a-zA-Z0-9])* 		{
+									char *ss =yytext;
+									int length=strlen(ss);
+									char link[length+1];
+									sscanf(ss, "%*[^\"]\"%[^\"]",link);
+									printf("%s\n",link);
+									yylval.s = strdup(link);
+									BEGIN 0;
+									return HREF;
+									}
+														
 							
-"</a>"						{
-							printf("AEND\n");
-							return AEND;
-							}
+"</a>"								{
+									printf("AE\n");
+									return AE;
+									}
+
+"<font"[ ]*							{
+									BEGIN fsize;
+									printf("FONT\n");
+									return FONT;
+										}
 							
-"<font"([ =."/]|[a-zA-Z0-9])*">"	{
-							char *ss =yytext;
-							int length=strlen(ss);
-							char link[length+1];
-							sscanf(ss, "%*[^\"]\"%[^\"]",link);
-							printf("%s\n",link);
-							return SIZE;
-							}
+<fsize>([ =."/]|[a-zA-Z0-9])*	{
+									char *ss =yytext;
+									int length=strlen(ss);
+									char link[length+1];
+									sscanf(ss, "%*[^\"]\"%[^\"]",link);
+									printf("%s\n",link);
+									yylval.s = strdup(link);
+									BEGIN 0;
+									return SIZE;
+									
+									}
 							
-"</font>"					{
-							printf("FONTE\n");
-							return FONTE;
-							}
+							
+"</font>"							{
+									printf("FONTE\n");
+									return FONTE;
+									}
 							
 "<center>"					{
 							printf("CENTER\n");
