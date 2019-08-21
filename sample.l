@@ -5,22 +5,19 @@
 */
 
 %{
+
 #include <stdio.h>
 #include<string.h>
 #include "y.tab.h"
 %}
-
+%option			caseless
 spac		  	[ \t]+
 punc            (\.|\,|\!|\?%)
 word		    ({punc}|[a-zA-Z0-9])+
 text			(({word}|{spac})+[\n]*({word}|{spac})+)
-
+greek			(&{word};)
 
 %%
-"<!doctype"[^>]+">"			{
-							printf("METADATA\n");
-							return METADATA;					
-							}
 
 "<html>"					{
 							printf("HTML\n");
@@ -63,7 +60,7 @@ text			(({word}|{spac})+[\n]*({word}|{spac})+)
 							}
 							
 							
-"<a"([ =."/]|[a-zA-z0-9])*">" {
+"<a"([ =."/]|[a-zA-Z0-9])*">" {
 							char *ss =yytext;
 							int length=strlen(ss);
 							char link[length+1];
@@ -77,7 +74,7 @@ text			(({word}|{spac})+[\n]*({word}|{spac})+)
 							return AEND;
 							}
 							
-"<font"([ =."/]|[a-zA-z0-9])*">"	{
+"<font"([ =."/]|[a-zA-Z0-9])*">"	{
 							char *ss =yytext;
 							int length=strlen(ss);
 							char link[length+1];
@@ -371,9 +368,15 @@ text			(({word}|{spac})+[\n]*({word}|{spac})+)
 							yylval.s = strdup(yytext);
 							return TEXT;
 							}
+
+{greek}						{
+							printf("GREEK\n");
+							yylval.s = strdup(yytext);
+							return GREEK;
+							}
 							
 "\n"						;
-
+"<!"[^>]*">"				;
 .							;
 
 

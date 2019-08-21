@@ -49,71 +49,71 @@ extern int yydebug;
     HTMLE = 259,
     HEAD = 260,
     HEADE = 261,
-    METADATA = 262,
-    BODY = 263,
-    BODYE = 264,
-    TITLE = 265,
-    TITLEE = 266,
-    HREF = 267,
-    AEND = 268,
-    SIZE = 269,
-    FONTE = 270,
-    CENTER = 271,
-    CENTERE = 272,
-    BR = 273,
-    P = 274,
-    PE = 275,
-    H1 = 276,
-    H1E = 277,
-    H2 = 278,
-    H2E = 279,
-    H3 = 280,
-    H3E = 281,
-    H4 = 282,
-    H4E = 283,
-    UL = 284,
-    ULE = 285,
-    DL = 286,
-    DLE = 287,
-    DT = 288,
-    DTE = 289,
-    DD = 290,
-    DDE = 291,
-    DIV = 292,
-    DIVE = 293,
-    U = 294,
-    UE = 295,
-    B = 296,
-    BE = 297,
-    I = 298,
-    IE = 299,
-    EM = 300,
-    EME = 301,
-    TT = 302,
-    TTE = 303,
-    STRONG = 304,
-    STRONGE = 305,
-    SMALL = 306,
-    SMALLE = 307,
-    SUB = 308,
-    SUBE = 309,
-    SUP = 310,
-    SUPE = 311,
-    TABLE = 312,
-    TABLEE = 313,
-    CAPTION = 314,
-    TH = 315,
-    CAPTIONE = 316,
-    THE = 317,
-    TR = 318,
-    TRE = 319,
-    TD = 320,
-    TDE = 321,
-    LI = 322,
-    LIE = 323,
-    OL = 324,
-    OLE = 325,
-    TEXT = 326
+    BODY = 262,
+    BODYE = 263,
+    TITLE = 264,
+    TITLEE = 265,
+    HREF = 266,
+    AEND = 267,
+    SIZE = 268,
+    FONTE = 269,
+    CENTER = 270,
+    CENTERE = 271,
+    BR = 272,
+    P = 273,
+    PE = 274,
+    H1 = 275,
+    H1E = 276,
+    H2 = 277,
+    H2E = 278,
+    H3 = 279,
+    H3E = 280,
+    H4 = 281,
+    H4E = 282,
+    UL = 283,
+    ULE = 284,
+    DL = 285,
+    DLE = 286,
+    DT = 287,
+    DTE = 288,
+    DD = 289,
+    DDE = 290,
+    DIV = 291,
+    DIVE = 292,
+    U = 293,
+    UE = 294,
+    B = 295,
+    BE = 296,
+    I = 297,
+    IE = 298,
+    EM = 299,
+    EME = 300,
+    TT = 301,
+    TTE = 302,
+    STRONG = 303,
+    STRONGE = 304,
+    SMALL = 305,
+    SMALLE = 306,
+    SUB = 307,
+    SUBE = 308,
+    SUP = 309,
+    SUPE = 310,
+    TABLE = 311,
+    TABLEE = 312,
+    CAPTION = 313,
+    TH = 314,
+    CAPTIONE = 315,
+    THE = 316,
+    TR = 317,
+    TRE = 318,
+    TD = 319,
+    TDE = 320,
+    LI = 321,
+    LIE = 322,
+    OL = 323,
+    OLE = 324,
+    TEXT = 325,
+    GREEK = 326
   };
 #endif
 /* Tokens.  */
@@ -121,71 +121,71 @@ extern int yydebug;
 #define HTMLE 259
 #define HEAD 260
 #define HEADE 261
-#define METADATA 262
-#define BODY 263
-#define BODYE 264
-#define TITLE 265
-#define TITLEE 266
-#define HREF 267
-#define AEND 268
-#define SIZE 269
-#define FONTE 270
-#define CENTER 271
-#define CENTERE 272
-#define BR 273
-#define P 274
-#define PE 275
-#define H1 276
-#define H1E 277
-#define H2 278
-#define H2E 279
-#define H3 280
-#define H3E 281
-#define H4 282
-#define H4E 283
-#define UL 284
-#define ULE 285
-#define DL 286
-#define DLE 287
-#define DT 288
-#define DTE 289
-#define DD 290
-#define DDE 291
-#define DIV 292
-#define DIVE 293
-#define U 294
-#define UE 295
-#define B 296
-#define BE 297
-#define I 298
-#define IE 299
-#define EM 300
-#define EME 301
-#define TT 302
-#define TTE 303
-#define STRONG 304
-#define STRONGE 305
-#define SMALL 306
-#define SMALLE 307
-#define SUB 308
-#define SUBE 309
-#define SUP 310
-#define SUPE 311
-#define TABLE 312
-#define TABLEE 313
-#define CAPTION 314
-#define TH 315
-#define CAPTIONE 316
-#define THE 317
-#define TR 318
-#define TRE 319
-#define TD 320
-#define TDE 321
-#define LI 322
-#define LIE 323
-#define OL 324
-#define OLE 325
-#define TEXT 326
+#define BODY 262
+#define BODYE 263
+#define TITLE 264
+#define TITLEE 265
+#define HREF 266
+#define AEND 267
+#define SIZE 268
+#define FONTE 269
+#define CENTER 270
+#define CENTERE 271
+#define BR 272
+#define P 273
+#define PE 274
+#define H1 275
+#define H1E 276
+#define H2 277
+#define H2E 278
+#define H3 279
+#define H3E 280
+#define H4 281
+#define H4E 282
+#define UL 283
+#define ULE 284
+#define DL 285
+#define DLE 286
+#define DT 287
+#define DTE 288
+#define DD 289
+#define DDE 290
+#define DIV 291
+#define DIVE 292
+#define U 293
+#define UE 294
+#define B 295
+#define BE 296
+#define I 297
+#define IE 298
+#define EM 299
+#define EME 300
+#define TT 301
+#define TTE 302
+#define STRONG 303
+#define STRONGE 304
+#define SMALL 305
+#define SMALLE 306
+#define SUB 307
+#define SUBE 308
+#define SUP 309
+#define SUPE 310
+#define TABLE 311
+#define TABLEE 312
+#define CAPTION 313
+#define TH 314
+#define CAPTIONE 315
+#define THE 316
+#define TR 317
+#define TRE 318
+#define TD 319
+#define TDE 320
+#define LI 321
+#define LIE 322
+#define OL 323
+#define OLE 324
+#define TEXT 325
+#define GREEK 326
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

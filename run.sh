@@ -1,4 +1,4 @@
 yacc -d sample.y
-lex sample.l
+flex sample.l
 gcc lex.yy.c y.tab.c
 ./a.out sample.html sample.txt

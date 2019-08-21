@@ -113,71 +113,71 @@ extern int yydebug;
     HTMLE = 259,
     HEAD = 260,
     HEADE = 261,
-    METADATA = 262,
-    BODY = 263,
-    BODYE = 264,
-    TITLE = 265,
-    TITLEE = 266,
-    HREF = 267,
-    AEND = 268,
-    SIZE = 269,
-    FONTE = 270,
-    CENTER = 271,
-    CENTERE = 272,
-    BR = 273,
-    P = 274,
-    PE = 275,
-    H1 = 276,
-    H1E = 277,
-    H2 = 278,
-    H2E = 279,
-    H3 = 280,
-    H3E = 281,
-    H4 = 282,
-    H4E = 283,
-    UL = 284,
-    ULE = 285,
-    DL = 286,
-    DLE = 287,
-    DT = 288,
-    DTE = 289,
-    DD = 290,
-    DDE = 291,
-    DIV = 292,
-    DIVE = 293,
-    U = 294,
-    UE = 295,
-    B = 296,
-    BE = 297,
-    I = 298,
-    IE = 299,
-    EM = 300,
-    EME = 301,
-    TT = 302,
-    TTE = 303,
-    STRONG = 304,
-    STRONGE = 305,
-    SMALL = 306,
-    SMALLE = 307,
-    SUB = 308,
-    SUBE = 309,
-    SUP = 310,
-    SUPE = 311,
-    TABLE = 312,
-    TABLEE = 313,
-    CAPTION = 314,
-    TH = 315,
-    CAPTIONE = 316,
-    THE = 317,
-    TR = 318,
-    TRE = 319,
-    TD = 320,
-    TDE = 321,
-    LI = 322,
-    LIE = 323,
-    OL = 324,
-    OLE = 325,
-    TEXT = 326
+    BODY = 262,
+    BODYE = 263,
+    TITLE = 264,
+    TITLEE = 265,
+    HREF = 266,
+    AEND = 267,
+    SIZE = 268,
+    FONTE = 269,
+    CENTER = 270,
+    CENTERE = 271,
+    BR = 272,
+    P = 273,
+    PE = 274,
+    H1 = 275,
+    H1E = 276,
+    H2 = 277,
+    H2E = 278,
+    H3 = 279,
+    H3E = 280,
+    H4 = 281,
+    H4E = 282,
+    UL = 283,
+    ULE = 284,
+    DL = 285,
+    DLE = 286,
+    DT = 287,
+    DTE = 288,
+    DD = 289,
+    DDE = 290,
+    DIV = 291,
+    DIVE = 292,
+    U = 293,
+    UE = 294,
+    B = 295,
+    BE = 296,
+    I = 297,
+    IE = 298,
+    EM = 299,
+    EME = 300,
+    TT = 301,
+    TTE = 302,
+    STRONG = 303,
+    STRONGE = 304,
+    SMALL = 305,
+    SMALLE = 306,
+    SUB = 307,
+    SUBE = 308,
+    SUP = 309,
+    SUPE = 310,
+    TABLE = 311,
+    TABLEE = 312,
+    CAPTION = 313,
+    TH = 314,
+    CAPTIONE = 315,
+    THE = 316,
+    TR = 317,
+    TRE = 318,
+    TD = 319,
+    TDE = 320,
+    LI = 321,
+    LIE = 322,
+    OL = 323,
+    OLE = 324,
+    TEXT = 325,
+    GREEK = 326
   };
 #endif
 /* Tokens.  */
@@ -185,71 +185,71 @@ extern int yydebug;
 #define HTMLE 259
 #define HEAD 260
 #define HEADE 261
-#define METADATA 262
-#define BODY 263
-#define BODYE 264
-#define TITLE 265
-#define TITLEE 266
-#define HREF 267
-#define AEND 268
-#define SIZE 269
-#define FONTE 270
-#define CENTER 271
-#define CENTERE 272
-#define BR 273
-#define P 274
-#define PE 275
-#define H1 276
-#define H1E 277
-#define H2 278
-#define H2E 279
-#define H3 280
-#define H3E 281
-#define H4 282
-#define H4E 283
-#define UL 284
-#define ULE 285
-#define DL 286
-#define DLE 287
-#define DT 288
-#define DTE 289
-#define DD 290
-#define DDE 291
-#define DIV 292
-#define DIVE 293
-#define U 294
-#define UE 295
-#define B 296
-#define BE 297
-#define I 298
-#define IE 299
-#define EM 300
-#define EME 301
-#define TT 302
-#define TTE 303
-#define STRONG 304
-#define STRONGE 305
-#define SMALL 306
-#define SMALLE 307
-#define SUB 308
-#define SUBE 309
-#define SUP 310
-#define SUPE 311
-#define TABLE 312
-#define TABLEE 313
-#define CAPTION 314
-#define TH 315
-#define CAPTIONE 316
-#define THE 317
-#define TR 318
-#define TRE 319
-#define TD 320
-#define TDE 321
-#define LI 322
-#define LIE 323
-#define OL 324
-#define OLE 325
-#define TEXT 326
+#define BODY 262
+#define BODYE 263
+#define TITLE 264
+#define TITLEE 265
+#define HREF 266
+#define AEND 267
+#define SIZE 268
+#define FONTE 269
+#define CENTER 270
+#define CENTERE 271
+#define BR 272
+#define P 273
+#define PE 274
+#define H1 275
+#define H1E 276
+#define H2 277
+#define H2E 278
+#define H3 279
+#define H3E 280
+#define H4 281
+#define H4E 282
+#define UL 283
+#define ULE 284
+#define DL 285
+#define DLE 286
+#define DT 287
+#define DTE 288
+#define DD 289
+#define DDE 290
+#define DIV 291
+#define DIVE 292
+#define U 293
+#define UE 294
+#define B 295
+#define BE 296
+#define I 297
+#define IE 298
+#define EM 299
+#define EME 300
+#define TT 301
+#define TTE 302
+#define STRONG 303
+#define STRONGE 304
+#define SMALL 305
+#define SMALLE 306
+#define SUB 307
+#define SUBE 308
+#define SUP 309
+#define SUPE 310
+#define TABLE 311
+#define TABLEE 312
+#define CAPTION 313
+#define TH 314
+#define CAPTIONE 315
+#define THE 316
+#define TR 317
+#define TRE 318
+#define TD 319
+#define TDE 320
+#define LI 321
+#define LIE 322
+#define OL 323
+#define OLE 324
+#define TEXT 325
+#define GREEK 326
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -520,7 +520,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   20
+#define YYLAST   17
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  72
@@ -529,7 +529,7 @@ union yyalloc
 /* YYNRULES -- Number of rules.  */
 #define YYNRULES  4
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  21
+#define YYNSTATES  20
 
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
@@ -591,15 +591,15 @@ static const yytype_uint8 yyrline[] =
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "HTML", "HTMLE", "HEAD", "HEADE",
-  "METADATA", "BODY", "BODYE", "TITLE", "TITLEE", "HREF", "AEND", "SIZE",
-  "FONTE", "CENTER", "CENTERE", "BR", "P", "PE", "H1", "H1E", "H2", "H2E",
-  "H3", "H3E", "H4", "H4E", "UL", "ULE", "DL", "DLE", "DT", "DTE", "DD",
-  "DDE", "DIV", "DIVE", "U", "UE", "B", "BE", "I", "IE", "EM", "EME", "TT",
-  "TTE", "STRONG", "STRONGE", "SMALL", "SMALLE", "SUB", "SUBE", "SUP",
-  "SUPE", "TABLE", "TABLEE", "CAPTION", "TH", "CAPTIONE", "THE", "TR",
-  "TRE", "TD", "TDE", "LI", "LIE", "OL", "OLE", "TEXT", "$accept",
-  "doc_start", "body_s", "content", YY_NULLPTR
+  "$end", "error", "$undefined", "HTML", "HTMLE", "HEAD", "HEADE", "BODY",
+  "BODYE", "TITLE", "TITLEE", "HREF", "AEND", "SIZE", "FONTE", "CENTER",
+  "CENTERE", "BR", "P", "PE", "H1", "H1E", "H2", "H2E", "H3", "H3E", "H4",
+  "H4E", "UL", "ULE", "DL", "DLE", "DT", "DTE", "DD", "DDE", "DIV", "DIVE",
+  "U", "UE", "B", "BE", "I", "IE", "EM", "EME", "TT", "TTE", "STRONG",
+  "STRONGE", "SMALL", "SMALLE", "SUB", "SUBE", "SUP", "SUPE", "TABLE",
+  "TABLEE", "CAPTION", "TH", "CAPTIONE", "THE", "TR", "TRE", "TD", "TDE",
+  "LI", "LIE", "OL", "OLE", "TEXT", "GREEK", "$accept", "doc_start",
+  "body_s", "content", YY_NULLPTR
 };
 #endif
 
@@ -633,9 +633,8 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -7,    -2,     2,    -1,   -66,    -3,    -5,   -65,     3,     0,
-     -66,     1,   -63,   -66,    -4,   -59,     4,     5,     7,     6,
-     -66
+      -3,    -4,     2,    -2,   -66,    -6,   -65,     3,    -1,   -66,
+       1,   -61,   -66,    -7,   -59,     0,     4,     5,     8,   -66
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -643,9 +642,8 @@ static const yytype_int8 yypact[] =
      means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       0,     0,     0,     0,     1,     0,     0,     0,     0,     0,
-       2,     0,     0,     3,     0,     0,     0,     0,     0,     0,
-       4
+       0,     0,     0,     0,     1,     0,     0,     0,     0,     2,
+       0,     0,     3,     0,     0,     0,     0,     0,     0,     4
 };
 
   /* YYPGOTO[NTERM-NUM].  */
@@ -657,7 +655,7 @@ static const yytype_int8 yypgoto[] =
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     2,     8,    13
+      -1,     2,     7,    12
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -665,25 +663,22 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_uint8 yytable[] =
 {
-       1,     3,     4,     6,     5,     7,     9,    10,    14,    12,
-      15,    11,    16,     0,     0,    20,     0,    18,     0,    17,
-      19
+       1,     3,     4,     6,     5,     8,    14,     9,    11,    10,
+      13,    15,     0,     0,    16,    17,    19,    18
 };
 
 static const yytype_int8 yycheck[] =
 {
-       7,     3,     0,     6,     5,    10,    71,     4,    71,     8,
-      14,    11,    71,    -1,    -1,     9,    -1,    12,    -1,    15,
-      13
+       3,     5,     0,     9,     6,    70,    13,     4,     7,    10,
+      71,    70,    -1,    -1,    14,    11,     8,    12
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
      symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     7,    73,     3,     0,     5,     6,    10,    74,    71,
-       4,    11,     8,    75,    71,    14,    71,    15,    12,    13,
-       9
+       0,     3,    73,     5,     0,     6,     9,    74,    70,     4,
+      10,     7,    75,    71,    13,    70,    14,    11,    12,     8
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
@@ -695,7 +690,7 @@ static const yytype_uint8 yyr1[] =
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     6,     4,     8
+       0,     2,     5,     4,     8
 };
 
 
@@ -1376,7 +1371,7 @@ yyreduce:
     {fprintf(fileout,"\\\\document{article}\n");
 									fprintf(fileout,"\\\\usepackage{blindwrite}\n");
 									fprintf(fileout,"%s\n",(yyvsp[-1].s));}
-#line 1380 "y.tab.c" /* yacc.c:1646  */
+#line 1375 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
@@ -1386,21 +1381,21 @@ yyreduce:
 									strcat(s,"\n");
 									strcat(s,(yyvsp[0].s));
 									(yyval.s)=s; }
-#line 1390 "y.tab.c" /* yacc.c:1646  */
+#line 1385 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
 #line 50 "sample.y" /* yacc.c:1646  */
     {char *s=malloc(150);
-									strcpy(s,(yyvsp[-6].s));
-									//strcat(s,"\n");
-									strcat(s,(yyvsp[-4].s));
-									(yyval.s)=s;	}
-#line 1400 "y.tab.c" /* yacc.c:1646  */
+																strcpy(s,(yyvsp[-6].s));
+																strcat(s,"\n");
+																strcat(s,(yyvsp[-4].s));
+																(yyval.s)=s;	}
+#line 1395 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1404 "y.tab.c" /* yacc.c:1646  */
+#line 1399 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
