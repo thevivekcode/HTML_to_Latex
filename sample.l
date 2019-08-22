@@ -210,9 +210,13 @@ greek			(&{word};)
 							return CENTERE;	
 							}
 							
-"<br>"						{
+"<br"[ \t]*">"						{
 							printf("BR\n");
 							return BR;	
+							}
+"<br"[ \t]*"/>"						{
+							printf("BRS\n");
+							return BRS;	
 							}
 							
 "<p>"						{

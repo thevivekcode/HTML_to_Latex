@@ -4,7 +4,7 @@
 #include <ctype.h>
 
 void yyerror(const char *);
-FILE *fileout;                                                       //creating pointer for input and output file
+FILE *fileout;                                                       
 FILE *yyin;
 int yylex();
 extern char * yytext; 
@@ -18,7 +18,7 @@ char *s;
 %start  doc_start
 %token	HTML		HTMLE		HEAD		HEADE			A
 %token	BODY		BODYE		TITLE		TITLEE			FONT
-%token	AE			FONTE		CENTER		CENTERE
+%token	AE			FONTE		CENTER		CENTERE			BRS
 %token	BR						P			PE				H1
 %token	H1E 		H2			H2E			H3 				H3E
 %token	H4			H4E			UL			ULE				DL
@@ -36,7 +36,8 @@ char *s;
 %token 	<s>			ATITLE		IMGFIGCAPTION
 
 %type	<s>			doc_start	
-%type	<s>			content_head	content_body 
+%type	<s>			content_head	content_body 	img_tag		img_attr
+%type	<s>			table_tag		table_data		tr_data
 %type	<s>			content_title 	alltags 		text
 	
 		
@@ -48,30 +49,30 @@ char *s;
                 ********************************************************
 
 */
-doc_start 	: HTML content_head content_body HTMLE 				{
-																char *s=malloc(1000);
-																strcpy(s,$2);
-																strcat(s,"\n");
-																strcat(s,$3);
-																$$=s;
-																printf("\n\n\n GRAMMAR DATA \n\n\n");
-																printf("%s",$$);
-																fprintf(fileout,"%s\n",$$);
-																}
-			;
+doc_start 	: HTML content_head content_body HTMLE 		{
+								char *s=malloc(6000);
+								strcpy(s,$2);
+								strcat(s,"\n");
+								strcat(s,$3);
+								$$=s;
+								printf("\n\n\n ********************GRAMMAR DATA********************** \n\n\n");
+								printf("%s",$$);
+								fprintf(fileout,"%s\n",$$);
+								}
+		;
 			
 			
 
 content_head :	  HEAD content_head content_title HEADE 		{
-																char *s=malloc(1000);
+																char *s=malloc(6000);
 																strcpy(s,$2);
 																strcat(s,"\n");
 																strcat(s,$3);
 																$$=s;
 																}
 																
-				|	TEXT                                   			{
-																char *s=malloc(1000);
+				|	text                                   			{
+																char *s=malloc(6000);
 																strcpy(s,$1);
 																$$=s;
 																}
@@ -81,7 +82,7 @@ content_head :	  HEAD content_head content_title HEADE 		{
 			
 
 content_title	: TITLE TEXT TITLEE 							{
-																char *s=malloc(1000);
+																char *s=malloc(6000);
 																strcpy(s,$2);
 																$$=s;
 																}
@@ -90,7 +91,7 @@ content_title	: TITLE TEXT TITLEE 							{
 				
 
 content_body	:	BODY	alltags 	BODYE 				{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$2);
 																//strcat(s,$3);
 																$$=s;
@@ -98,14 +99,14 @@ content_body	:	BODY	alltags 	BODYE 				{
 				;
 				
 /*              ********************************************************
-                 ALL Different tags a body can have are lsited here
+                       ALL Different tags of body are lsited here
                 ********************************************************
 */				
 
 
 
 alltags 		:	 alltags	 P alltags  PE  text							{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -114,7 +115,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																$$=s;
 																}					
 				|	 alltags	 CENTER alltags  CENTERE text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -124,7 +125,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																}
 																
 				|	 alltags	 H1 alltags  H1E text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -133,7 +134,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																$$=s;
 																}
 				|	 alltags	 H2 alltags  H2E text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -142,7 +143,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																$$=s;
 																}
 				|	 alltags	 H3 alltags  H3E text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -151,7 +152,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																$$=s;
 																}
 				|	 alltags	 H4 alltags  H4E text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -159,8 +160,97 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																strcat(s,$5);
 																$$=s;
 																}
+				|	 alltags	 U alltags  UE text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+																
+				|	 alltags	 B alltags  BE text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+																
+				|	 alltags	 I alltags  IE text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+
+				|	 alltags	 EM alltags  EME text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+																	
+				|	 alltags	 TT alltags  TTE text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}	
+																														
+				|	 alltags	 STRONG alltags  STRONGE text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+
+				|	 alltags	 SMALL alltags  SMALLE text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+				|	 alltags	 SUB alltags  SUBE text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+																
+				|	 alltags	 SUP alltags  SUPE text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+
 				|	 alltags	 FONT SIZE alltags  FONTE text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -171,7 +261,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																$$=s;
 																}
 				|	 alltags	 A HREF alltags  AE text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -182,7 +272,17 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																$$=s;
 																}
 				|	 alltags	 BR   text					{            // this BR grammar has issue with nesting <p> this is new para <br> it got broke here <centre> with a center </center> here para ends </p>
-																char *s= malloc(1000);
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																//strcat(s,"\n");
+																//strcat(s,$4);
+																$$=s;
+																}
+																
+				|	 alltags	 BRS   text					{            
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -192,7 +292,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																}
 																
 				|	 alltags	 DIV alltags  DIVE text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -201,7 +301,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																$$=s;
 																}
 				|	 alltags	 UL alltags  ULE text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -211,7 +311,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																}
 																
 				|	 alltags	 LI alltags  LIE text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -220,7 +320,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																$$=s;
 																}
 				|	 alltags	 OL alltags  OLE text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -230,7 +330,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																}
 				
 				|	 alltags	 DL alltags  DLE text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -240,7 +340,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																}
 				
 				|	 alltags	 DT alltags  DTE text					{
-																char *s= malloc(1000);
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
@@ -248,18 +348,57 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																strcat(s,$5);
 																$$=s;
 																}
-		        |	 alltags	 DD alltags  DDE text					{
-																char *s= malloc(1000);
+		        |	alltags	DD alltags  DDE text					{
+																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
 																strcat(s,$3);
 																strcat(s,"\n");
 																strcat(s,$5);
+																$$=s;
+																}
+		        |	alltags	FIGURE alltags  FIGUREE text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+															
+		        |	alltags	FIGCAPTION alltags  FIGCAPTIONE text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+																
+				|	alltags img_tag text						{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$2);
+																strcat(s,"\n");
+																strcat(s,$3);
+																$$=s;
+																}
+																
+		        |	alltags	table_tag text					{
+																char *s= malloc(6000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$2);
+																strcat(s,"\n");
+																strcat(s,$3);
 																$$=s;
 																}
 			    
 																	
-				|	text 										{char *s=malloc(1000);
+				|	text 										{char *s=malloc(6000);
 																strcpy(s,$1);
 																//strcat(s,"\n");
 																//strcpy(s,$2);
@@ -269,17 +408,98 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 				;
 
 
+
+
+
+                /*********************************************************
+                                   Multiple attribute is handled here
+                 *********************************************************/
+                 
+                 
+                 
+
+                  /*******IMG ATTRIBUTES HANDELED********/
+
+img_tag			:	IMG	img_attr						{ 
+														char *s=malloc(6000);
+														strcpy(s,$2);
+														$$=s;
+														}
+img_attr		:	img_attr	IMGSRC					{ 
+														char *s=malloc(6000);
+														strcpy(s,$1);
+														strcat(s,"\n");
+														strcat(s,$2);
+														$$=s;
+														}
+				|	img_attr	IMGWIDTH				{ 
+														char *s=malloc(6000);
+														strcpy(s,$1);
+														strcat(s,"\n");
+														strcat(s,$2);
+														$$=s;
+														}
+				|	img_attr	IMGHEIGHT				{ 
+														char *s=malloc(6000);
+														strcpy(s,$1);
+														strcat(s,"\n");
+														strcat(s,$2);
+														$$=s;
+														}
+				|										{$$="";}
+				;
 				
-/*              ********************************************************
+				
+				
+
+            /****** TABLE IS HANDLED HERE*******/
+
+table_tag		:	TABLE table_data TABLEE {char *s=malloc(6000);
+											strcpy(s,$2);
+											$$=s;
+											}
+
+table_data		:	table_data TR tr_data TRE {char *s=malloc(6000);
+												strcpy(s,$1);
+												strcat(s,"\n");
+												strcat(s,$3);
+												$$=s;
+												}
+				|                              {$$="";}
+
+tr_data			:   tr_data TH text THE  {char *s=malloc(6000);
+												strcpy(s,$1);
+												strcat(s,"\n");
+												strcat(s,$3);
+												$$=s;
+												}
+				|	tr_data TD text TDE	{char *s=malloc(6000);
+												strcpy(s,$1);
+												strcat(s,"\n");
+												strcat(s,$3);
+												$$=s;
+												}
+				|								{$$="";}
+				;
+				
+				
+
+                /*********************************************************
                                    TEXT is retrieved here
-                ********************************************************
+                *********************************************************/
 
-*/
-
-text			:  TEXT  	{char *s =malloc(1000);
-							strcpy(s,$1);
-							$$=s;	
-							}
+text			:  text TEXT  	{char *s =malloc(6000);
+								strcpy(s,$1);
+								strcat(s,"\n");
+								strcat(s,$2);
+								$$=s;	
+								}
+				| text GREEK  	{char *s =malloc(6000);
+								strcpy(s,$1);
+								strcat(s,"\n");
+								strcat(s,$2);
+								$$=s;	
+								}
 				|			{$$="";}	
 				
 				;		
