@@ -32,13 +32,13 @@ char *s;
 %token	LI			LIE			OL			OLE				IMG
 %token	<s>			TEXT		GREEK		HREF			SIZE		
 %token	<s>			IMGSRC		IMGWIDTH	IMGHEIGHT		FIGURE				
-%token	<s>			FIGUREE 	FIGCAPTION 	FIGCAPTIONE
+%token	<s>			FIGUREE 	FIGCAPTION 	FIGCAPTIONE		BORDER
 %token 	<s>			ATITLE		IMGFIGCAPTION
 
 %type	<s>			doc_start	
 %type	<s>			content_head	content_body 	img_tag		img_attr
-%type	<s>			table_tag		table_data		tr_data
-%type	<s>			content_title 	alltags 		text
+%type	<s>			table_tag		table_data		tr_data		a_tag
+%type	<s>			content_title 	alltags 		text		a_attr
 	
 		
 	
@@ -229,6 +229,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																strcat(s,$5);
 																$$=s;
 																}
+
 				|	 alltags	 SUB alltags  SUBE text					{
 																char *s= malloc(6000);
 																strcpy(s,$1);
@@ -260,18 +261,18 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																strcat(s,$6);
 																$$=s;
 																}
-				|	 alltags	 A HREF alltags  AE text					{
+
+				|	 alltags	 a_tag text					{
 																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
+																strcat(s,$2);
+																strcat(s,"\n");
 																strcat(s,$3);
-																strcat(s,"\n");
-																strcat(s,$4);
-																strcat(s,"\n");
-																strcat(s,$6);
 																$$=s;
 																}
-				|	 alltags	 BR   text					{            // this BR grammar has issue with nesting <p> this is new para <br> it got broke here <centre> with a center </center> here para ends </p>
+
+				|	 alltags	 BR   text					{           
 																char *s= malloc(6000);
 																strcpy(s,$1);
 																strcat(s,"\n");
@@ -410,19 +411,50 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 
 
 
-
-                /*********************************************************
+                 /*********************************************************
                                    Multiple attribute is handled here
                  *********************************************************/
+
+
                  
-                 
-                 
+                  /*******A TAG ATTRIBUTES HANDELED********/
+
+a_tag			:	A a_attr alltags AE							{ 
+														char *s=malloc(6000);
+														strcpy(s,$2);
+														strcat(s,"\n");
+														strcat(s,$3);
+														$$=s;
+														}
+
+a_attr			:	a_attr	HREF						{ 
+														char *s=malloc(6000);
+														strcpy(s,$1);
+														strcat(s,"\n");
+														strcat(s,$2);
+														$$=s;
+														}
+
+				|	a_attr	ATITLE						{ 
+														char *s=malloc(6000);
+														strcpy(s,$1);
+														strcat(s,"\n");
+														strcat(s,$2);
+														$$=s;
+														}
+				
+				|										{$$="";}
+				;
+
+//************************************************************************************                 
 
                   /*******IMG ATTRIBUTES HANDELED********/
 
-img_tag			:	IMG	img_attr						{ 
+img_tag			:	IMG	img_attr 					{ 
 														char *s=malloc(6000);
-														strcpy(s,$2);
+														strcpy(s,$2);									
+														//strcat(s,"\n");
+														//strcat(s,$3);
 														$$=s;
 														}
 img_attr		:	img_attr	IMGSRC					{ 
@@ -449,7 +481,7 @@ img_attr		:	img_attr	IMGSRC					{
 				|										{$$="";}
 				;
 				
-				
+//*************************************************************************************				
 				
 
             /****** TABLE IS HANDLED HERE*******/
@@ -463,6 +495,12 @@ table_data		:	table_data TR tr_data TRE {char *s=malloc(6000);
 												strcpy(s,$1);
 												strcat(s,"\n");
 												strcat(s,$3);
+												$$=s;
+												}
+				|	table_data BORDER			{char *s=malloc(6000);
+												strcpy(s,$1);
+												strcat(s,"\n");
+												strcat(s,$2);
 												$$=s;
 												}
 				|                              {$$="";}
@@ -482,7 +520,7 @@ tr_data			:   tr_data TH text THE  {char *s=malloc(6000);
 				|								{$$="";}
 				;
 				
-				
+//***********************************************************************************				
 
                 /*********************************************************
                                    TEXT is retrieved here
@@ -494,13 +532,13 @@ text			:  text TEXT  	{char *s =malloc(6000);
 								strcat(s,$2);
 								$$=s;	
 								}
-				| text GREEK  	{char *s =malloc(6000);
+				|	text GREEK  {char *s =malloc(6000);
 								strcpy(s,$1);
 								strcat(s,"\n");
 								strcat(s,$2);
 								$$=s;	
 								}
-				|			{$$="";}	
+				|				{$$="";}	
 				
 				;		
 				

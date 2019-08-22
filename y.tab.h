@@ -125,8 +125,9 @@ extern int yydebug;
     FIGUREE = 335,
     FIGCAPTION = 336,
     FIGCAPTIONE = 337,
-    ATITLE = 338,
-    IMGFIGCAPTION = 339
+    BORDER = 338,
+    ATITLE = 339,
+    IMGFIGCAPTION = 340
   };
 #endif
 /* Tokens.  */
@@ -210,8 +211,9 @@ extern int yydebug;
 #define FIGUREE 335
 #define FIGCAPTION 336
 #define FIGCAPTIONE 337
-#define ATITLE 338
-#define IMGFIGCAPTION 339
+#define BORDER 338
+#define ATITLE 339
+#define IMGFIGCAPTION 340
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -223,7 +225,7 @@ union YYSTYPE
 char *s;
 
 
-#line 227 "y.tab.h" /* yacc.c:1909  */
+#line 229 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

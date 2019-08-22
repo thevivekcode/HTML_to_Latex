@@ -7,31 +7,31 @@ CSS
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
  Nulla ut lectus id velit aliquet semper. Proin vitae erat. Duis metus. Nam
-vel nisl.Duis lobortis mi at lorem. Etiam ornare nibh quis eros. Nam magna 
+ vel nisl.Duis lobortis mi at lorem. Etiam ornare nibh quis eros. Nam magna 
 sem, adipiscing at,porttitor vitae, interdum vitae, elit. Sed turpis mi,
-tincidunt eget , euismod ac, molestie quis, wisi.
+ tincidunt eget , euismod ac, molestie quis, wisi.
   
 
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
  Nulla ut lectus id velit aliquet semper. Proin vitae erat. Duis metus. Nam
-vel nisl. Duis lobortis mi at lorem. Etiam ornare nibh quis eros. Nam magna 
+ vel nisl. Duis lobortis mi at lorem. Etiam ornare nibh quis eros. Nam magna 
 sem, adipiscing at, porttitor vitae, interdum vitae, elit. Sed turpis mi,
-tincidunt eget, euismod ac, molestie quis, wisi.
+ tincidunt eget, euismod ac, molestie quis, wisi.
   
 
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
  Nulla ut lectus id velit aliquet semper. Proin vitae erat. Duis metus. Nam
-vel nisl. Duis lobortis mi at lorem. Etiam ornare nibh quis eros. Nam magna 
+ vel nisl. Duis lobortis mi at lorem. Etiam ornare nibh quis eros. Nam magna 
 sem, adipiscing at, porttitor vitae, interdum vitae, elit. Sed turpis mi,
-tincidunt eget, euismod ac, molestie quis, wisi. Praesent nisl pede,
+ tincidunt eget, euismod ac, molestie quis, wisi. Praesent nisl pede,
  hendrerit semper, accumsan ac, consequat id, nibh.
 
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing.
  Nulla ut lectus id velit aliquet semper. Proin vitae erat. Duis
-vel nisl. Duis lobortis mi at lorem. Etiam ornare nibh quis eros. 
+ vel nisl. Duis lobortis mi at lorem. Etiam ornare nibh quis eros. 
 sem, adipiscing at, porttitor vitae, interdum vitae, elit.
 
 
@@ -64,6 +64,11 @@ Alpha
 
 
 LaTeX chars
+
+
+{ } 
+ ^ @ $ 
+ % ~ #
 
 
 LaTeX commands in HTML
@@ -105,8 +110,11 @@ lobortis
 
 lorem
 
+.
+
 
 img
+VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
 
 
 
@@ -131,6 +139,7 @@ logo.png
 Tables
 
 
+8
 
 
 1 1
@@ -180,11 +189,13 @@ Slavia Praha
 Subscript, superscript
 
 
+ H 
 
+ 2 
 
-O, E 
- mc
+ O, E = mc 
 
+ 2 
 
 
 
@@ -192,12 +203,14 @@ Hyperlinks
 
 
 I study at 
+
 http://www.mff.cuni.cz
 
 UK MFF
 
 . And
     what about 
+
 #img
 
 images

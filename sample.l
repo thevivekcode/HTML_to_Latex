@@ -13,12 +13,13 @@
 %option			caseless
 spac		  	[ \t]+
 punc            (\.|\,|\!|\?%)
-word		    ({punc}|[a-zA-Z0-9]|[-])+
-text			(({word}|{spac})+[\n]*({word}|{spac})+)
+word		    ({punc}|[a-zA-Z0-9]|(=|-|@|$|%|#|~|\}|\{|^))+
+text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 greek			(&{word};)
 %x 				a_tag
 %x 				font_tag
 %x				img_tag
+%x				table_tag
 %%
 ([ ]|[\t]|[\n])* 			;
 "<html>"					{
@@ -106,7 +107,7 @@ greek			(&{word};)
 											return IMGHEIGHT;
 											}
 
-<img_tag>[ ]*">"							{
+<img_tag>[ ]*"/>"							{
 											BEGIN 0;
 											}
 
@@ -153,6 +154,32 @@ greek			(&{word};)
 "</a>"										{
 											printf("AE\n");
 											return AE;
+											}
+							
+"<table"[ ]*												{
+															BEGIN table_tag;
+															printf("TABLE\n");
+															return TABLE;
+															}
+
+<table_tag>[ ]*"border=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]* 	{
+															char *ss =yytext;
+															int length=strlen(ss);
+															char link[length+5];
+															sscanf(ss, "%*[^\"]\"%[^\"]",link);
+															printf("%s\n",link);
+															yylval.s = malloc(2000);
+															yylval.s = strdup(link);
+															return BORDER;
+															}
+
+<table_tag>[ ]*">"											{
+															BEGIN 0;
+															}
+							
+"</table>"									{
+											printf("TABLEE\n");
+											return TABLEE;	
 											}
 
 "<font"[ ]*									{
@@ -428,16 +455,7 @@ greek			(&{word};)
 							printf("SUPE\n");
 							return SUPE;	
 							}
-							
-"<table>"					{
-							printf("TABLE\n");
-							return TABLE;	
-							}
-							
-"</table>"					{
-							printf("TABLEE\n");
-							return TABLEE;	
-							}
+
 							
 "<caption>"					{
 							printf("CAPTION\n");
