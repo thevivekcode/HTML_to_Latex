@@ -108,21 +108,24 @@ extern int yydebug;
     TRE = 318,
     TD = 319,
     TDE = 320,
-    IMG = 321,
-    LI = 322,
-    LIE = 323,
-    OL = 324,
-    OLE = 325,
+    LI = 321,
+    LIE = 322,
+    OL = 323,
+    OLE = 324,
+    IMG = 325,
     TEXT = 326,
     GREEK = 327,
     HREF = 328,
     SIZE = 329,
-    ATITLE = 330,
-    IMGSRC = 331,
-    IMGWIDTH = 332,
-    IMGHEIGHT = 333,
-    IMGFIGURE = 334,
-    IMGFIGCAPTION = 335
+    IMGSRC = 330,
+    IMGWIDTH = 331,
+    IMGHEIGHT = 332,
+    FIGURE = 333,
+    FIGUREE = 334,
+    FIGCAPTION = 335,
+    FIGCAPTIONE = 336,
+    ATITLE = 337,
+    IMGFIGCAPTION = 338
   };
 #endif
 /* Tokens.  */
@@ -189,21 +192,24 @@ extern int yydebug;
 #define TRE 318
 #define TD 319
 #define TDE 320
-#define IMG 321
-#define LI 322
-#define LIE 323
-#define OL 324
-#define OLE 325
+#define LI 321
+#define LIE 322
+#define OL 323
+#define OLE 324
+#define IMG 325
 #define TEXT 326
 #define GREEK 327
 #define HREF 328
 #define SIZE 329
-#define ATITLE 330
-#define IMGSRC 331
-#define IMGWIDTH 332
-#define IMGHEIGHT 333
-#define IMGFIGURE 334
-#define IMGFIGCAPTION 335
+#define IMGSRC 330
+#define IMGWIDTH 331
+#define IMGHEIGHT 332
+#define FIGURE 333
+#define FIGUREE 334
+#define FIGCAPTION 335
+#define FIGCAPTIONE 336
+#define ATITLE 337
+#define IMGFIGCAPTION 338
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -213,9 +219,9 @@ union YYSTYPE
 #line 14 "sample.y" /* yacc.c:1909  */
 
 char *s;
-int i;
 
-#line 219 "y.tab.h" /* yacc.c:1909  */
+
+#line 225 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

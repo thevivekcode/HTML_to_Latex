@@ -13,58 +13,58 @@
 %option			caseless
 spac		  	[ \t]+
 punc            (\.|\,|\!|\?%)
-word		    ({punc}|[a-zA-Z0-9])+
+word		    ({punc}|[a-zA-Z0-9]|[-])+
 text			(({word}|{spac})+[\n]*({word}|{spac})+)
 greek			(&{word};)
 %x 				a_tag
 %x 				font_tag
 %x				img_tag
 %%
-([ ]|[\t]|[\n])* ;
+([ ]|[\t]|[\n])* 			;
 "<html>"					{
 							printf("HTML\n");
-							//return HTML;
+							return HTML;
 							}
 
 "</html>"					{
 							printf("HTMLE\n");
-							//return HTMLE;
+							return HTMLE;
 							}
 
 "<head>"					{
 							printf("HEAD\n");
-							//return HEAD;
+							return HEAD;
 							}
 
 "</head>"					{
 							printf("HEADE\n");
-							//return HEADE;
+							return HEADE;
 							}
 
 "<body>"					{
 							printf("BODY\n");
-							//return BODY;
+							return BODY;
 							}
 							
 "</body>"					{
 							printf("BODYE\n");
-							//return BODYE;
+							return BODYE;
 							}
 							
 "<title>"					{
 							printf("TITLE\n");
-							//return TITLE;
+							return TITLE;
 							}
 							
 "</title>"					{
 							printf("TITLEE\n");
-							//return TITLEE;
+							return TITLEE;
 							}
 
 "<img"[ ]*									{ 
 											BEGIN img_tag;
 											printf("IMG\n");
-											//return IMG;
+											return IMG;
 											}
 
 <img_tag>[ ]*"src=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]* {
@@ -74,9 +74,10 @@ greek			(&{word};)
 											char link[length+5];
 											sscanf(ss, "%*[^\"]\"%[^\"]",link);
 											printf("%s\n",link);
-											//yylval.s = strdup(link);
+											yylval.s = malloc(2000);
+											yylval.s = strdup(link);
 											//BEGIN a_tag;
-											//return IMGSRC;
+											return IMGSRC;
 											}
 
 <img_tag>[ ]*"width=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*	{
@@ -86,9 +87,10 @@ greek			(&{word};)
 											char link[length+5];
 											sscanf(ss, "%*[^\"]\"%[^\"]",link);
 											printf("%s\n",link);
-											//yylval.s = strdup(link);
+											yylval.s = malloc(2000);
+											yylval.s = strdup(link);
 											//BEGIN a_tag;
-											//return IMGWIDTH;
+											return IMGWIDTH;
 											}
 
 <img_tag>[ ]*"height=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*	{
@@ -98,36 +100,11 @@ greek			(&{word};)
 											char link[length+5];
 											sscanf(ss, "%*[^\"]\"%[^\"]",link);
 											printf("%s\n",link);
-											//yylval.s = strdup(link);
+											yylval.s = malloc(2000);
+											yylval.s = strdup(link);
 											//BEGIN a_tag;
-											//return IMGHEIGHT;
+											return IMGHEIGHT;
 											}
-
-<img_tag>[ ]*"figure=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*	{
-											
-											char *ss =yytext;
-											int length=strlen(ss);
-											char link[length+5];
-											sscanf(ss, "%*[^\"]\"%[^\"]",link);
-											printf("%s\n",link);
-											//yylval.s = strdup(link);
-											//BEGIN a_tag;
-											//return IMGFIGURE;
-											}
-
-<img_tag>[ ]*"figcaption=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*	{
-											
-											char *ss =yytext;
-											int length=strlen(ss);
-											char link[length+5];
-											sscanf(ss, "%*[^\"]\"%[^\"]",link);
-											printf("%s\n",link);
-											//yylval.s = strdup(link);
-											//BEGIN a_tag;
-											//return IMGFIGCAPTION;
-											}
-
-
 
 <img_tag>[ ]*">"							{
 											BEGIN 0;
@@ -137,7 +114,7 @@ greek			(&{word};)
 "<a"[ ]*									{ 
 											BEGIN a_tag;
 											printf("A\n");
-											//return A;
+											return A;
 											}
 
 
@@ -148,9 +125,10 @@ greek			(&{word};)
 											char link[length+5];
 											sscanf(ss, "%*[^\"]\"%[^\"]",link);
 											printf("%s\n",link);
-											//yylval.s = strdup(link);
+											yylval.s = malloc(2000);
+											yylval.s = strdup(link);
 											//BEGIN a_tag;
-											//return HREF;
+											return HREF;
 											}
 
 <a_tag>[ ]*"title=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*	{
@@ -159,21 +137,13 @@ greek			(&{word};)
 											char link[length+5];
 											sscanf(ss, "%*[^\"]\"%[^\"]",link);
 											printf("%s\n",link);
-											//yylval.s = strdup(link);
+											yylval.s = malloc(2000);
+											yylval.s = strdup(link);
 											//BEGIN a_tag;
-											//return ATITLE;
+											return ATITLE;
 											}
 
-<a_tag>[ ]*"name=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*	{
-											char *ss =yytext;
-											int length=strlen(ss);
-											char link[length+5];
-											sscanf(ss, "%*[^\"]\"%[^\"]",link);
-											printf("%s\n",link);
-											//yylval.s = strdup(link);
-											//BEGIN a_tag;
-											//return ANAME;
-											}
+
 
 <a_tag>[ ]*">"								{
 											BEGIN 0;
@@ -182,13 +152,13 @@ greek			(&{word};)
 							
 "</a>"										{
 											printf("AE\n");
-											//return AE;
+											return AE;
 											}
 
 "<font"[ ]*									{
 											BEGIN font_tag;
 											printf("FONT\n");
-											//return FONT;
+											return FONT;
 											}
 							
 <font_tag>"size"([ =."/]|[a-zA-Z0-9])*			{
@@ -197,303 +167,326 @@ greek			(&{word};)
 											char link[length+5];
 											sscanf(ss, "%*[^\"]\"%[^\"]",link);
 											printf("%s\n",link);
-											//yylval.s = strdup(link);
+											yylval.s = malloc(2000);
+											yylval.s = strdup(link);
 											BEGIN 0;
-											//return SIZE;
+											return SIZE;
 									
 											}
 							
 							
 "</font>"									{
 											printf("FONTE\n");
-											//return FONTE;
+											return FONTE;
 											}
+
+"<figure>"					{
+							printf("FIGURE\n");
+							return FIGURE;	
+							}
+
+"</figure>"					{
+							printf("FIGUREE\n");
+							return FIGUREE;	
+							}
+
+"<figcaption>"				{
+							printf("FIGCAPTION\n");
+							return FIGCAPTION;	
+							}
+
+"</figcaption>"				{
+							printf("FIGCAPTIONE\n");
+							return FIGCAPTIONE;	
+							}
 							
 "<center>"					{
 							printf("CENTER\n");
-							//return CENTER;	
+							return CENTER;	
 							}
 							
 "</center>"					{
 							printf("CENTERE\n");
-							//return CENTERE;	
+							return CENTERE;	
 							}
 							
 "<br>"						{
 							printf("BR\n");
-							//return BR;	
+							return BR;	
 							}
 							
 "<p>"						{
 							printf("P\n");
-							//return P;	
+							return P;	
 							}
 							
 "</p>"						{
 							printf("PE\n");
-							//return PE;	
+							return PE;	
 							}
 							
 "<h1>"						{
 							printf("H1\n");
-							//return H1;	
+							return H1;	
 							}
 							
 "</h1>"						{
 							printf("H1E\n");
-							//return H1E;	
+							return H1E;	
 							}
 							
 "<h2>"						{
 							printf("H2\n");
-							//return H2;	
+							return H2;	
 							}
 							
 "</h2>"						{
 							printf("H2E\n");
-							//return H2E;	
+							return H2E;	
 							}
 							
 "<h3>"						{
 							printf("H3\n");
-							//return H3;	
+							return H3;	
 							}
 							
 "</h3>"						{
 							printf("H3E\n");
-							//return H3E;	
+							return H3E;	
 							}
 							
 "<h4>"						{
 							printf("H4\n");
-							//return H4;	
+							return H4;	
 							}
 							
 "</h4>"						{
 							printf("H4E\n");
-							//return H4E;	
+							return H4E;	
 							}
 							
 "<ul>"						{
 							printf("UL\n");
-							//return UL;	
+							return UL;	
 							}
 							
 "</ul>"						{
 							printf("ULE\n");
-							//return ULE;	
+							return ULE;	
 							}
 							
 "<li>"						{
 							printf("LI\n");
-							//return LI;	
+							return LI;	
 							}
 							
 "</li>"						{
 							printf("LIE\n");
-							//return LIE;	
+							return LIE;	
 							}
 							
 "<ol>"						{
 							printf("OL\n");
-							//return OL;	
+							return OL;	
 							}
 							
 "</ol>"						{
 							printf("OLE\n");
-							//return OLE;	
+							return OLE;	
 							}
 							
 "<dl>"						{
 							printf("DL\n");
-							//return DL;	
+							return DL;	
 							}
 							
 "</dl>"						{
 							printf("DLE\n");
-							//return DLE;	
+							return DLE;	
 							}
 							
 "<dt>"						{
 							printf("DT\n");
-							//return DT;	
+							return DT;	
 							}
 							
 "</dt>"						{
 							printf("DTE\n");
-							//return DTE;	
+							return DTE;	
 							}
 							
 "<dd>"						{
 							printf("DD\n");
-							//return DD;	
+							return DD;	
 							}
 							
 "</dd>"						{
 							printf("DDE\n");
-							//return DDE;	
+							return DDE;	
 							}
 							
 "<div>"						{
 							printf("DIV\n");
-							//return DIV;	
+							return DIV;	
 							}
 							
 "</div>"					{
 							printf("DIVE\n");
-							//return DIVE;	
+							return DIVE;	
 							}
 							
 "<u>"						{
 							printf("U\n");
-							//return U;	
+							return U;	
 							}
 							
 "</u>"						{
 							printf("UE\n");
-							//return UE;	
+							return UE;	
 							}
 							
 "<b>"						{
 							printf("B\n");
-							//return B;	
+							return B;	
 							}
 							
 "</b>"						{
 							printf("BE\n");
-							//return BE;	
+							return BE;	
 							}
 							
 "<i>"						{
 							printf("I\n");
-							//return I;	
+							return I;	
 							}
 							
 "</i>"						{
 							printf("IE\n");
-							//return IE;	
+							return IE;	
 							}
 							
 "<em>"						{
 							printf("EM\n");
-							//return EM;	
+							return EM;	
 							}
 							
 "</em>"						{
 							printf("EME\n");
-							//return EME;	
+							return EME;	
 							}
 							
 "<tt>"						{
 							printf("TT\n");
-							//return TT;	
+							return TT;	
 							}
 							
 "</tt>"						{
 							printf("TTE\n");
-							//return TTE;	
+							return TTE;	
 							}
 							
 "<strong>"					{
 							printf("STRONG\n");
-							//return STRONG;	
+							return STRONG;	
 							}
 							
 "</strong>"					{
 							printf("STRONGE\n");
-							//return STRONGE;	
+							return STRONGE;	
 							}
 							
 "<small>"					{
 							printf("SMALL\n");
-							//return SMALL;	
+							return SMALL;	
 							}
 							
 "</small>"					{
 							printf("SMALLE\n");
-							//return SMALLE;	
+							return SMALLE;	
 							}
 							
 "<sub>"						{
 							printf("SUB\n");
-							//return SUB;	
+							return SUB;	
 							}
 							
 "</sub>"					{
 							printf("SUBE\n");
-							//return SUBE;	
+							return SUBE;	
 							}
 							
 "<sup>"						{
 							printf("SUP\n");
-							//return SUP;	
+							return SUP;	
 							}
 							
 "</sup>"					{
 							printf("SUPE\n");
-							//return SUPE;	
+							return SUPE;	
 							}
 							
 "<table>"					{
 							printf("TABLE\n");
-							//return TABLE;	
+							return TABLE;	
 							}
 							
 "</table>"					{
 							printf("TABLEE\n");
-							//return TABLEE;	
+							return TABLEE;	
 							}
 							
 "<caption>"					{
 							printf("CAPTION\n");
-							//return CAPTION;	
+							return CAPTION;	
 							}
 							
 "</caption>"				{
 							printf("CAPTIONE\n");
-							//return CAPTIONE;	
+							return CAPTIONE;	
 							}
 							
 "<th>"						{
 							printf("TH\n");
-							//return TH;	
+							return TH;	
 							}
 							
 "</th>"						{
 							printf("THE\n");
-							//return THE;	
+							return THE;	
 							}
 							
 "<tr>"						{
 							printf("TR\n");
-							//return TR;	
+							return TR;	
 							}
 							
 "</tr>"						{
 							printf("TRE\n");
-							//return TRE;	
+							return TRE;	
 							}
 							
 "<td>"						{
 							printf("TD\n");
-							//return TD;	
+							return TD;	
 							}
 							
 "</td>"						{
 							printf("TDE\n");
-							//return TDE;	
+							return TDE;	
 							}
 							
 {text}						{
 							printf("%s\n",yytext);
-							//yylval.s = strdup(yytext);
-							//return TEXT;
+							yylval.s = malloc(2000);
+							yylval.s = strdup(yytext);
+							return TEXT;
 							}
 
 {greek}						{
 							printf("GREEK\n");
-							//yylval.s = strdup(yytext);
-							//return GREEK;
+							yylval.s = malloc(2000);
+							yylval.s = strdup(yytext);
+							return GREEK;
 							}
 							
 "<!"[^>]*">"				;
@@ -508,11 +501,12 @@ int yywrap(){
 return 1;
 }
 
-
+/*
 int main(void){
 yyin=fopen("sample2.html","r\n");
 yylex();
 }
+*/
 
 
 

@@ -1,8 +1,47 @@
-\\document{article}
-\\usepackage{blindwrite}
- first page 
-&Alpha;
-15
-shitty shit
-https://www.google.com/faster
-a title in a.tag
+ vivek 
+ Grammar
+
+ this is just
+this is center
+ a nested text 
+
+ this is H1 Begin 
+ h2 is here 
+ h1 ends 
+
+52
+ this is font 
+
+https://www.google.com
+ this is 
+ google link 
+
+ this is new para 
+ it got broke here and new para ends 
+
+
+ol-li		Coffee
+
+ol-li		Tea
+
+ol-li		Milk
+
+
+
+il-li		Coffee
+
+il-li		Tea
+
+il-li		Milk
+
+
+
+dt	Coffee
+
+dd	Black hot drink
+
+dt	Milk
+
+dd	White cold drink
+
+

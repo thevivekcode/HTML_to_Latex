@@ -13,10 +13,9 @@ extern char * yytext;
 %union
 {
 char *s;
-int i;
-}
 
-%start	doc_start
+}
+%start  doc_start
 %token	HTML		HTMLE		HEAD		HEADE			A
 %token	BODY		BODYE		TITLE		TITLEE			FONT
 %token	AE			FONTE		CENTER		CENTERE
@@ -32,35 +31,262 @@ int i;
 %token	THE			TR			TRE			TD				TDE			
 %token	LI			LIE			OL			OLE				IMG
 %token	<s>			TEXT		GREEK		HREF			SIZE		
-%token	<s>			IMGSRC		IMGWIDTH	IMGHEIGHT		IMGFIGURE		
-%token 	<s>			ANAME		ATITLE		IMGFIGCAPTION
-%type	<s>			doc_start	content		body_s
+%token	<s>			IMGSRC		IMGWIDTH	IMGHEIGHT		FIGURE				
+%token	<s>			FIGUREE 	FIGCAPTION 	FIGCAPTIONE
+%token 	<s>			ATITLE		IMGFIGCAPTION
+
+%type	<s>			doc_start	
+%type	<s>			content_head	content_body 
+%type	<s>			content_title 	alltags 		text
+	
+		
+	
 
 %%
+/*              ********************************************************
+                 Document starts here with head and body content
+                ********************************************************
 
-doc_start :		HTML	HEAD 	HEADE body_s	HTMLE	{fprintf(fileout,"\\\\document{article}\n");
-														fprintf(fileout,"\\\\usepackage{blindwrite}\n");
-														fprintf(fileout,"%s\n",$4);}
+*/
+doc_start 	: HTML content_head content_body HTMLE 				{
+																char *s=malloc(1000);
+																strcpy(s,$2);
+																strcat(s,"\n");
+																strcat(s,$3);
+																$$=s;
+																printf("\n\n\n GRAMMAR DATA \n\n\n");
+																printf("%s",$$);
+																fprintf(fileout,"%s\n",$$);
+																}
+			;
+			
+			
 
-body_s	:	TITLE TEXT TITLEE content				{char* s=malloc(150);
-													strcpy(s,$2);
-													strcat(s,"\n");
-													strcat(s,$4);
-													$$=s; }
-								
+content_head :	  HEAD content_head content_title HEADE 		{
+																char *s=malloc(1000);
+																strcpy(s,$2);
+																strcat(s,"\n");
+																strcat(s,$3);
+																$$=s;
+																}
+																
+				|	TEXT                                   			{
+																char *s=malloc(1000);
+																strcpy(s,$1);
+																$$=s;
+																}
+				;
+			
+			
+			
 
-content	: 	BODY 	GREEK  FONT SIZE TEXT FONTE A HREF ATITLE AE BODYE			{char *s=malloc(150);
-																		strcpy(s,$2);
-																		strcat(s,"\n");
-																		strcat(s,$4);
-																		strcat(s,"\n");
-																		strcat(s,$5);
-																		strcat(s,"\n");
-																		strcat(s,$8);
-																		strcat(s,"\n");
-																		strcat(s,$9);
-																		$$=s;	}
-	
+content_title	: TITLE TEXT TITLEE 							{
+																char *s=malloc(1000);
+																strcpy(s,$2);
+																$$=s;
+																}
+				;
+				
+				
+
+content_body	:	BODY	alltags 	BODYE 				{
+																char *s= malloc(1000);
+																strcpy(s,$2);
+																//strcat(s,$3);
+																$$=s;
+																}
+				;
+				
+/*              ********************************************************
+                 ALL Different tags a body can have are lsited here
+                ********************************************************
+*/				
+
+
+
+alltags 		:	 alltags	 P alltags  PE  text							{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}					
+				|	 alltags	 CENTER alltags  CENTERE text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+																
+				|	 alltags	 H1 alltags  H1E text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+				|	 alltags	 H2 alltags  H2E text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+				|	 alltags	 H3 alltags  H3E text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+				|	 alltags	 H4 alltags  H4E text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+				|	 alltags	 FONT SIZE alltags  FONTE text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$4);
+																strcat(s,"\n");
+																strcat(s,$6);
+																$$=s;
+																}
+				|	 alltags	 A HREF alltags  AE text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$4);
+																strcat(s,"\n");
+																strcat(s,$6);
+																$$=s;
+																}
+				|	 alltags	 BR   text					{            // this BR grammar has issue with nesting <p> this is new para <br> it got broke here <centre> with a center </center> here para ends </p>
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																//strcat(s,"\n");
+																//strcat(s,$4);
+																$$=s;
+																}
+																
+				|	 alltags	 DIV alltags  DIVE text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+				|	 alltags	 UL alltags  ULE text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+																
+				|	 alltags	 LI alltags  LIE text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+				|	 alltags	 OL alltags  OLE text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+				
+				|	 alltags	 DL alltags  DLE text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+				
+				|	 alltags	 DT alltags  DTE text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+		        |	 alltags	 DD alltags  DDE text					{
+																char *s= malloc(1000);
+																strcpy(s,$1);
+																strcat(s,"\n");
+																strcat(s,$3);
+																strcat(s,"\n");
+																strcat(s,$5);
+																$$=s;
+																}
+			    
+																	
+				|	text 										{char *s=malloc(1000);
+																strcpy(s,$1);
+																//strcat(s,"\n");
+																//strcpy(s,$2);
+																$$=s;}	
+				
+			   									
+				;
+
+
+				
+/*              ********************************************************
+                                   TEXT is retrieved here
+                ********************************************************
+
+*/
+
+text			:  TEXT  	{char *s =malloc(1000);
+							strcpy(s,$1);
+							$$=s;	
+							}
+				|			{$$="";}	
+				
+				;		
+				
+
+				
+				
 %%
 
                                                  //include the lexical analyzer file
