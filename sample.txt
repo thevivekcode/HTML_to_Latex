@@ -55,6 +55,7 @@ Greek symbols
 
 Alpha
 
+: 
 &Alpha;
  , 
 &Gamma;
@@ -66,9 +67,7 @@ Alpha
 LaTeX chars
 
 
-{ } 
- ^ @ $ 
- % ~ #
+{ } _ ^ @ $ \ % ~ #
 
 
 LaTeX commands in HTML
@@ -114,7 +113,7 @@ lorem
 
 
 img
-VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+hhgvbnvh
 
 
 
@@ -139,7 +138,8 @@ logo.png
 Tables
 
 
-8
+88888888888888888888888888888888888
+Monthly savings
 
 
 1 1

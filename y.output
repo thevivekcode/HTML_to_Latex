@@ -1,7 +1,5 @@
 Terminals unused in grammar
 
-   CAPTION
-   CAPTIONE
    IMGFIGCAPTION
 
 
@@ -36,24 +34,24 @@ Grammar
    21        | alltags FONT SIZE alltags FONTE text
    22        | alltags a_tag text
    23        | alltags BR text
-   24        | alltags BRS text
-   25        | alltags DIV alltags DIVE text
-   26        | alltags UL alltags ULE text
-   27        | alltags LI alltags LIE text
-   28        | alltags OL alltags OLE text
-   29        | alltags DL alltags DLE text
-   30        | alltags DT alltags DTE text
-   31        | alltags DD alltags DDE text
-   32        | alltags FIGURE alltags FIGUREE text
-   33        | alltags FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags img_tag text
-   35        | alltags table_tag text
-   36        | text
+   24        | alltags DIV alltags DIVE text
+   25        | alltags UL alltags ULE text
+   26        | alltags LI alltags LIE text
+   27        | alltags OL alltags OLE text
+   28        | alltags DL alltags DLE text
+   29        | alltags DT alltags DTE text
+   30        | alltags DD alltags DDE text
+   31        | alltags FIGURE alltags FIGUREE text
+   32        | alltags FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags img_tag text
+   34        | alltags table_tag text
+   35        | text
 
-   37 a_tag: A a_attr alltags AE
+   36 a_tag: A a_attr alltags AE
 
-   38 a_attr: a_attr HREF
-   39       | a_attr ATITLE
+   37 a_attr: a_attr HREF
+   38       | a_attr ATITLE
+   39       | a_attr ANAME
    40       | %empty
 
    41 img_tag: IMG img_attr
@@ -67,15 +65,16 @@ Grammar
 
    47 table_data: table_data TR tr_data TRE
    48           | table_data BORDER
-   49           | %empty
+   49           | table_data CAPTION TEXT CAPTIONE
+   50           | %empty
 
-   50 tr_data: tr_data TH text THE
-   51        | tr_data TD text TDE
-   52        | %empty
+   51 tr_data: tr_data TH text THE
+   52        | tr_data TD text TDE
+   53        | %empty
 
-   53 text: text TEXT
-   54     | text GREEK
-   55     | %empty
+   54 text: text TEXT
+   55     | text GREEK
+   56     | %empty
 
 
 Terminals, with rules where they appear
@@ -86,85 +85,85 @@ HTML (258) 1
 HTMLE (259) 1
 HEAD (260) 2
 HEADE (261) 2
-A (262) 37
+A (262) 36
 BODY (263) 5
 BODYE (264) 5
 TITLE (265) 4
 TITLEE (266) 4
 FONT (267) 21
-AE (268) 37
+AE (268) 36
 FONTE (269) 21
 CENTER (270) 7
 CENTERE (271) 7
-BRS (272) 24
-BR (273) 23
-P (274) 6
-PE (275) 6
-H1 (276) 8
-H1E (277) 8
-H2 (278) 9
-H2E (279) 9
-H3 (280) 10
-H3E (281) 10
-H4 (282) 11
-H4E (283) 11
-UL (284) 26
-ULE (285) 26
-DL (286) 29
-DLE (287) 29
-DT (288) 30
-DTE (289) 30
-DD (290) 31
-DDE (291) 31
-DIV (292) 25
-DIVE (293) 25
-U (294) 12
-UE (295) 12
-B (296) 13
-BE (297) 13
-I (298) 14
-IE (299) 14
-EM (300) 15
-EME (301) 15
-TT (302) 16
-TTE (303) 16
-STRONG (304) 17
-STRONGE (305) 17
-SMALL (306) 18
-SMALLE (307) 18
-SUB (308) 19
-SUBE (309) 19
-SUP (310) 20
-SUPE (311) 20
-TABLE (312) 46
-TABLEE (313) 46
-CAPTION (314)
-TH (315) 50
-CAPTIONE (316)
-THE (317) 50
-TR (318) 47
-TRE (319) 47
-TD (320) 51
-TDE (321) 51
-LI (322) 27
-LIE (323) 27
-OL (324) 28
-OLE (325) 28
-IMG (326) 41
-TEXT (327) 4 53
-GREEK (328) 54
-HREF (329) 38
-SIZE (330) 21
-IMGSRC (331) 42
-IMGWIDTH (332) 43
-IMGHEIGHT (333) 44
-FIGURE (334) 32
-FIGUREE (335) 32
-FIGCAPTION (336) 33
-FIGCAPTIONE (337) 33
-BORDER (338) 48
-ATITLE (339) 39
-IMGFIGCAPTION (340)
+BR (272) 23
+P (273) 6
+PE (274) 6
+H1 (275) 8
+H1E (276) 8
+H2 (277) 9
+H2E (278) 9
+H3 (279) 10
+H3E (280) 10
+H4 (281) 11
+H4E (282) 11
+UL (283) 25
+ULE (284) 25
+DL (285) 28
+DLE (286) 28
+DT (287) 29
+DTE (288) 29
+DD (289) 30
+DDE (290) 30
+DIV (291) 24
+DIVE (292) 24
+U (293) 12
+UE (294) 12
+B (295) 13
+BE (296) 13
+I (297) 14
+IE (298) 14
+EM (299) 15
+EME (300) 15
+TT (301) 16
+TTE (302) 16
+STRONG (303) 17
+STRONGE (304) 17
+SMALL (305) 18
+SMALLE (306) 18
+SUB (307) 19
+SUBE (308) 19
+SUP (309) 20
+SUPE (310) 20
+TABLE (311) 46
+TABLEE (312) 46
+CAPTION (313) 49
+TH (314) 51
+CAPTIONE (315) 49
+THE (316) 51
+TR (317) 47
+TRE (318) 47
+TD (319) 52
+TDE (320) 52
+LI (321) 26
+LIE (322) 26
+OL (323) 27
+OLE (324) 27
+IMG (325) 41
+TEXT (326) 4 49 54
+GREEK (327) 55
+HREF (328) 37
+SIZE (329) 21
+IMGSRC (330) 42
+IMGWIDTH (331) 43
+IMGHEIGHT (332) 44
+FIGURE (333) 31
+FIGUREE (334) 31
+FIGCAPTION (335) 32
+FIGCAPTIONE (336) 32
+BORDER (337) 48
+ATITLE (338) 38
+IMGFIGCAPTION (339)
+ANAME (340) 39
 
 
 Nonterminals, with rules where they appear
@@ -181,27 +180,27 @@ content_body (90)
     on left: 5, on right: 1
 alltags (91)
     on left: 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
-    26 27 28 29 30 31 32 33 34 35 36, on right: 5 6 7 8 9 10 11 12
-    13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33
-    34 35 37
+    26 27 28 29 30 31 32 33 34 35, on right: 5 6 7 8 9 10 11 12 13
+    14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34
+    36
 a_tag (92)
-    on left: 37, on right: 22
+    on left: 36, on right: 22
 a_attr (93)
-    on left: 38 39 40, on right: 37 38 39
+    on left: 37 38 39 40, on right: 36 37 38 39
 img_tag (94)
-    on left: 41, on right: 34
+    on left: 41, on right: 33
 img_attr (95)
     on left: 42 43 44 45, on right: 41 42 43 44
 table_tag (96)
-    on left: 46, on right: 35
+    on left: 46, on right: 34
 table_data (97)
-    on left: 47 48 49, on right: 46 47 48
+    on left: 47 48 49 50, on right: 46 47 48 49
 tr_data (98)
-    on left: 50 51 52, on right: 47 50 51
+    on left: 51 52 53, on right: 47 51 52
 text (99)
-    on left: 53 54 55, on right: 3 6 7 8 9 10 11 12 13 14 15 16 17
-    18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 50 51
-    53 54
+    on left: 54 55 56, on right: 3 6 7 8 9 10 11 12 13 14 15 16 17
+    18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 51 52 54
+    55
 
 
 State 0
@@ -219,7 +218,7 @@ State 1
 
     HEAD  shift, and go to state 3
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     content_head  go to state 4
     text          go to state 5
@@ -238,7 +237,7 @@ State 3
 
     HEAD  shift, and go to state 3
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     content_head  go to state 7
     text          go to state 5
@@ -256,8 +255,8 @@ State 4
 State 5
 
     3 content_head: text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -285,7 +284,7 @@ State 8
 
     5 content_body: BODY . alltags BODYE
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     alltags  go to state 14
     text     go to state 15
@@ -300,16 +299,16 @@ State 9
 
 State 10
 
-   53 text: text TEXT .
+   54 text: text TEXT .
 
-    $default  reduce using rule 53 (text)
+    $default  reduce using rule 54 (text)
 
 
 State 11
 
-   54 text: text GREEK .
+   55 text: text GREEK .
 
-    $default  reduce using rule 54 (text)
+    $default  reduce using rule 55 (text)
 
 
 State 12
@@ -347,66 +346,64 @@ State 14
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     BODYE       shift, and go to state 20
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
 State 15
 
-   36 alltags: text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   35 alltags: text .
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
 
-    $default  reduce using rule 36 (alltags)
+    $default  reduce using rule 35 (alltags)
 
 
 State 16
@@ -420,7 +417,7 @@ State 17
 
     4 content_title: TITLE TEXT . TITLEE
 
-    TITLEE  shift, and go to state 53
+    TITLEE  shift, and go to state 52
 
 
 State 18
@@ -432,11 +429,11 @@ State 18
 
 State 19
 
-   37 a_tag: A . a_attr alltags AE
+   36 a_tag: A . a_attr alltags AE
 
     $default  reduce using rule 40 (a_attr)
 
-    a_attr  go to state 54
+    a_attr  go to state 53
 
 
 State 20
@@ -450,345 +447,338 @@ State 21
 
    21 alltags: alltags FONT . SIZE alltags FONTE text
 
-    SIZE  shift, and go to state 55
+    SIZE  shift, and go to state 54
 
 
 State 22
 
     7 alltags: alltags CENTER . alltags CENTERE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 56
+    alltags  go to state 55
     text     go to state 15
 
 
 State 23
 
-   24 alltags: alltags BRS . text
+   23 alltags: alltags BR . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    text  go to state 57
+    text  go to state 56
 
 
 State 24
 
-   23 alltags: alltags BR . text
+    6 alltags: alltags P . alltags PE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    text  go to state 58
+    alltags  go to state 57
+    text     go to state 15
 
 
 State 25
 
-    6 alltags: alltags P . alltags PE text
+    8 alltags: alltags H1 . alltags H1E text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 59
+    alltags  go to state 58
     text     go to state 15
 
 
 State 26
 
-    8 alltags: alltags H1 . alltags H1E text
+    9 alltags: alltags H2 . alltags H2E text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 60
+    alltags  go to state 59
     text     go to state 15
 
 
 State 27
 
-    9 alltags: alltags H2 . alltags H2E text
+   10 alltags: alltags H3 . alltags H3E text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 61
+    alltags  go to state 60
     text     go to state 15
 
 
 State 28
 
-   10 alltags: alltags H3 . alltags H3E text
+   11 alltags: alltags H4 . alltags H4E text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 62
+    alltags  go to state 61
     text     go to state 15
 
 
 State 29
 
-   11 alltags: alltags H4 . alltags H4E text
+   25 alltags: alltags UL . alltags ULE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 63
+    alltags  go to state 62
     text     go to state 15
 
 
 State 30
 
-   26 alltags: alltags UL . alltags ULE text
+   28 alltags: alltags DL . alltags DLE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 64
+    alltags  go to state 63
     text     go to state 15
 
 
 State 31
 
-   29 alltags: alltags DL . alltags DLE text
+   29 alltags: alltags DT . alltags DTE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 65
+    alltags  go to state 64
     text     go to state 15
 
 
 State 32
 
-   30 alltags: alltags DT . alltags DTE text
+   30 alltags: alltags DD . alltags DDE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 66
+    alltags  go to state 65
     text     go to state 15
 
 
 State 33
 
-   31 alltags: alltags DD . alltags DDE text
+   24 alltags: alltags DIV . alltags DIVE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 67
+    alltags  go to state 66
     text     go to state 15
 
 
 State 34
 
-   25 alltags: alltags DIV . alltags DIVE text
+   12 alltags: alltags U . alltags UE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 68
+    alltags  go to state 67
     text     go to state 15
 
 
 State 35
 
-   12 alltags: alltags U . alltags UE text
+   13 alltags: alltags B . alltags BE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 69
+    alltags  go to state 68
     text     go to state 15
 
 
 State 36
 
-   13 alltags: alltags B . alltags BE text
+   14 alltags: alltags I . alltags IE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 70
+    alltags  go to state 69
     text     go to state 15
 
 
 State 37
 
-   14 alltags: alltags I . alltags IE text
+   15 alltags: alltags EM . alltags EME text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 71
+    alltags  go to state 70
     text     go to state 15
 
 
 State 38
 
-   15 alltags: alltags EM . alltags EME text
+   16 alltags: alltags TT . alltags TTE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 72
+    alltags  go to state 71
     text     go to state 15
 
 
 State 39
 
-   16 alltags: alltags TT . alltags TTE text
+   17 alltags: alltags STRONG . alltags STRONGE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 73
+    alltags  go to state 72
     text     go to state 15
 
 
 State 40
 
-   17 alltags: alltags STRONG . alltags STRONGE text
+   18 alltags: alltags SMALL . alltags SMALLE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 74
+    alltags  go to state 73
     text     go to state 15
 
 
 State 41
 
-   18 alltags: alltags SMALL . alltags SMALLE text
+   19 alltags: alltags SUB . alltags SUBE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 75
+    alltags  go to state 74
     text     go to state 15
 
 
 State 42
 
-   19 alltags: alltags SUB . alltags SUBE text
+   20 alltags: alltags SUP . alltags SUPE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 76
+    alltags  go to state 75
     text     go to state 15
 
 
 State 43
 
-   20 alltags: alltags SUP . alltags SUPE text
+   46 table_tag: TABLE . table_data TABLEE
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 50 (table_data)
+
+    table_data  go to state 76
+
+
+State 44
+
+   26 alltags: alltags LI . alltags LIE text
+
+    $default  reduce using rule 56 (text)
 
     alltags  go to state 77
     text     go to state 15
 
 
-State 44
-
-   46 table_tag: TABLE . table_data TABLEE
-
-    $default  reduce using rule 49 (table_data)
-
-    table_data  go to state 78
-
-
 State 45
 
-   27 alltags: alltags LI . alltags LIE text
+   27 alltags: alltags OL . alltags OLE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 79
+    alltags  go to state 78
     text     go to state 15
 
 
 State 46
 
-   28 alltags: alltags OL . alltags OLE text
+   41 img_tag: IMG . img_attr
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 45 (img_attr)
+
+    img_attr  go to state 79
+
+
+State 47
+
+   31 alltags: alltags FIGURE . alltags FIGUREE text
+
+    $default  reduce using rule 56 (text)
 
     alltags  go to state 80
     text     go to state 15
 
 
-State 47
-
-   41 img_tag: IMG . img_attr
-
-    $default  reduce using rule 45 (img_attr)
-
-    img_attr  go to state 81
-
-
 State 48
 
-   32 alltags: alltags FIGURE . alltags FIGUREE text
+   32 alltags: alltags FIGCAPTION . alltags FIGCAPTIONE text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 82
+    alltags  go to state 81
     text     go to state 15
 
 
 State 49
 
-   33 alltags: alltags FIGCAPTION . alltags FIGCAPTIONE text
+   22 alltags: alltags a_tag . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    alltags  go to state 83
-    text     go to state 15
+    text  go to state 82
 
 
 State 50
 
-   22 alltags: alltags a_tag . text
+   33 alltags: alltags img_tag . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    text  go to state 84
+    text  go to state 83
 
 
 State 51
 
-   34 alltags: alltags img_tag . text
+   34 alltags: alltags table_tag . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    text  go to state 85
+    text  go to state 84
 
 
 State 52
-
-   35 alltags: alltags table_tag . text
-
-    $default  reduce using rule 55 (text)
-
-    text  go to state 86
-
-
-State 53
 
     4 content_title: TITLE TEXT TITLEE .
 
     $default  reduce using rule 4 (content_title)
 
 
+State 53
+
+   36 a_tag: A a_attr . alltags AE
+   37 a_attr: a_attr . HREF
+   38       | a_attr . ATITLE
+   39       | a_attr . ANAME
+
+    HREF    shift, and go to state 85
+    ATITLE  shift, and go to state 86
+    ANAME   shift, and go to state 87
+
+    $default  reduce using rule 56 (text)
+
+    alltags  go to state 88
+    text     go to state 15
+
+
 State 54
 
-   37 a_tag: A a_attr . alltags AE
-   38 a_attr: a_attr . HREF
-   39       | a_attr . ATITLE
+   21 alltags: alltags FONT SIZE . alltags FONTE text
 
-    HREF    shift, and go to state 87
-    ATITLE  shift, and go to state 88
-
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     alltags  go to state 89
     text     go to state 15
 
 
 State 55
-
-   21 alltags: alltags FONT SIZE . alltags FONTE text
-
-    $default  reduce using rule 55 (text)
-
-    alltags  go to state 90
-    text     go to state 15
-
-
-State 56
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -809,73 +799,59 @@ State 56
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    CENTERE     shift, and go to state 91
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    CENTERE     shift, and go to state 90
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
-
-
-State 57
-
-   24 alltags: alltags BRS text .
-   53 text: text . TEXT
-   54     | text . GREEK
-
-    TEXT   shift, and go to state 10
-    GREEK  shift, and go to state 11
-
-    $default  reduce using rule 24 (alltags)
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 58
+State 56
 
    23 alltags: alltags BR text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -883,7 +859,7 @@ State 58
     $default  reduce using rule 23 (alltags)
 
 
-State 59
+State 57
 
     6 alltags: alltags . P alltags PE text
     6        | alltags P alltags . PE text
@@ -904,57 +880,55 @@ State 59
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    PE          shift, and go to state 92
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    PE          shift, and go to state 91
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 60
+State 58
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -975,57 +949,55 @@ State 60
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H1E         shift, and go to state 93
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H1E         shift, and go to state 92
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 61
+State 59
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -1046,57 +1018,55 @@ State 61
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H2E         shift, and go to state 94
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H2E         shift, and go to state 93
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 62
+State 60
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -1117,57 +1087,55 @@ State 62
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H3E         shift, and go to state 95
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H3E         shift, and go to state 94
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 63
+State 61
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -1188,54 +1156,190 @@ State 63
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    H4E         shift, and go to state 96
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    H4E         shift, and go to state 95
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
+
+
+State 62
+
+    6 alltags: alltags . P alltags PE text
+    7        | alltags . CENTER alltags CENTERE text
+    8        | alltags . H1 alltags H1E text
+    9        | alltags . H2 alltags H2E text
+   10        | alltags . H3 alltags H3E text
+   11        | alltags . H4 alltags H4E text
+   12        | alltags . U alltags UE text
+   13        | alltags . B alltags BE text
+   14        | alltags . I alltags IE text
+   15        | alltags . EM alltags EME text
+   16        | alltags . TT alltags TTE text
+   17        | alltags . STRONG alltags STRONGE text
+   18        | alltags . SMALL alltags SMALLE text
+   19        | alltags . SUB alltags SUBE text
+   20        | alltags . SUP alltags SUPE text
+   21        | alltags . FONT SIZE alltags FONTE text
+   22        | alltags . a_tag text
+   23        | alltags . BR text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   25        | alltags UL alltags . ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
+
+    A           shift, and go to state 19
+    FONT        shift, and go to state 21
+    CENTER      shift, and go to state 22
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    ULE         shift, and go to state 96
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
+
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
+
+
+State 63
+
+    6 alltags: alltags . P alltags PE text
+    7        | alltags . CENTER alltags CENTERE text
+    8        | alltags . H1 alltags H1E text
+    9        | alltags . H2 alltags H2E text
+   10        | alltags . H3 alltags H3E text
+   11        | alltags . H4 alltags H4E text
+   12        | alltags . U alltags UE text
+   13        | alltags . B alltags BE text
+   14        | alltags . I alltags IE text
+   15        | alltags . EM alltags EME text
+   16        | alltags . TT alltags TTE text
+   17        | alltags . STRONG alltags STRONGE text
+   18        | alltags . SMALL alltags SMALLE text
+   19        | alltags . SUB alltags SUBE text
+   20        | alltags . SUP alltags SUPE text
+   21        | alltags . FONT SIZE alltags FONTE text
+   22        | alltags . a_tag text
+   23        | alltags . BR text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   28        | alltags DL alltags . DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
+
+    A           shift, and go to state 19
+    FONT        shift, and go to state 21
+    CENTER      shift, and go to state 22
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DLE         shift, and go to state 97
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
+
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
 State 64
@@ -1258,55 +1362,53 @@ State 64
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   26        | alltags UL alltags . ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   29        | alltags DT alltags . DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    ULE         shift, and go to state 97
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DTE         shift, and go to state 98
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
 State 65
@@ -1329,55 +1431,53 @@ State 65
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   29        | alltags DL alltags . DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   30        | alltags DD alltags . DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DLE         shift, and go to state 98
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DDE         shift, and go to state 99
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
 State 66
@@ -1400,200 +1500,56 @@ State 66
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   30        | alltags DT alltags . DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   24        | alltags DIV alltags . DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DTE         shift, and go to state 99
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    DIVE        shift, and go to state 100
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
 State 67
-
-    6 alltags: alltags . P alltags PE text
-    7        | alltags . CENTER alltags CENTERE text
-    8        | alltags . H1 alltags H1E text
-    9        | alltags . H2 alltags H2E text
-   10        | alltags . H3 alltags H3E text
-   11        | alltags . H4 alltags H4E text
-   12        | alltags . U alltags UE text
-   13        | alltags . B alltags BE text
-   14        | alltags . I alltags IE text
-   15        | alltags . EM alltags EME text
-   16        | alltags . TT alltags TTE text
-   17        | alltags . STRONG alltags STRONGE text
-   18        | alltags . SMALL alltags SMALLE text
-   19        | alltags . SUB alltags SUBE text
-   20        | alltags . SUP alltags SUPE text
-   21        | alltags . FONT SIZE alltags FONTE text
-   22        | alltags . a_tag text
-   23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   31        | alltags DD alltags . DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
-
-    A           shift, and go to state 19
-    FONT        shift, and go to state 21
-    CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DDE         shift, and go to state 100
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
-
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
-
-
-State 68
-
-    6 alltags: alltags . P alltags PE text
-    7        | alltags . CENTER alltags CENTERE text
-    8        | alltags . H1 alltags H1E text
-    9        | alltags . H2 alltags H2E text
-   10        | alltags . H3 alltags H3E text
-   11        | alltags . H4 alltags H4E text
-   12        | alltags . U alltags UE text
-   13        | alltags . B alltags BE text
-   14        | alltags . I alltags IE text
-   15        | alltags . EM alltags EME text
-   16        | alltags . TT alltags TTE text
-   17        | alltags . STRONG alltags STRONGE text
-   18        | alltags . SMALL alltags SMALLE text
-   19        | alltags . SUB alltags SUBE text
-   20        | alltags . SUP alltags SUPE text
-   21        | alltags . FONT SIZE alltags FONTE text
-   22        | alltags . a_tag text
-   23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   25        | alltags DIV alltags . DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
-
-    A           shift, and go to state 19
-    FONT        shift, and go to state 21
-    CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    DIVE        shift, and go to state 101
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
-
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
-
-
-State 69
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -1614,57 +1570,55 @@ State 69
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    UE          shift, and go to state 102
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    UE          shift, and go to state 101
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 70
+State 68
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -1685,57 +1639,55 @@ State 70
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    BE          shift, and go to state 103
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    BE          shift, and go to state 102
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 71
+State 69
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -1756,57 +1708,55 @@ State 71
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    IE          shift, and go to state 104
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    IE          shift, and go to state 103
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 72
+State 70
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -1827,57 +1777,55 @@ State 72
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    EME         shift, and go to state 105
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    EME         shift, and go to state 104
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 73
+State 71
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -1898,57 +1846,55 @@ State 73
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    TTE         shift, and go to state 106
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    TTE         shift, and go to state 105
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 74
+State 72
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -1969,57 +1915,55 @@ State 74
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    STRONGE     shift, and go to state 107
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    STRONGE     shift, and go to state 106
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 75
+State 73
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -2040,57 +1984,55 @@ State 75
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SMALLE      shift, and go to state 108
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SMALLE      shift, and go to state 107
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 76
+State 74
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -2111,57 +2053,55 @@ State 76
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUBE        shift, and go to state 109
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUBE        shift, and go to state 108
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 77
+State 75
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -2182,68 +2122,68 @@ State 77
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    SUPE        shift, and go to state 110
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    SUPE        shift, and go to state 109
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 78
+State 76
 
    46 table_tag: TABLE table_data . TABLEE
    47 table_data: table_data . TR tr_data TRE
    48           | table_data . BORDER
+   49           | table_data . CAPTION TEXT CAPTIONE
 
-    TABLEE  shift, and go to state 111
-    TR      shift, and go to state 112
-    BORDER  shift, and go to state 113
+    TABLEE   shift, and go to state 110
+    CAPTION  shift, and go to state 111
+    TR       shift, and go to state 112
+    BORDER   shift, and go to state 113
 
 
-State 79
+State 77
 
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
@@ -2263,55 +2203,136 @@ State 79
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   27        | alltags LI alltags . LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   26        | alltags LI alltags . LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
     LIE         shift, and go to state 114
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
+
+
+State 78
+
+    6 alltags: alltags . P alltags PE text
+    7        | alltags . CENTER alltags CENTERE text
+    8        | alltags . H1 alltags H1E text
+    9        | alltags . H2 alltags H2E text
+   10        | alltags . H3 alltags H3E text
+   11        | alltags . H4 alltags H4E text
+   12        | alltags . U alltags UE text
+   13        | alltags . B alltags BE text
+   14        | alltags . I alltags IE text
+   15        | alltags . EM alltags EME text
+   16        | alltags . TT alltags TTE text
+   17        | alltags . STRONG alltags STRONGE text
+   18        | alltags . SMALL alltags SMALLE text
+   19        | alltags . SUB alltags SUBE text
+   20        | alltags . SUP alltags SUPE text
+   21        | alltags . FONT SIZE alltags FONTE text
+   22        | alltags . a_tag text
+   23        | alltags . BR text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   27        | alltags OL alltags . OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
+
+    A           shift, and go to state 19
+    FONT        shift, and go to state 21
+    CENTER      shift, and go to state 22
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    OLE         shift, and go to state 115
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
+
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
+
+
+State 79
+
+   41 img_tag: IMG img_attr .
+   42 img_attr: img_attr . IMGSRC
+   43         | img_attr . IMGWIDTH
+   44         | img_attr . IMGHEIGHT
+
+    IMGSRC     shift, and go to state 116
+    IMGWIDTH   shift, and go to state 117
+    IMGHEIGHT  shift, and go to state 118
+
+    $default  reduce using rule 41 (img_tag)
 
 
 State 80
@@ -2334,73 +2355,57 @@ State 80
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   28        | alltags OL alltags . OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   31        | alltags FIGURE alltags . FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    OLE         shift, and go to state 115
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGUREE     shift, and go to state 119
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
 State 81
 
-   41 img_tag: IMG img_attr .
-   42 img_attr: img_attr . IMGSRC
-   43         | img_attr . IMGWIDTH
-   44         | img_attr . IMGHEIGHT
-
-    IMGSRC     shift, and go to state 116
-    IMGWIDTH   shift, and go to state 117
-    IMGHEIGHT  shift, and go to state 118
-
-    $default  reduce using rule 41 (img_tag)
-
-
-State 82
-
     6 alltags: alltags . P alltags PE text
     7        | alltags . CENTER alltags CENTERE text
     8        | alltags . H1 alltags H1E text
@@ -2419,133 +2424,60 @@ State 82
    21        | alltags . FONT SIZE alltags FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   32        | alltags FIGURE alltags . FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
-
-    A           shift, and go to state 19
-    FONT        shift, and go to state 21
-    CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGUREE     shift, and go to state 119
-    FIGCAPTION  shift, and go to state 49
-
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
-
-
-State 83
-
-    6 alltags: alltags . P alltags PE text
-    7        | alltags . CENTER alltags CENTERE text
-    8        | alltags . H1 alltags H1E text
-    9        | alltags . H2 alltags H2E text
-   10        | alltags . H3 alltags H3E text
-   11        | alltags . H4 alltags H4E text
-   12        | alltags . U alltags UE text
-   13        | alltags . B alltags BE text
-   14        | alltags . I alltags IE text
-   15        | alltags . EM alltags EME text
-   16        | alltags . TT alltags TTE text
-   17        | alltags . STRONG alltags STRONGE text
-   18        | alltags . SMALL alltags SMALLE text
-   19        | alltags . SUB alltags SUBE text
-   20        | alltags . SUP alltags SUPE text
-   21        | alltags . FONT SIZE alltags FONTE text
-   22        | alltags . a_tag text
-   23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   33        | alltags FIGCAPTION alltags . FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   32        | alltags FIGCAPTION alltags . FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A            shift, and go to state 19
     FONT         shift, and go to state 21
     CENTER       shift, and go to state 22
-    BRS          shift, and go to state 23
-    BR           shift, and go to state 24
-    P            shift, and go to state 25
-    H1           shift, and go to state 26
-    H2           shift, and go to state 27
-    H3           shift, and go to state 28
-    H4           shift, and go to state 29
-    UL           shift, and go to state 30
-    DL           shift, and go to state 31
-    DT           shift, and go to state 32
-    DD           shift, and go to state 33
-    DIV          shift, and go to state 34
-    U            shift, and go to state 35
-    B            shift, and go to state 36
-    I            shift, and go to state 37
-    EM           shift, and go to state 38
-    TT           shift, and go to state 39
-    STRONG       shift, and go to state 40
-    SMALL        shift, and go to state 41
-    SUB          shift, and go to state 42
-    SUP          shift, and go to state 43
-    TABLE        shift, and go to state 44
-    LI           shift, and go to state 45
-    OL           shift, and go to state 46
-    IMG          shift, and go to state 47
-    FIGURE       shift, and go to state 48
-    FIGCAPTION   shift, and go to state 49
+    BR           shift, and go to state 23
+    P            shift, and go to state 24
+    H1           shift, and go to state 25
+    H2           shift, and go to state 26
+    H3           shift, and go to state 27
+    H4           shift, and go to state 28
+    UL           shift, and go to state 29
+    DL           shift, and go to state 30
+    DT           shift, and go to state 31
+    DD           shift, and go to state 32
+    DIV          shift, and go to state 33
+    U            shift, and go to state 34
+    B            shift, and go to state 35
+    I            shift, and go to state 36
+    EM           shift, and go to state 37
+    TT           shift, and go to state 38
+    STRONG       shift, and go to state 39
+    SMALL        shift, and go to state 40
+    SUB          shift, and go to state 41
+    SUP          shift, and go to state 42
+    TABLE        shift, and go to state 43
+    LI           shift, and go to state 44
+    OL           shift, and go to state 45
+    IMG          shift, and go to state 46
+    FIGURE       shift, and go to state 47
+    FIGCAPTION   shift, and go to state 48
     FIGCAPTIONE  shift, and go to state 120
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 84
+State 82
 
    22 alltags: alltags a_tag text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -2553,11 +2485,23 @@ State 84
     $default  reduce using rule 22 (alltags)
 
 
-State 85
+State 83
 
-   34 alltags: alltags img_tag text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   33 alltags: alltags img_tag text .
+   54 text: text . TEXT
+   55     | text . GREEK
+
+    TEXT   shift, and go to state 10
+    GREEK  shift, and go to state 11
+
+    $default  reduce using rule 33 (alltags)
+
+
+State 84
+
+   34 alltags: alltags table_tag text .
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -2565,30 +2509,94 @@ State 85
     $default  reduce using rule 34 (alltags)
 
 
+State 85
+
+   37 a_attr: a_attr HREF .
+
+    $default  reduce using rule 37 (a_attr)
+
+
 State 86
 
-   35 alltags: alltags table_tag text .
-   53 text: text . TEXT
-   54     | text . GREEK
-
-    TEXT   shift, and go to state 10
-    GREEK  shift, and go to state 11
-
-    $default  reduce using rule 35 (alltags)
-
-
-State 87
-
-   38 a_attr: a_attr HREF .
+   38 a_attr: a_attr ATITLE .
 
     $default  reduce using rule 38 (a_attr)
 
 
-State 88
+State 87
 
-   39 a_attr: a_attr ATITLE .
+   39 a_attr: a_attr ANAME .
 
     $default  reduce using rule 39 (a_attr)
+
+
+State 88
+
+    6 alltags: alltags . P alltags PE text
+    7        | alltags . CENTER alltags CENTERE text
+    8        | alltags . H1 alltags H1E text
+    9        | alltags . H2 alltags H2E text
+   10        | alltags . H3 alltags H3E text
+   11        | alltags . H4 alltags H4E text
+   12        | alltags . U alltags UE text
+   13        | alltags . B alltags BE text
+   14        | alltags . I alltags IE text
+   15        | alltags . EM alltags EME text
+   16        | alltags . TT alltags TTE text
+   17        | alltags . STRONG alltags STRONGE text
+   18        | alltags . SMALL alltags SMALLE text
+   19        | alltags . SUB alltags SUBE text
+   20        | alltags . SUP alltags SUPE text
+   21        | alltags . FONT SIZE alltags FONTE text
+   22        | alltags . a_tag text
+   23        | alltags . BR text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
+   36 a_tag: A a_attr alltags . AE
+
+    A           shift, and go to state 19
+    FONT        shift, and go to state 21
+    AE          shift, and go to state 121
+    CENTER      shift, and go to state 22
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
+
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
 State 89
@@ -2609,324 +2617,258 @@ State 89
    19        | alltags . SUB alltags SUBE text
    20        | alltags . SUP alltags SUPE text
    21        | alltags . FONT SIZE alltags FONTE text
-   22        | alltags . a_tag text
-   23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
-   37 a_tag: A a_attr alltags . AE
-
-    A           shift, and go to state 19
-    FONT        shift, and go to state 21
-    AE          shift, and go to state 121
-    CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
-
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
-
-
-State 90
-
-    6 alltags: alltags . P alltags PE text
-    7        | alltags . CENTER alltags CENTERE text
-    8        | alltags . H1 alltags H1E text
-    9        | alltags . H2 alltags H2E text
-   10        | alltags . H3 alltags H3E text
-   11        | alltags . H4 alltags H4E text
-   12        | alltags . U alltags UE text
-   13        | alltags . B alltags BE text
-   14        | alltags . I alltags IE text
-   15        | alltags . EM alltags EME text
-   16        | alltags . TT alltags TTE text
-   17        | alltags . STRONG alltags STRONGE text
-   18        | alltags . SMALL alltags SMALLE text
-   19        | alltags . SUB alltags SUBE text
-   20        | alltags . SUP alltags SUPE text
-   21        | alltags . FONT SIZE alltags FONTE text
    21        | alltags FONT SIZE alltags . FONTE text
    22        | alltags . a_tag text
    23        | alltags . BR text
-   24        | alltags . BRS text
-   25        | alltags . DIV alltags DIVE text
-   26        | alltags . UL alltags ULE text
-   27        | alltags . LI alltags LIE text
-   28        | alltags . OL alltags OLE text
-   29        | alltags . DL alltags DLE text
-   30        | alltags . DT alltags DTE text
-   31        | alltags . DD alltags DDE text
-   32        | alltags . FIGURE alltags FIGUREE text
-   33        | alltags . FIGCAPTION alltags FIGCAPTIONE text
-   34        | alltags . img_tag text
-   35        | alltags . table_tag text
+   24        | alltags . DIV alltags DIVE text
+   25        | alltags . UL alltags ULE text
+   26        | alltags . LI alltags LIE text
+   27        | alltags . OL alltags OLE text
+   28        | alltags . DL alltags DLE text
+   29        | alltags . DT alltags DTE text
+   30        | alltags . DD alltags DDE text
+   31        | alltags . FIGURE alltags FIGUREE text
+   32        | alltags . FIGCAPTION alltags FIGCAPTIONE text
+   33        | alltags . img_tag text
+   34        | alltags . table_tag text
 
     A           shift, and go to state 19
     FONT        shift, and go to state 21
     FONTE       shift, and go to state 122
     CENTER      shift, and go to state 22
-    BRS         shift, and go to state 23
-    BR          shift, and go to state 24
-    P           shift, and go to state 25
-    H1          shift, and go to state 26
-    H2          shift, and go to state 27
-    H3          shift, and go to state 28
-    H4          shift, and go to state 29
-    UL          shift, and go to state 30
-    DL          shift, and go to state 31
-    DT          shift, and go to state 32
-    DD          shift, and go to state 33
-    DIV         shift, and go to state 34
-    U           shift, and go to state 35
-    B           shift, and go to state 36
-    I           shift, and go to state 37
-    EM          shift, and go to state 38
-    TT          shift, and go to state 39
-    STRONG      shift, and go to state 40
-    SMALL       shift, and go to state 41
-    SUB         shift, and go to state 42
-    SUP         shift, and go to state 43
-    TABLE       shift, and go to state 44
-    LI          shift, and go to state 45
-    OL          shift, and go to state 46
-    IMG         shift, and go to state 47
-    FIGURE      shift, and go to state 48
-    FIGCAPTION  shift, and go to state 49
+    BR          shift, and go to state 23
+    P           shift, and go to state 24
+    H1          shift, and go to state 25
+    H2          shift, and go to state 26
+    H3          shift, and go to state 27
+    H4          shift, and go to state 28
+    UL          shift, and go to state 29
+    DL          shift, and go to state 30
+    DT          shift, and go to state 31
+    DD          shift, and go to state 32
+    DIV         shift, and go to state 33
+    U           shift, and go to state 34
+    B           shift, and go to state 35
+    I           shift, and go to state 36
+    EM          shift, and go to state 37
+    TT          shift, and go to state 38
+    STRONG      shift, and go to state 39
+    SMALL       shift, and go to state 40
+    SUB         shift, and go to state 41
+    SUP         shift, and go to state 42
+    TABLE       shift, and go to state 43
+    LI          shift, and go to state 44
+    OL          shift, and go to state 45
+    IMG         shift, and go to state 46
+    FIGURE      shift, and go to state 47
+    FIGCAPTION  shift, and go to state 48
 
-    a_tag      go to state 50
-    img_tag    go to state 51
-    table_tag  go to state 52
+    a_tag      go to state 49
+    img_tag    go to state 50
+    table_tag  go to state 51
 
 
-State 91
+State 90
 
     7 alltags: alltags CENTER alltags CENTERE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 123
 
 
-State 92
+State 91
 
     6 alltags: alltags P alltags PE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 124
 
 
-State 93
+State 92
 
     8 alltags: alltags H1 alltags H1E . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 125
 
 
-State 94
+State 93
 
     9 alltags: alltags H2 alltags H2E . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 126
 
 
-State 95
+State 94
 
    10 alltags: alltags H3 alltags H3E . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 127
 
 
-State 96
+State 95
 
    11 alltags: alltags H4 alltags H4E . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 128
 
 
-State 97
+State 96
 
-   26 alltags: alltags UL alltags ULE . text
+   25 alltags: alltags UL alltags ULE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 129
 
 
-State 98
+State 97
 
-   29 alltags: alltags DL alltags DLE . text
+   28 alltags: alltags DL alltags DLE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 130
 
 
-State 99
+State 98
 
-   30 alltags: alltags DT alltags DTE . text
+   29 alltags: alltags DT alltags DTE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 131
 
 
-State 100
+State 99
 
-   31 alltags: alltags DD alltags DDE . text
+   30 alltags: alltags DD alltags DDE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 132
 
 
-State 101
+State 100
 
-   25 alltags: alltags DIV alltags DIVE . text
+   24 alltags: alltags DIV alltags DIVE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 133
 
 
-State 102
+State 101
 
    12 alltags: alltags U alltags UE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 134
 
 
-State 103
+State 102
 
    13 alltags: alltags B alltags BE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 135
 
 
-State 104
+State 103
 
    14 alltags: alltags I alltags IE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 136
 
 
-State 105
+State 104
 
    15 alltags: alltags EM alltags EME . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 137
 
 
-State 106
+State 105
 
    16 alltags: alltags TT alltags TTE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 138
 
 
-State 107
+State 106
 
    17 alltags: alltags STRONG alltags STRONGE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 139
 
 
-State 108
+State 107
 
    18 alltags: alltags SMALL alltags SMALLE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 140
 
 
-State 109
+State 108
 
    19 alltags: alltags SUB alltags SUBE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 141
 
 
-State 110
+State 109
 
    20 alltags: alltags SUP alltags SUPE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 142
 
 
-State 111
+State 110
 
    46 table_tag: TABLE table_data TABLEE .
 
     $default  reduce using rule 46 (table_tag)
 
 
+State 111
+
+   49 table_data: table_data CAPTION . TEXT CAPTIONE
+
+    TEXT  shift, and go to state 143
+
+
 State 112
 
    47 table_data: table_data TR . tr_data TRE
 
-    $default  reduce using rule 52 (tr_data)
+    $default  reduce using rule 53 (tr_data)
 
-    tr_data  go to state 143
+    tr_data  go to state 144
 
 
 State 113
@@ -2938,20 +2880,20 @@ State 113
 
 State 114
 
-   27 alltags: alltags LI alltags LIE . text
+   26 alltags: alltags LI alltags LIE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    text  go to state 144
+    text  go to state 145
 
 
 State 115
 
-   28 alltags: alltags OL alltags OLE . text
+   27 alltags: alltags OL alltags OLE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    text  go to state 145
+    text  go to state 146
 
 
 State 116
@@ -2977,43 +2919,43 @@ State 118
 
 State 119
 
-   32 alltags: alltags FIGURE alltags FIGUREE . text
+   31 alltags: alltags FIGURE alltags FIGUREE . text
 
-    $default  reduce using rule 55 (text)
-
-    text  go to state 146
-
-
-State 120
-
-   33 alltags: alltags FIGCAPTION alltags FIGCAPTIONE . text
-
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
     text  go to state 147
 
 
+State 120
+
+   32 alltags: alltags FIGCAPTION alltags FIGCAPTIONE . text
+
+    $default  reduce using rule 56 (text)
+
+    text  go to state 148
+
+
 State 121
 
-   37 a_tag: A a_attr alltags AE .
+   36 a_tag: A a_attr alltags AE .
 
-    $default  reduce using rule 37 (a_tag)
+    $default  reduce using rule 36 (a_tag)
 
 
 State 122
 
    21 alltags: alltags FONT SIZE alltags FONTE . text
 
-    $default  reduce using rule 55 (text)
+    $default  reduce using rule 56 (text)
 
-    text  go to state 148
+    text  go to state 149
 
 
 State 123
 
     7 alltags: alltags CENTER alltags CENTERE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3024,8 +2966,8 @@ State 123
 State 124
 
     6 alltags: alltags P alltags PE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3036,8 +2978,8 @@ State 124
 State 125
 
     8 alltags: alltags H1 alltags H1E text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3048,8 +2990,8 @@ State 125
 State 126
 
     9 alltags: alltags H2 alltags H2E text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3060,8 +3002,8 @@ State 126
 State 127
 
    10 alltags: alltags H3 alltags H3E text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3072,8 +3014,8 @@ State 127
 State 128
 
    11 alltags: alltags H4 alltags H4E text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3083,57 +3025,9 @@ State 128
 
 State 129
 
-   26 alltags: alltags UL alltags ULE text .
-   53 text: text . TEXT
-   54     | text . GREEK
-
-    TEXT   shift, and go to state 10
-    GREEK  shift, and go to state 11
-
-    $default  reduce using rule 26 (alltags)
-
-
-State 130
-
-   29 alltags: alltags DL alltags DLE text .
-   53 text: text . TEXT
-   54     | text . GREEK
-
-    TEXT   shift, and go to state 10
-    GREEK  shift, and go to state 11
-
-    $default  reduce using rule 29 (alltags)
-
-
-State 131
-
-   30 alltags: alltags DT alltags DTE text .
-   53 text: text . TEXT
-   54     | text . GREEK
-
-    TEXT   shift, and go to state 10
-    GREEK  shift, and go to state 11
-
-    $default  reduce using rule 30 (alltags)
-
-
-State 132
-
-   31 alltags: alltags DD alltags DDE text .
-   53 text: text . TEXT
-   54     | text . GREEK
-
-    TEXT   shift, and go to state 10
-    GREEK  shift, and go to state 11
-
-    $default  reduce using rule 31 (alltags)
-
-
-State 133
-
-   25 alltags: alltags DIV alltags DIVE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   25 alltags: alltags UL alltags ULE text .
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3141,11 +3035,59 @@ State 133
     $default  reduce using rule 25 (alltags)
 
 
+State 130
+
+   28 alltags: alltags DL alltags DLE text .
+   54 text: text . TEXT
+   55     | text . GREEK
+
+    TEXT   shift, and go to state 10
+    GREEK  shift, and go to state 11
+
+    $default  reduce using rule 28 (alltags)
+
+
+State 131
+
+   29 alltags: alltags DT alltags DTE text .
+   54 text: text . TEXT
+   55     | text . GREEK
+
+    TEXT   shift, and go to state 10
+    GREEK  shift, and go to state 11
+
+    $default  reduce using rule 29 (alltags)
+
+
+State 132
+
+   30 alltags: alltags DD alltags DDE text .
+   54 text: text . TEXT
+   55     | text . GREEK
+
+    TEXT   shift, and go to state 10
+    GREEK  shift, and go to state 11
+
+    $default  reduce using rule 30 (alltags)
+
+
+State 133
+
+   24 alltags: alltags DIV alltags DIVE text .
+   54 text: text . TEXT
+   55     | text . GREEK
+
+    TEXT   shift, and go to state 10
+    GREEK  shift, and go to state 11
+
+    $default  reduce using rule 24 (alltags)
+
+
 State 134
 
    12 alltags: alltags U alltags UE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3156,8 +3098,8 @@ State 134
 State 135
 
    13 alltags: alltags B alltags BE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3168,8 +3110,8 @@ State 135
 State 136
 
    14 alltags: alltags I alltags IE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3180,8 +3122,8 @@ State 136
 State 137
 
    15 alltags: alltags EM alltags EME text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3192,8 +3134,8 @@ State 137
 State 138
 
    16 alltags: alltags TT alltags TTE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3204,8 +3146,8 @@ State 138
 State 139
 
    17 alltags: alltags STRONG alltags STRONGE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3216,8 +3158,8 @@ State 139
 State 140
 
    18 alltags: alltags SMALL alltags SMALLE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3228,8 +3170,8 @@ State 140
 State 141
 
    19 alltags: alltags SUB alltags SUBE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3240,8 +3182,8 @@ State 141
 State 142
 
    20 alltags: alltags SUP alltags SUPE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3251,20 +3193,39 @@ State 142
 
 State 143
 
-   47 table_data: table_data TR tr_data . TRE
-   50 tr_data: tr_data . TH text THE
-   51        | tr_data . TD text TDE
+   49 table_data: table_data CAPTION TEXT . CAPTIONE
 
-    TH   shift, and go to state 149
-    TRE  shift, and go to state 150
-    TD   shift, and go to state 151
+    CAPTIONE  shift, and go to state 150
 
 
 State 144
 
-   27 alltags: alltags LI alltags LIE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   47 table_data: table_data TR tr_data . TRE
+   51 tr_data: tr_data . TH text THE
+   52        | tr_data . TD text TDE
+
+    TH   shift, and go to state 151
+    TRE  shift, and go to state 152
+    TD   shift, and go to state 153
+
+
+State 145
+
+   26 alltags: alltags LI alltags LIE text .
+   54 text: text . TEXT
+   55     | text . GREEK
+
+    TEXT   shift, and go to state 10
+    GREEK  shift, and go to state 11
+
+    $default  reduce using rule 26 (alltags)
+
+
+State 146
+
+   27 alltags: alltags OL alltags OLE text .
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3272,23 +3233,23 @@ State 144
     $default  reduce using rule 27 (alltags)
 
 
-State 145
+State 147
 
-   28 alltags: alltags OL alltags OLE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   31 alltags: alltags FIGURE alltags FIGUREE text .
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
 
-    $default  reduce using rule 28 (alltags)
+    $default  reduce using rule 31 (alltags)
 
 
-State 146
+State 148
 
-   32 alltags: alltags FIGURE alltags FIGUREE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   32 alltags: alltags FIGCAPTION alltags FIGCAPTIONE text .
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3296,23 +3257,11 @@ State 146
     $default  reduce using rule 32 (alltags)
 
 
-State 147
-
-   33 alltags: alltags FIGCAPTION alltags FIGCAPTIONE text .
-   53 text: text . TEXT
-   54     | text . GREEK
-
-    TEXT   shift, and go to state 10
-    GREEK  shift, and go to state 11
-
-    $default  reduce using rule 33 (alltags)
-
-
-State 148
+State 149
 
    21 alltags: alltags FONT SIZE alltags FONTE text .
-   53 text: text . TEXT
-   54     | text . GREEK
+   54 text: text . TEXT
+   55     | text . GREEK
 
     TEXT   shift, and go to state 10
     GREEK  shift, and go to state 11
@@ -3320,62 +3269,69 @@ State 148
     $default  reduce using rule 21 (alltags)
 
 
-State 149
-
-   50 tr_data: tr_data TH . text THE
-
-    $default  reduce using rule 55 (text)
-
-    text  go to state 152
-
-
 State 150
+
+   49 table_data: table_data CAPTION TEXT CAPTIONE .
+
+    $default  reduce using rule 49 (table_data)
+
+
+State 151
+
+   51 tr_data: tr_data TH . text THE
+
+    $default  reduce using rule 56 (text)
+
+    text  go to state 154
+
+
+State 152
 
    47 table_data: table_data TR tr_data TRE .
 
     $default  reduce using rule 47 (table_data)
 
 
-State 151
-
-   51 tr_data: tr_data TD . text TDE
-
-    $default  reduce using rule 55 (text)
-
-    text  go to state 153
-
-
-State 152
-
-   50 tr_data: tr_data TH text . THE
-   53 text: text . TEXT
-   54     | text . GREEK
-
-    THE    shift, and go to state 154
-    TEXT   shift, and go to state 10
-    GREEK  shift, and go to state 11
-
-
 State 153
 
-   51 tr_data: tr_data TD text . TDE
-   53 text: text . TEXT
-   54     | text . GREEK
+   52 tr_data: tr_data TD . text TDE
 
-    TDE    shift, and go to state 155
-    TEXT   shift, and go to state 10
-    GREEK  shift, and go to state 11
+    $default  reduce using rule 56 (text)
+
+    text  go to state 155
 
 
 State 154
 
-   50 tr_data: tr_data TH text THE .
+   51 tr_data: tr_data TH text . THE
+   54 text: text . TEXT
+   55     | text . GREEK
 
-    $default  reduce using rule 50 (tr_data)
+    THE    shift, and go to state 156
+    TEXT   shift, and go to state 10
+    GREEK  shift, and go to state 11
 
 
 State 155
 
-   51 tr_data: tr_data TD text TDE .
+   52 tr_data: tr_data TD text . TDE
+   54 text: text . TEXT
+   55     | text . GREEK
+
+    TDE    shift, and go to state 157
+    TEXT   shift, and go to state 10
+    GREEK  shift, and go to state 11
+
+
+State 156
+
+   51 tr_data: tr_data TH text THE .
 
     $default  reduce using rule 51 (tr_data)
+
+
+State 157
+
+   52 tr_data: tr_data TD text TDE .
+
+    $default  reduce using rule 52 (tr_data)

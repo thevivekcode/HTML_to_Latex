@@ -18,7 +18,7 @@ char *s;
 %start  doc_start
 %token	HTML		HTMLE		HEAD		HEADE			A
 %token	BODY		BODYE		TITLE		TITLEE			FONT
-%token	AE			FONTE		CENTER		CENTERE			BRS
+%token	AE			FONTE		CENTER		CENTERE			
 %token	BR						P			PE				H1
 %token	H1E 		H2			H2E			H3 				H3E
 %token	H4			H4E			UL			ULE				DL
@@ -33,7 +33,7 @@ char *s;
 %token	<s>			TEXT		GREEK		HREF			SIZE		
 %token	<s>			IMGSRC		IMGWIDTH	IMGHEIGHT		FIGURE				
 %token	<s>			FIGUREE 	FIGCAPTION 	FIGCAPTIONE		BORDER
-%token 	<s>			ATITLE		IMGFIGCAPTION
+%token 	<s>			ATITLE		IMGFIGCAPTION				ANAME
 
 %type	<s>			doc_start	
 %type	<s>			content_head	content_body 	img_tag		img_attr
@@ -282,15 +282,7 @@ alltags 		:	 alltags	 P alltags  PE  text							{
 																$$=s;
 																}
 																
-				|	 alltags	 BRS   text					{            
-																char *s= malloc(6000);
-																strcpy(s,$1);
-																strcat(s,"\n");
-																strcat(s,$3);
-																//strcat(s,"\n");
-																//strcat(s,$4);
-																$$=s;
-																}
+		
 																
 				|	 alltags	 DIV alltags  DIVE text					{
 																char *s= malloc(6000);
@@ -442,6 +434,13 @@ a_attr			:	a_attr	HREF						{
 														strcat(s,$2);
 														$$=s;
 														}
+				|	a_attr	ANAME						{ 
+														char *s=malloc(6000);
+														strcpy(s,$1);
+														strcat(s,"\n");
+														strcat(s,$2);
+														$$=s;
+														}
 				
 				|										{$$="";}
 				;
@@ -503,6 +502,13 @@ table_data		:	table_data TR tr_data TRE {char *s=malloc(6000);
 												strcat(s,$2);
 												$$=s;
 												}
+				|	table_data CAPTION TEXT CAPTIONE {
+													char *s=malloc(6000);
+													strcpy(s,$1);
+													strcat(s,"\n");
+													strcat(s,$3);
+													$$=s;
+													}
 				|                              {$$="";}
 
 tr_data			:   tr_data TH text THE  {char *s=malloc(6000);
