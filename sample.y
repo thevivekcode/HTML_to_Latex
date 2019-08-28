@@ -33,7 +33,7 @@ char *s;
 %token	<s>			TEXT		GREEK		HREF			SIZE		
 %token	<s>			IMGSRC		IMGWIDTH	IMGHEIGHT		FIGURE				
 %token	<s>			FIGUREE 	FIGCAPTION 	FIGCAPTIONE		BORDER
-%token 	<s>			ATITLE		IMGFIGCAPTION				ANAME
+%token 	<s>			ATITLE		ANAME		COMMENT				IMGFIGCAPTION
 
 %type	<s>			doc_start	
 %type	<s>			content_head	content_body 	img_tag		img_attr
@@ -539,6 +539,12 @@ text			:  text TEXT  	{char *s =malloc(6000);
 								$$=s;	
 								}
 				|	text GREEK  {char *s =malloc(6000);
+								strcpy(s,$1);
+								strcat(s,"\n");
+								strcat(s,$2);
+								$$=s;	
+								}
+				|	text COMMENT  {char *s =malloc(6000);
 								strcpy(s,$1);
 								strcat(s,"\n");
 								strcat(s,$2);

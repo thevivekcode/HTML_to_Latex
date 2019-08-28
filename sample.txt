@@ -1,5 +1,5 @@
 
-Sample document
+Sample document & much more
 
 
 CSS
@@ -39,12 +39,17 @@ sem, adipiscing at, porttitor vitae, interdum vitae, elit.
 Div line 1. 
 
 
+
+
 Div line 2. 
 
 
-Div line 3
 
 
+Div line 3.
+
+
+little comment: <p>&#x03C0; &#960;</p> 
 
 Special symbols
 
@@ -59,6 +64,8 @@ Alpha
 &Alpha;
  , 
 &Gamma;
+vivek 
+het 
 &Theta;
 &Xi;
 &Pi;
@@ -73,9 +80,10 @@ LaTeX chars
 LaTeX commands in HTML
 
 
-Its easy to include LaTeX commands in HTML comments.
+It's easy to include LaTeX commands in HTML comments.
+latex:  
+\LaTeX{} greets you.
 
-  
 
 
 Different font styles and sizes.
@@ -113,13 +121,13 @@ lorem
 
 
 img
-hhgvbnvh
 
 
 
 Images
 
 
+latex: \LaTeX 
  supports only JPG and PNG images.
 
 
@@ -138,8 +146,7 @@ logo.png
 Tables
 
 
-88888888888888888888888888888888888
-Monthly savings
+1
 
 
 1 1
@@ -164,6 +171,7 @@ hgfhf1 3
 
 
 
+0
 
 
 Sparta Praha
@@ -189,13 +197,13 @@ Slavia Praha
 Subscript, superscript
 
 
- H 
+H
 
- 2 
+2
 
- O, E = mc 
+O, E = mc
 
- 2 
+2
 
 
 
@@ -205,6 +213,7 @@ Hyperlinks
 I study at 
 
 http://www.mff.cuni.cz
+MFF
 
 UK MFF
 
@@ -227,8 +236,7 @@ swath of the marching
 
 Orcs tramped
 
- its ugly slot
- the sweet grass
+ its ugly slot; the sweet grass
 of Rohan had been bruised and blackened as they passed.
 
 

@@ -9,20 +9,26 @@
 #include <stdio.h>
 #include<string.h>
 #include "y.tab.h"
+
 %}
+
+
 %option			caseless
 spac		  	[ \t]+
-punc            (\.|\,|\!|\?%)
-special			(=|-|@|$|%|#|~|\}|\{|^|_|\\|:)
-word		    ({punc}|[a-zA-Z0-9]|{special})+
-text			(({word}|{spac})+[\n]*)*({word}|{spac})+
+special			(\=|\-|\@|\$|\%|\#|\~|\}|\{|\^|\_|\\|\:|\;|\'|\"|\*|\+|\[|\]|\/|\!|\.|\,|\!|\?%)
+word		    ([a-zA-Z0-9]|{special}|("& "))+
 greek			(&{word};)
+text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 %x 				a_tag
 %x 				font_tag
 %x				img_tag
 %x				table_tag
+%x				comment
+
 %%
+
 ([ ]|[\t]|[\n])* 			;
+
 "<html>"					{
 							printf("HTML\n");
 							return HTML;
@@ -645,10 +651,36 @@ greek			(&{word};)
 							yylval.s = strdup(yytext);
 							return GREEK;
 							}
-							
-"<!"[^>]*">"				;
+
+"<!--"[ ]*					{BEGIN comment;}
+
+<comment>{
+
+		[ \t\n]*({text}|{greek}|"<"|">")*[ \n\t]*"-->"	   { 
+													    char *ss=yytext;
+														int len=strlen(ss);
+														char sc[len+1];
+														for(int i=0;i<=len-3;i++)
+														sc[i]=ss[i];
+														sc[len-3]='\0';
+														printf("COMMENT\n");
+														//printf("COMMENT STARTS ::  %s  :: COMMENT ENDS\n",yytext);
+														yylval.s = malloc(2000);
+														yylval.s = strdup(sc);
+					       								BEGIN 0;
+					       								return COMMENT;
+														}
+																									
+}
+														
+
+
+										
+
+
 .							;
-"<"[.]*">"					;
+
+
 
 
 %%
