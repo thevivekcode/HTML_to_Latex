@@ -1,5 +1,5 @@
 
-Sample document & much more
+Sample document
 
 
 CSS
@@ -64,8 +64,6 @@ Alpha
 &Alpha;
  , 
 &Gamma;
-vivek 
-het 
 &Theta;
 &Xi;
 &Pi;

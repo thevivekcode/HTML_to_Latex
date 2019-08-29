@@ -1,4 +1,4 @@
-yacc -d -v sample.y
+bison -d  sample.y
 flex sample.l
-gcc lex.yy.c y.tab.c
+g++ lex.yy.c sample.tab.c
 ./a.out sample.html sample.txt

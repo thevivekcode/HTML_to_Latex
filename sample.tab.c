@@ -64,17 +64,15 @@
 /* Copy the first part of user declarations.  */
 #line 1 "sample.y" /* yacc.c:339  */
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-
+#include<bits/stdc++.h>
+using namespace std;
 void yyerror(const char *);
 FILE *fileout;                                                       
-FILE *yyin;
+extern FILE *yyin;
 int yylex();
 extern char * yytext; 
 
-#line 78 "y.tab.c" /* yacc.c:339  */
+#line 76 "sample.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -93,9 +91,9 @@ extern char * yytext;
 #endif
 
 /* In a future release of Bison, this section will be replaced
-   by #include "y.tab.h".  */
-#ifndef YY_YY_Y_TAB_H_INCLUDED
-# define YY_YY_Y_TAB_H_INCLUDED
+   by #include "sample.tab.h".  */
+#ifndef YY_YY_SAMPLE_TAB_H_INCLUDED
+# define YY_YY_SAMPLE_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -195,103 +193,18 @@ extern int yydebug;
     IMGFIGCAPTION = 341
   };
 #endif
-/* Tokens.  */
-#define HTML 258
-#define HTMLE 259
-#define HEAD 260
-#define HEADE 261
-#define A 262
-#define BODY 263
-#define BODYE 264
-#define TITLE 265
-#define TITLEE 266
-#define FONT 267
-#define AE 268
-#define FONTE 269
-#define CENTER 270
-#define CENTERE 271
-#define BR 272
-#define P 273
-#define PE 274
-#define H1 275
-#define H1E 276
-#define H2 277
-#define H2E 278
-#define H3 279
-#define H3E 280
-#define H4 281
-#define H4E 282
-#define UL 283
-#define ULE 284
-#define DL 285
-#define DLE 286
-#define DT 287
-#define DTE 288
-#define DD 289
-#define DDE 290
-#define DIV 291
-#define DIVE 292
-#define U 293
-#define UE 294
-#define B 295
-#define BE 296
-#define I 297
-#define IE 298
-#define EM 299
-#define EME 300
-#define TT 301
-#define TTE 302
-#define STRONG 303
-#define STRONGE 304
-#define SMALL 305
-#define SMALLE 306
-#define SUB 307
-#define SUBE 308
-#define SUP 309
-#define SUPE 310
-#define TABLE 311
-#define TABLEE 312
-#define CAPTION 313
-#define TH 314
-#define CAPTIONE 315
-#define THE 316
-#define TR 317
-#define TRE 318
-#define TD 319
-#define TDE 320
-#define LI 321
-#define LIE 322
-#define OL 323
-#define OLE 324
-#define IMG 325
-#define TEXT 326
-#define GREEK 327
-#define HREF 328
-#define SIZE 329
-#define IMGSRC 330
-#define IMGWIDTH 331
-#define IMGHEIGHT 332
-#define FIGURE 333
-#define FIGUREE 334
-#define FIGCAPTION 335
-#define FIGCAPTIONE 336
-#define BORDER 337
-#define ATITLE 338
-#define ANAME 339
-#define COMMENT 340
-#define IMGFIGCAPTION 341
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 
 union YYSTYPE
 {
-#line 14 "sample.y" /* yacc.c:355  */
+#line 12 "sample.y" /* yacc.c:355  */
 
 char *s;
 
 
-#line 295 "y.tab.c" /* yacc.c:355  */
+#line 208 "sample.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -304,11 +217,11 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_Y_TAB_H_INCLUDED  */
+#endif /* !YY_YY_SAMPLE_TAB_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 312 "y.tab.c" /* yacc.c:358  */
+#line 225 "sample.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -614,12 +527,12 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    52,    52,    66,    74,    84,    93,   108,   117,   127,
-     136,   145,   154,   163,   173,   183,   193,   203,   213,   223,
-     233,   243,   253,   265,   275,   287,   296,   306,   315,   325,
-     335,   344,   353,   363,   373,   383,   394,   414,   422,   430,
-     437,   445,   452,   459,   466,   473,   480,   488,   493,   499,
-     505,   512,   514,   520,   526,   535,   541,   547,   553
+       0,    50,    50,    64,    72,    82,    91,   106,   116,   126,
+     136,   146,   155,   165,   175,   185,   195,   205,   215,   225,
+     235,   245,   255,   267,   277,   289,   299,   309,   319,   329,
+     339,   349,   359,   369,   379,   389,   400,   422,   430,   438,
+     446,   454,   461,   469,   477,   485,   492,   500,   506,   514,
+     522,   530,   532,   540,   548,   557,   563,   570,   577
 };
 #endif
 
@@ -1803,707 +1716,715 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 52 "sample.y" /* yacc.c:1646  */
+#line 50 "sample.y" /* yacc.c:1646  */
     {
-								char *s=malloc(6000);
-								strcpy(s,(yyvsp[-2].s));
-								strcat(s,"\n");
-								strcat(s,(yyvsp[-1].s));
-								(yyval.s)=s;
-								printf("\n\n\n ********************GRAMMAR DATA********************** \n\n\n");
-								printf("%s",(yyval.s));
-								fprintf(fileout,"%s\n",(yyval.s));
-								}
-#line 1818 "y.tab.c" /* yacc.c:1646  */
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-1].s));
+												(yyval.s)=s;
+												printf("\n\n\n *****************GRAMMAR DATA****************** \n\n\n");
+												printf("%s",(yyval.s));
+												fprintf(fileout,"%s\n",(yyval.s));
+												}
+#line 1731 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 66 "sample.y" /* yacc.c:1646  */
+#line 64 "sample.y" /* yacc.c:1646  */
     {
-																char *s=malloc(6000);
-																strcpy(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-1].s));
-																(yyval.s)=s;
-																}
-#line 1830 "y.tab.c" /* yacc.c:1646  */
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-1].s));
+												(yyval.s)=s;
+												}
+#line 1743 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 74 "sample.y" /* yacc.c:1646  */
+#line 72 "sample.y" /* yacc.c:1646  */
     {
-																char *s=malloc(6000);
-																strcpy(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 1840 "y.tab.c" /* yacc.c:1646  */
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1753 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 84 "sample.y" /* yacc.c:1646  */
+#line 82 "sample.y" /* yacc.c:1646  */
     {
-																char *s=malloc(6000);
-																strcpy(s,(yyvsp[-1].s));
-																(yyval.s)=s;
-																}
-#line 1850 "y.tab.c" /* yacc.c:1646  */
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												(yyval.s)=s;
+												}
+#line 1763 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 93 "sample.y" /* yacc.c:1646  */
+#line 91 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-1].s));
-																//strcat(s,$3);
-																(yyval.s)=s;
-																}
-#line 1861 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												//strcat(s,$3);
+												(yyval.s)=s;
+												}
+#line 1774 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 108 "sample.y" /* yacc.c:1646  */
+#line 106 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 1875 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1788 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 117 "sample.y" /* yacc.c:1646  */
+#line 116 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 1889 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1802 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 127 "sample.y" /* yacc.c:1646  */
+#line 126 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 1903 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1816 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
 #line 136 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 1917 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1830 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 145 "sample.y" /* yacc.c:1646  */
+#line 146 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 1931 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1844 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 154 "sample.y" /* yacc.c:1646  */
+#line 155 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 1945 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1858 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 163 "sample.y" /* yacc.c:1646  */
+#line 165 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 1959 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1872 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 173 "sample.y" /* yacc.c:1646  */
+#line 175 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 1973 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1886 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 183 "sample.y" /* yacc.c:1646  */
+#line 185 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 1987 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1900 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 193 "sample.y" /* yacc.c:1646  */
+#line 195 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2001 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1914 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 203 "sample.y" /* yacc.c:1646  */
+#line 205 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2015 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1928 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 213 "sample.y" /* yacc.c:1646  */
+#line 215 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2029 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1942 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 223 "sample.y" /* yacc.c:1646  */
+#line 225 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2043 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1956 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 233 "sample.y" /* yacc.c:1646  */
+#line 235 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2057 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1970 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 243 "sample.y" /* yacc.c:1646  */
+#line 245 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2071 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 1984 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 22:
-#line 253 "sample.y" /* yacc.c:1646  */
+#line 255 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-5].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-3].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2087 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-5].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-3].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2000 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 265 "sample.y" /* yacc.c:1646  */
+#line 267 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-1].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2101 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2014 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 275 "sample.y" /* yacc.c:1646  */
+#line 277 "sample.y" /* yacc.c:1646  */
     {           
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																//strcat(s,"\n");
-																//strcat(s,$4);
-																(yyval.s)=s;
-																}
-#line 2115 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												//strcat(s,"\n");
+												//strcat(s,$4);
+												(yyval.s)=s;
+												}
+#line 2028 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 287 "sample.y" /* yacc.c:1646  */
+#line 289 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2129 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2042 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 296 "sample.y" /* yacc.c:1646  */
+#line 299 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2143 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2056 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 306 "sample.y" /* yacc.c:1646  */
+#line 309 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2157 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2070 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 315 "sample.y" /* yacc.c:1646  */
+#line 319 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2171 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2084 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 325 "sample.y" /* yacc.c:1646  */
+#line 329 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2185 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2098 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 335 "sample.y" /* yacc.c:1646  */
+#line 339 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2199 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2112 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 344 "sample.y" /* yacc.c:1646  */
+#line 349 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2213 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2126 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 353 "sample.y" /* yacc.c:1646  */
+#line 359 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2227 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2140 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 363 "sample.y" /* yacc.c:1646  */
+#line 369 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-4].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2241 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-4].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2154 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 373 "sample.y" /* yacc.c:1646  */
+#line 379 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-1].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2255 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2168 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 383 "sample.y" /* yacc.c:1646  */
+#line 389 "sample.y" /* yacc.c:1646  */
     {
-																char *s= malloc(6000);
-																strcpy(s,(yyvsp[-2].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[-1].s));
-																strcat(s,"\n");
-																strcat(s,(yyvsp[0].s));
-																(yyval.s)=s;
-																}
-#line 2269 "y.tab.c" /* yacc.c:1646  */
+												char *s= (char *)malloc(6000);
+												strcpy(s,(yyvsp[-2].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2182 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 394 "sample.y" /* yacc.c:1646  */
-    {char *s=malloc(6000);
-																strcpy(s,(yyvsp[0].s));
-																//strcat(s,"\n");
-																//strcpy(s,$2);
-																(yyval.s)=s;}
-#line 2279 "y.tab.c" /* yacc.c:1646  */
+#line 400 "sample.y" /* yacc.c:1646  */
+    {
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[0].s));
+												//strcat(s,"\n");
+												//strcpy(s,$2);
+												(yyval.s)=s;
+												}
+#line 2194 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 414 "sample.y" /* yacc.c:1646  */
-    { 
-														char *s=malloc(6000);
-														strcpy(s,(yyvsp[-2].s));
-														strcat(s,"\n");
-														strcat(s,(yyvsp[-1].s));
-														(yyval.s)=s;
-														}
-#line 2291 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 38:
 #line 422 "sample.y" /* yacc.c:1646  */
     { 
-														char *s=malloc(6000);
-														strcpy(s,(yyvsp[-1].s));
-														strcat(s,"\n");
-														strcat(s,(yyvsp[0].s));
-														(yyval.s)=s;
-														}
-#line 2303 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 39:
-#line 430 "sample.y" /* yacc.c:1646  */
-    { 
-														char *s=malloc(6000);
-														strcpy(s,(yyvsp[-1].s));
-														strcat(s,"\n");
-														strcat(s,(yyvsp[0].s));
-														(yyval.s)=s;
-														}
-#line 2315 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 40:
-#line 437 "sample.y" /* yacc.c:1646  */
-    { 
-														char *s=malloc(6000);
-														strcpy(s,(yyvsp[-1].s));
-														strcat(s,"\n");
-														strcat(s,(yyvsp[0].s));
-														(yyval.s)=s;
-														}
-#line 2327 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 41:
-#line 445 "sample.y" /* yacc.c:1646  */
-    {(yyval.s)="";}
-#line 2333 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 42:
-#line 452 "sample.y" /* yacc.c:1646  */
-    { 
-														char *s=malloc(6000);
-														strcpy(s,(yyvsp[0].s));									
-														//strcat(s,"\n");
-														//strcat(s,$3);
-														(yyval.s)=s;
-														}
-#line 2345 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 43:
-#line 459 "sample.y" /* yacc.c:1646  */
-    { 
-														char *s=malloc(6000);
-														strcpy(s,(yyvsp[-1].s));
-														strcat(s,"\n");
-														strcat(s,(yyvsp[0].s));
-														(yyval.s)=s;
-														}
-#line 2357 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 44:
-#line 466 "sample.y" /* yacc.c:1646  */
-    { 
-														char *s=malloc(6000);
-														strcpy(s,(yyvsp[-1].s));
-														strcat(s,"\n");
-														strcat(s,(yyvsp[0].s));
-														(yyval.s)=s;
-														}
-#line 2369 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 45:
-#line 473 "sample.y" /* yacc.c:1646  */
-    { 
-														char *s=malloc(6000);
-														strcpy(s,(yyvsp[-1].s));
-														strcat(s,"\n");
-														strcat(s,(yyvsp[0].s));
-														(yyval.s)=s;
-														}
-#line 2381 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 46:
-#line 480 "sample.y" /* yacc.c:1646  */
-    {(yyval.s)="";}
-#line 2387 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 47:
-#line 488 "sample.y" /* yacc.c:1646  */
-    {char *s=malloc(6000);
-											strcpy(s,(yyvsp[-1].s));
-											(yyval.s)=s;
-											}
-#line 2396 "y.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 48:
-#line 493 "sample.y" /* yacc.c:1646  */
-    {char *s=malloc(6000);
-												strcpy(s,(yyvsp[-3].s));
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-2].s));
 												strcat(s,"\n");
 												strcat(s,(yyvsp[-1].s));
 												(yyval.s)=s;
 												}
-#line 2407 "y.tab.c" /* yacc.c:1646  */
+#line 2206 "sample.tab.c" /* yacc.c:1646  */
     break;
 
-  case 49:
-#line 499 "sample.y" /* yacc.c:1646  */
-    {char *s=malloc(6000);
+  case 38:
+#line 430 "sample.y" /* yacc.c:1646  */
+    { 
+												char *s=(char *)malloc(6000);
 												strcpy(s,(yyvsp[-1].s));
 												strcat(s,"\n");
 												strcat(s,(yyvsp[0].s));
 												(yyval.s)=s;
 												}
-#line 2418 "y.tab.c" /* yacc.c:1646  */
+#line 2218 "sample.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 39:
+#line 438 "sample.y" /* yacc.c:1646  */
+    { 
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2230 "sample.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 40:
+#line 446 "sample.y" /* yacc.c:1646  */
+    { 
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2242 "sample.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 41:
+#line 454 "sample.y" /* yacc.c:1646  */
+    {(yyval.s)=(char *)"";}
+#line 2248 "sample.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 42:
+#line 461 "sample.y" /* yacc.c:1646  */
+    { 
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[0].s));									
+												//strcat(s,"\n");
+												//strcat(s,$3);
+												(yyval.s)=s;
+												}
+#line 2260 "sample.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 43:
+#line 469 "sample.y" /* yacc.c:1646  */
+    { 
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2272 "sample.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 44:
+#line 477 "sample.y" /* yacc.c:1646  */
+    { 
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2284 "sample.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 45:
+#line 485 "sample.y" /* yacc.c:1646  */
+    { 
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2296 "sample.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 46:
+#line 492 "sample.y" /* yacc.c:1646  */
+    {(yyval.s)=(char *)"";}
+#line 2302 "sample.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 47:
+#line 500 "sample.y" /* yacc.c:1646  */
+    {
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												(yyval.s)=s;
+												}
+#line 2312 "sample.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 48:
+#line 506 "sample.y" /* yacc.c:1646  */
+    {
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-3].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-1].s));
+												(yyval.s)=s;
+												}
+#line 2324 "sample.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 49:
+#line 514 "sample.y" /* yacc.c:1646  */
+    {
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;
+												}
+#line 2336 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 505 "sample.y" /* yacc.c:1646  */
+#line 522 "sample.y" /* yacc.c:1646  */
     {
-													char *s=malloc(6000);
-													strcpy(s,(yyvsp[-3].s));
-													strcat(s,"\n");
-													strcat(s,(yyvsp[-1].s));
-													(yyval.s)=s;
-													}
-#line 2430 "y.tab.c" /* yacc.c:1646  */
+												char *s=(char *)malloc(6000);
+												strcpy(s,(yyvsp[-3].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[-1].s));
+												(yyval.s)=s;
+												}
+#line 2348 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 51:
-#line 512 "sample.y" /* yacc.c:1646  */
-    {(yyval.s)="";}
-#line 2436 "y.tab.c" /* yacc.c:1646  */
+#line 530 "sample.y" /* yacc.c:1646  */
+    {(yyval.s)=(char *)"";}
+#line 2354 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 514 "sample.y" /* yacc.c:1646  */
-    {char *s=malloc(6000);
+#line 532 "sample.y" /* yacc.c:1646  */
+    {
+												char *s=(char *)malloc(6000);
 												strcpy(s,(yyvsp[-3].s));
 												strcat(s,"\n");
 												strcat(s,(yyvsp[-1].s));
 												(yyval.s)=s;
 												}
-#line 2447 "y.tab.c" /* yacc.c:1646  */
+#line 2366 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 53:
-#line 520 "sample.y" /* yacc.c:1646  */
-    {char *s=malloc(6000);
+#line 540 "sample.y" /* yacc.c:1646  */
+    {
+												char *s=(char *)malloc(6000);
 												strcpy(s,(yyvsp[-3].s));
 												strcat(s,"\n");
 												strcat(s,(yyvsp[-1].s));
 												(yyval.s)=s;
 												}
-#line 2458 "y.tab.c" /* yacc.c:1646  */
+#line 2378 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 54:
-#line 526 "sample.y" /* yacc.c:1646  */
-    {(yyval.s)="";}
-#line 2464 "y.tab.c" /* yacc.c:1646  */
+#line 548 "sample.y" /* yacc.c:1646  */
+    {(yyval.s)=(char *)"";}
+#line 2384 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 55:
-#line 535 "sample.y" /* yacc.c:1646  */
-    {char *s =malloc(6000);
-								strcpy(s,(yyvsp[-1].s));
-								strcat(s,"\n");
-								strcat(s,(yyvsp[0].s));
-								(yyval.s)=s;	
-								}
-#line 2475 "y.tab.c" /* yacc.c:1646  */
+#line 557 "sample.y" /* yacc.c:1646  */
+    {char *s =(char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;	
+												}
+#line 2395 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 56:
-#line 541 "sample.y" /* yacc.c:1646  */
-    {char *s =malloc(6000);
-								strcpy(s,(yyvsp[-1].s));
-								strcat(s,"\n");
-								strcat(s,(yyvsp[0].s));
-								(yyval.s)=s;	
-								}
-#line 2486 "y.tab.c" /* yacc.c:1646  */
+#line 563 "sample.y" /* yacc.c:1646  */
+    {char *s =(char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;	
+												}
+#line 2406 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 57:
-#line 547 "sample.y" /* yacc.c:1646  */
-    {char *s =malloc(6000);
-								strcpy(s,(yyvsp[-1].s));
-								strcat(s,"\n");
-								strcat(s,(yyvsp[0].s));
-								(yyval.s)=s;	
-								}
-#line 2497 "y.tab.c" /* yacc.c:1646  */
+#line 570 "sample.y" /* yacc.c:1646  */
+    {
+												char *s =(char *)malloc(6000);
+												strcpy(s,(yyvsp[-1].s));
+												strcat(s,"\n");
+												strcat(s,(yyvsp[0].s));
+												(yyval.s)=s;	
+												}
+#line 2418 "sample.tab.c" /* yacc.c:1646  */
     break;
 
   case 58:
-#line 553 "sample.y" /* yacc.c:1646  */
-    {(yyval.s)="";}
-#line 2503 "y.tab.c" /* yacc.c:1646  */
+#line 577 "sample.y" /* yacc.c:1646  */
+    {(yyval.s)=(char *)"";}
+#line 2424 "sample.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 2507 "y.tab.c" /* yacc.c:1646  */
+#line 2428 "sample.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2731,21 +2652,21 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 560 "sample.y" /* yacc.c:1906  */
+#line 584 "sample.y" /* yacc.c:1906  */
 
 
-                                                 //include the lexical analyzer file
+                                                
 
 
 int main(int argc,char *argv[]){   
-                                  //driver function (main function )
+                                  
 yyin=fopen(argv[1],"r");
 fileout=fopen(argv[2],"w+");
-yyparse();                                                            //parse the file   
+yyparse();                                                              
 
 }
 
-void yyerror(const char *s){                                                     //if syntax error occured print error
+void yyerror(const char *s){                                                    
 
 printf("Syntax error");
 

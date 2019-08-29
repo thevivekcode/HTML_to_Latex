@@ -1,14 +1,14 @@
-/*                            * * * * * * * * * * * * * * * * * * * * * * * * *  * * * *  *
-                              |          Bhagvan bharose attempt by KEVIV SINGH		 	  |
-          		     		  |			 												  |
-                              * * * * * * * **  ** * * ** * * * * * * * * * * * * * * * * *
+/*                            * * * * * * * * * * * * * * * * * * * * * * * * *  * * * *  
+                              |          Bhagvan bharose attempt by KEVIV SINGH		|
+          		      |			 					|
+                              * * * * * * * **  ** * * ** * * * * * * * * * * * * * * * * 
 */
 
 %{
 
 #include <stdio.h>
 #include<string.h>
-#include "y.tab.h"
+#include "sample.tab.h"
 
 %}
 
@@ -16,60 +16,60 @@
 %option			caseless
 spac		  	[ \t]+
 special			(\=|\-|\@|\$|\%|\#|\~|\}|\{|\^|\_|\\|\:|\;|\'|\"|\*|\+|\[|\]|\/|\!|\.|\,|\!|\?%)
-word		    ([a-zA-Z0-9]|{special}|("& "))+
+word		   	([a-zA-Z0-9]|{special}|("& "))+
 greek			(&{word};)
 text			(({word}|{spac})+[\n]*)*({word}|{spac})+
-%x 				a_tag
-%x 				font_tag
-%x				img_tag
-%x				table_tag
-%x				comment
+%x 			a_tag
+%x 			font_tag
+%x			img_tag
+%x			table_tag
+%x			comment
 
 %%
 
 ([ ]|[\t]|[\n])* 			;
 
-"<html>"					{
+"<html>"						{
 							printf("HTML\n");
 							return HTML;
 							}
 
-"</html>"					{
+"</html>"						{
 							printf("HTMLE\n");
 							return HTMLE;
 							}
 
-"<head>"					{
+"<head>"						{
 							printf("HEAD\n");
 							return HEAD;
 							}
 
-"</head>"					{
+"</head>"						{
 							printf("HEADE\n");
 							return HEADE;
 							}
 
-"<body>"					{
+"<body>"						{
 							printf("BODY\n");
 							return BODY;
 							}
 							
-"</body>"					{
+"</body>"						{
 							printf("BODYE\n");
 							return BODYE;
 							}
 							
-"<title>"					{
+"<title>"						{
 							printf("TITLE\n");
 							return TITLE;
 							}
 							
-"</title>"					{
+"</title>"						{
 							printf("TITLEE\n");
 							return TITLEE;
 							}
 
-"<img"[ ]*									{ 
+"<img"[ ]*										{ 
 											BEGIN img_tag;
 											printf("IMG\n");
 											return IMG;
@@ -77,96 +77,95 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 
 <img_tag>{
 
-			[ ]*"src=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]* {
+			[ ]*"src=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]* 			{
 											
-														char *ss =yytext;
-														int length=strlen(ss);
-														char link[length+5];
-														sscanf(ss, "%*[^\"]\"%[^\"]",link);
-														printf("%s\n",link);
-														yylval.s = malloc(2000);
-														yylval.s = strdup(link);
-														//BEGIN a_tag;
-														return IMGSRC;
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\"]\"%[^\"]",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											//BEGIN a_tag;
+											return IMGSRC;
 
-														}
-			[ ]*"src=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]* {
-											
-														char *ss =yytext;
-														int length=strlen(ss);
-														char link[length+5];
-														sscanf(ss, "%*[^\']\'%[^\']",link);
-														printf("%s\n",link);
-														yylval.s = malloc(2000);
-														yylval.s = strdup(link);
-														//BEGIN a_tag;
-														return IMGSRC;
-														}
-		}
-
-
-<img_tag>{
-		
-					[ ]*"width=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*	{
-										
-															char *ss =yytext;
-															int length=strlen(ss);
-															char link[length+5];
-															sscanf(ss, "%*[^\"]\"%[^\"]",link);
-															printf("%s\n",link);
-															yylval.s = malloc(2000);
-															yylval.s = strdup(link);
-															//BEGIN a_tag;
-															return IMGWIDTH;
-															}
-
-					[ ]*"width=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*	{
-										
-															char *ss =yytext;
-															int length=strlen(ss);
-															char link[length+5];
-															sscanf(ss, "%*[^\']\'%[^\']",link);
-															printf("%s\n",link);
-															yylval.s = malloc(2000);
-															yylval.s = strdup(link);
-															//BEGIN a_tag;
-															return IMGWIDTH;
-															}
-	}
-
-<img_tag>{
-					[ ]*"height=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*	{
-										
-															char *ss =yytext;
-															int length=strlen(ss);
-															char link[length+5];
-															sscanf(ss, "%*[^\"]\"%[^\"]",link);
-															printf("%s\n",link);
-															yylval.s = malloc(2000);
-															yylval.s = strdup(link);
-															//BEGIN a_tag;
-															return IMGHEIGHT;
-															}
-					[ ]*"height=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*	{
+											}
+			[ ]*"src=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]* 			{
 											
 											char *ss =yytext;
 											int length=strlen(ss);
 											char link[length+5];
 											sscanf(ss, "%*[^\']\'%[^\']",link);
 											printf("%s\n",link);
-											yylval.s = malloc(2000);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											//BEGIN a_tag;
+											return IMGSRC;
+											}
+	}
+
+
+<img_tag>{
+		
+			[ ]*"width=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
+										
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\"]\"%[^\"]",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											//BEGIN a_tag;
+											return IMGWIDTH;
+											}
+
+			[ ]*"width=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
+										
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\']\'%[^\']",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											//BEGIN a_tag;
+											return IMGWIDTH;
+											}
+	}
+
+<img_tag>{
+			[ ]*"height=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
+										
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\"]\"%[^\"]",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
 											yylval.s = strdup(link);
 											//BEGIN a_tag;
 											return IMGHEIGHT;
 											}
-		}
+			[ ]*"height=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\']\'%[^\']",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											//BEGIN a_tag;
+											return IMGHEIGHT;
+											}
+	}
 
-<img_tag>[ ]*"/>"							{
+<img_tag>[ ]*"/>"									{
 											BEGIN 0;
 											}
 
 
-"<a"[ ]*									{ 
+"<a"[ ]*										{ 
 											BEGIN a_tag;
 											printf("A\n");
 											return A;
@@ -175,140 +174,140 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 
 <a_tag>{
 
-			[ ]*"href=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*	{
+			[ ]*"href=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
 											
-														char *ss =yytext;
-														int length=strlen(ss);
-														char link[length+5];
-														sscanf(ss, "%*[^\"]\"%[^\"]",link);
-														printf("%s\n",link);
-														yylval.s = malloc(2000);
-														yylval.s = strdup(link);
-														//BEGIN a_tag;
-														return HREF;
-														}
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\"]\"%[^\"]",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											//BEGIN a_tag;
+											return HREF;
+											}
 
-			[ ]*"href=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*	{
+			[ ]*"href=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
 											
-														char *ss =yytext;
-														int length=strlen(ss);
-														char link[length+5];
-														sscanf(ss, "%*[^\']\'%[^\']",link);
-														printf("%s\n",link);
-														yylval.s = malloc(2000);
-														yylval.s = strdup(link);
-														//BEGIN a_tag;
-														return HREF;
-														}
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\']\'%[^\']",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											//BEGIN a_tag;
+											return HREF;
+											}
 
-     }
+	}
 
 <a_tag>{
-				[ ]*"title=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*	{
-															char *ss =yytext;
-															int length=strlen(ss);
-															char link[length+5];
-															sscanf(ss, "%*[^\"]\"%[^\"]",link);
-															printf("%s\n",link);
-															yylval.s = malloc(2000);
-															yylval.s = strdup(link);
-															//BEGIN a_tag;
-															return ATITLE;
-															}
+			[ ]*"title=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\"]\"%[^\"]",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											//BEGIN a_tag;
+											return ATITLE;
+											}
 			
-				[ ]*"title=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*	{
-															char *ss =yytext;
-															int length=strlen(ss);
-															char link[length+5];
-															sscanf(ss, "%*[^\']\'%[^\']",link);
-															printf("%s\n",link);
-															yylval.s = malloc(2000);
-															yylval.s = strdup(link);
-															//BEGIN a_tag;
-															return ATITLE;
-															}
-			}
+			[ ]*"title=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\']\'%[^\']",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											//BEGIN a_tag;
+											return ATITLE;
+											}
+	}
 
 <a_tag>{
-				[ ]*"name=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*	{
-															char *ss =yytext;
-															int length=strlen(ss);
-															char link[length+5];
-															sscanf(ss, "%*[^\"]\"%[^\"]",link);
-															printf("%s\n",link);
-															yylval.s = malloc(2000);
-															yylval.s = strdup(link);
-															//BEGIN a_tag;
-															return ANAME;
-															}
+			[ ]*"name=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\"]\"%[^\"]",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											//BEGIN a_tag;
+											return ANAME;
+											}
 			
-				[ ]*"name=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*	{
-															char *ss =yytext;
-															int length=strlen(ss);
-															char link[length+5];
-															sscanf(ss, "%*[^\']\'%[^\']",link);
-															printf("%s\n",link);
-															yylval.s = malloc(2000);
-															yylval.s = strdup(link);
-															//BEGIN a_tag;
-															return ANAME;
-															}
-			}
+			[ ]*"name=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\']\'%[^\']",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											//BEGIN a_tag;
+											return ANAME;
+											}
+	}
 
 
 
-<a_tag>[ ]*">"								{
+<a_tag>[ ]*">"										{
 											BEGIN 0;
 											}
 														
 							
-"</a>"										{
+"</a>"											{
 											printf("AE\n");
 											return AE;
 											}
 							
-"<table"[ ]*												{
-															BEGIN table_tag;
-															printf("TABLE\n");
-															return TABLE;
-															}
+"<table"[ ]*										{
+											BEGIN table_tag;
+											printf("TABLE\n");
+											return TABLE;
+											}
 
 <table_tag>{
 
 
-         [ ]*"border=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]* 	{
-															char *ss =yytext;
-															int length=strlen(ss);
-															char link[length+5];
-															sscanf(ss, "%*[^\"]\"%[^\"]",link);
-															printf("%s\n",link);
-															yylval.s = malloc(2000);
-															yylval.s = strdup(link);
-															return BORDER;
-															}
+       			  [ ]*"border=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]* 		{
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\"]\"%[^\"]",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											return BORDER;
+											}
 
-         [ ]*"border=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]* 	{
-															char *ss =yytext;
-															int length=strlen(ss);
-															char link[length+5];
-															sscanf(ss, "%*[^\']\'%[^\']",link);
-															printf("%s\n",link);
-															yylval.s = malloc(2000);
-															yylval.s = strdup(link);
-															return BORDER;
-															}
+       			  [ ]*"border=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]* 		{
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\']\'%[^\']",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											return BORDER;
+											}
            }
 
-<table_tag>[ ]*">"											{
-															BEGIN 0;
-															}
+<table_tag>[ ]*">"									{
+											BEGIN 0;
+											}
 							
-"</table>"									{
+"</table>"										{
 											printf("TABLEE\n");
 											return TABLEE;	
 											}
 
-"<font"[ ]*									{
+"<font"[ ]*										{
 											BEGIN font_tag;
 											printf("FONT\n");
 											return FONT;
@@ -316,64 +315,64 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 							
 <font_tag>{
 			[ ]*"size=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
-																		char *ss =yytext;
-																		int length=strlen(ss);
-																		char link[length+5];
-																		sscanf(ss, "%*[^\"]\"%[^\"]",link);
-																		printf("%s\n",link);
-																		yylval.s = malloc(2000);
-																		yylval.s = strdup(link);
-																		return SIZE;
-																		}
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\"]\"%[^\"]",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											return SIZE;
+											}
 			[ ]*"size=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
-																		char *ss =yytext;
-																		int length=strlen(ss);
-																		char link[length+5];
-																		sscanf(ss, "%*[^\']\'%[^\']",link);
-																		printf("%s\n",link);
-																		yylval.s = malloc(2000);
-																		yylval.s = strdup(link);
-																		return SIZE;
-																		}
-			}
+											char *ss =yytext;
+											int length=strlen(ss);
+											char link[length+5];
+											sscanf(ss, "%*[^\']\'%[^\']",link);
+											printf("%s\n",link);
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(link);
+											return SIZE;
+											}
+	}
 
 
-<font_tag>[ ]*">"											{
-															BEGIN 0;
-															}
+<font_tag>[ ]*">"									{
+											BEGIN 0;
+											}
 							
 							
-"</font>"									{
+"</font>"										{
 											printf("FONTE\n");
 											return FONTE;
 											}
 
-"<figure>"					{
+"<figure>"						{
 							printf("FIGURE\n");
 							return FIGURE;	
 							}
 
-"</figure>"					{
+"</figure>"						{
 							printf("FIGUREE\n");
 							return FIGUREE;	
 							}
 
-"<figcaption>"				{
+"<figcaption>"						{
 							printf("FIGCAPTION\n");
 							return FIGCAPTION;	
 							}
 
-"</figcaption>"				{
+"</figcaption>"						{
 							printf("FIGCAPTIONE\n");
 							return FIGCAPTIONE;	
 							}
 							
-"<center>"					{
+"<center>"						{
 							printf("CENTER\n");
 							return CENTER;	
 							}
 							
-"</center>"					{
+"</center>"						{
 							printf("CENTERE\n");
 							return CENTERE;	
 							}
@@ -387,296 +386,292 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 							return BR;	
 							}
 							
-"<p>"						{
+"<p>"							{
 							printf("P\n");
 							return P;	
 							}
 							
-"</p>"						{
+"</p>"							{
 							printf("PE\n");
 							return PE;	
 							}
 							
-"<h1>"						{
+"<h1>"							{
 							printf("H1\n");
 							return H1;	
 							}
 							
-"</h1>"						{
+"</h1>"							{
 							printf("H1E\n");
 							return H1E;	
 							}
 							
-"<h2>"						{
+"<h2>"							{
 							printf("H2\n");
 							return H2;	
 							}
 							
-"</h2>"						{
+"</h2>"							{
 							printf("H2E\n");
 							return H2E;	
 							}
 							
-"<h3>"						{
+"<h3>"							{
 							printf("H3\n");
 							return H3;	
 							}
 							
-"</h3>"						{
+"</h3>"							{
 							printf("H3E\n");
 							return H3E;	
 							}
 							
-"<h4>"						{
+"<h4>"							{
 							printf("H4\n");
 							return H4;	
 							}
 							
-"</h4>"						{
+"</h4>"							{
 							printf("H4E\n");
 							return H4E;	
 							}
 							
-"<ul>"						{
+"<ul>"							{
 							printf("UL\n");
 							return UL;	
 							}
 							
-"</ul>"						{
+"</ul>"							{
 							printf("ULE\n");
 							return ULE;	
 							}
 							
-"<li>"						{
+"<li>"							{
 							printf("LI\n");
 							return LI;	
 							}
 							
-"</li>"						{
+"</li>"							{
 							printf("LIE\n");
 							return LIE;	
 							}
 							
-"<ol>"						{
+"<ol>"							{
 							printf("OL\n");
 							return OL;	
 							}
 							
-"</ol>"						{
+"</ol>"							{
 							printf("OLE\n");
 							return OLE;	
 							}
 							
-"<dl>"						{
+"<dl>"							{
 							printf("DL\n");
 							return DL;	
 							}
 							
-"</dl>"						{
+"</dl>"							{
 							printf("DLE\n");
 							return DLE;	
 							}
 							
-"<dt>"						{
+"<dt>"							{
 							printf("DT\n");
 							return DT;	
 							}
 							
-"</dt>"						{
+"</dt>"							{
 							printf("DTE\n");
 							return DTE;	
 							}
 							
-"<dd>"						{
+"<dd>"							{
 							printf("DD\n");
 							return DD;	
 							}
 							
-"</dd>"						{
+"</dd>"							{
 							printf("DDE\n");
 							return DDE;	
 							}
 							
-"<div>"						{
+"<div>"							{
 							printf("DIV\n");
 							return DIV;	
 							}
 							
-"</div>"					{
+"</div>"						{
 							printf("DIVE\n");
 							return DIVE;	
 							}
 							
-"<u>"						{
+"<u>"							{
 							printf("U\n");
 							return U;	
 							}
 							
-"</u>"						{
+"</u>"							{
 							printf("UE\n");
 							return UE;	
 							}
 							
-"<b>"						{
+"<b>"							{
 							printf("B\n");
 							return B;	
 							}
 							
-"</b>"						{
+"</b>"							{
 							printf("BE\n");
 							return BE;	
 							}
 							
-"<i>"						{
+"<i>"							{
 							printf("I\n");
 							return I;	
 							}
 							
-"</i>"						{
+"</i>"							{
 							printf("IE\n");
 							return IE;	
 							}
 							
-"<em>"						{
+"<em>"							{
 							printf("EM\n");
 							return EM;	
 							}
 							
-"</em>"						{
+"</em>"							{
 							printf("EME\n");
 							return EME;	
 							}
 							
-"<tt>"						{
+"<tt>"							{
 							printf("TT\n");
 							return TT;	
 							}
 							
-"</tt>"						{
+"</tt>"							{
 							printf("TTE\n");
 							return TTE;	
 							}
 							
-"<strong>"					{
+"<strong>"						{
 							printf("STRONG\n");
 							return STRONG;	
 							}
 							
-"</strong>"					{
+"</strong>"						{
 							printf("STRONGE\n");
 							return STRONGE;	
 							}
 							
-"<small>"					{
+"<small>"						{
 							printf("SMALL\n");
 							return SMALL;	
 							}
 							
-"</small>"					{
+"</small>"						{
 							printf("SMALLE\n");
 							return SMALLE;	
 							}
 							
-"<sub>"						{
+"<sub>"							{
 							printf("SUB\n");
 							return SUB;	
 							}
 							
-"</sub>"					{
+"</sub>"						{
 							printf("SUBE\n");
 							return SUBE;	
 							}
 							
-"<sup>"						{
+"<sup>"							{
 							printf("SUP\n");
 							return SUP;	
 							}
 							
-"</sup>"					{
+"</sup>"						{
 							printf("SUPE\n");
 							return SUPE;	
 							}
 
 							
-"<caption>"					{
+"<caption>"						{
 							printf("CAPTION\n");
 							return CAPTION;	
 							}
 							
-"</caption>"				{
+"</caption>"						{
 							printf("CAPTIONE\n");
 							return CAPTIONE;	
 							}
 							
-"<th>"						{
+"<th>"							{
 							printf("TH\n");
 							return TH;	
 							}
 							
-"</th>"						{
+"</th>"							{
 							printf("THE\n");
 							return THE;	
 							}
 							
-"<tr>"						{
+"<tr>"							{
 							printf("TR\n");
 							return TR;	
 							}
 							
-"</tr>"						{
+"</tr>"							{
 							printf("TRE\n");
 							return TRE;	
 							}
 							
-"<td>"						{
+"<td>"							{
 							printf("TD\n");
 							return TD;	
 							}
 							
-"</td>"						{
+"</td>"							{
 							printf("TDE\n");
 							return TDE;	
 							}
 							
-{text}						{
+{text}							{
 							printf("%s\n",yytext);
-							yylval.s = malloc(2000);
+							yylval.s = (char *)malloc(sizeof(yytext));
 							yylval.s = strdup(yytext);
 							return TEXT;
 							}
 
-{greek}						{
+{greek}							{
 							printf("GREEK\n");
-							yylval.s = malloc(2000);
+							yylval.s = (char *)malloc(sizeof(yytext));
 							yylval.s = strdup(yytext);
 							return GREEK;
 							}
 
-"<!--"[ ]*					{BEGIN comment;}
+"<!--"[ ]*						{BEGIN comment;}
 
 <comment>{
 
-		[ \t\n]*({text}|{greek}|"<"|">")*[ \n\t]*"-->"	   { 
-													    char *ss=yytext;
-														int len=strlen(ss);
-														char sc[len+1];
-														for(int i=0;i<=len-3;i++)
-														sc[i]=ss[i];
-														sc[len-3]='\0';
-														printf("COMMENT\n");
-														//printf("COMMENT STARTS ::  %s  :: COMMENT ENDS\n",yytext);
-														yylval.s = malloc(2000);
-														yylval.s = strdup(sc);
-					       								BEGIN 0;
-					       								return COMMENT;
-														}
-																									
-}
+			[ \t\n]*({text}|{greek}|"<"|">")*[ \n\t]*"-->"			{ 
+											char *ss=yytext;
+											int len=strlen(ss);
+											char sc[len+1];
+											for(int i=0;i<=len-3;i++)
+											sc[i]=ss[i];
+											sc[len-3]='\0';
+											printf("COMMENT\n");
+											yylval.s = (char *)malloc(sizeof(yytext));
+											yylval.s = strdup(sc);
+											BEGIN 0;
+											return COMMENT;
+											}
+																										
+	}
 														
-
-
-										
-
+"<!Doc"[^>]*">"						;
 
 .							;
 

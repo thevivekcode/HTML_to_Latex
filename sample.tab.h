@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_Y_TAB_H_INCLUDED
-# define YY_YY_Y_TAB_H_INCLUDED
+#ifndef YY_YY_SAMPLE_TAB_H_INCLUDED
+# define YY_YY_SAMPLE_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -131,103 +131,18 @@ extern int yydebug;
     IMGFIGCAPTION = 341
   };
 #endif
-/* Tokens.  */
-#define HTML 258
-#define HTMLE 259
-#define HEAD 260
-#define HEADE 261
-#define A 262
-#define BODY 263
-#define BODYE 264
-#define TITLE 265
-#define TITLEE 266
-#define FONT 267
-#define AE 268
-#define FONTE 269
-#define CENTER 270
-#define CENTERE 271
-#define BR 272
-#define P 273
-#define PE 274
-#define H1 275
-#define H1E 276
-#define H2 277
-#define H2E 278
-#define H3 279
-#define H3E 280
-#define H4 281
-#define H4E 282
-#define UL 283
-#define ULE 284
-#define DL 285
-#define DLE 286
-#define DT 287
-#define DTE 288
-#define DD 289
-#define DDE 290
-#define DIV 291
-#define DIVE 292
-#define U 293
-#define UE 294
-#define B 295
-#define BE 296
-#define I 297
-#define IE 298
-#define EM 299
-#define EME 300
-#define TT 301
-#define TTE 302
-#define STRONG 303
-#define STRONGE 304
-#define SMALL 305
-#define SMALLE 306
-#define SUB 307
-#define SUBE 308
-#define SUP 309
-#define SUPE 310
-#define TABLE 311
-#define TABLEE 312
-#define CAPTION 313
-#define TH 314
-#define CAPTIONE 315
-#define THE 316
-#define TR 317
-#define TRE 318
-#define TD 319
-#define TDE 320
-#define LI 321
-#define LIE 322
-#define OL 323
-#define OLE 324
-#define IMG 325
-#define TEXT 326
-#define GREEK 327
-#define HREF 328
-#define SIZE 329
-#define IMGSRC 330
-#define IMGWIDTH 331
-#define IMGHEIGHT 332
-#define FIGURE 333
-#define FIGUREE 334
-#define FIGCAPTION 335
-#define FIGCAPTIONE 336
-#define BORDER 337
-#define ATITLE 338
-#define ANAME 339
-#define COMMENT 340
-#define IMGFIGCAPTION 341
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 
 union YYSTYPE
 {
-#line 14 "sample.y" /* yacc.c:1909  */
+#line 12 "sample.y" /* yacc.c:1909  */
 
 char *s;
 
 
-#line 231 "y.tab.h" /* yacc.c:1909  */
+#line 146 "sample.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -240,4 +155,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_Y_TAB_H_INCLUDED  */
+#endif /* !YY_YY_SAMPLE_TAB_H_INCLUDED  */
