@@ -61,29 +61,26 @@ doc_start 	: HTML content_head content_body HTMLE 						{
 			
 			
 
-content_head	:	HEAD content_head content_title HEADE 					{
+content_head	:	HEAD text content_title HEADE 						{
 												char *s=(char *)malloc(6000);
 												strcpy(s,$2);
 												strcat(s,"\n");
 												strcat(s,$3);
 												$$=s;
 												}
+		|										{$$=(char *)"";}
 																
-		|	text                                   					{
-												char *s=(char *)malloc(6000);
-												strcpy(s,$1);
-												$$=s;
-												}
 		;
 			
 			
 			
 
-content_title	:	TITLE TEXT TITLEE 							{
+content_title	:	TITLE text TITLEE 							{
 												char *s=(char *)malloc(6000);
 												strcpy(s,$2);
 												$$=s;
 												}
+		| 										{$$=(char *)"";}
 		;
 				
 				
