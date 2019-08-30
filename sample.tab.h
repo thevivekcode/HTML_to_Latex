@@ -137,10 +137,10 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 12 "sample.y" /* yacc.c:1909  */
+#line 14 "sample.y" /* yacc.c:1909  */
 
 char *s;
-
+struct node *node;
 
 #line 146 "sample.tab.h" /* yacc.c:1909  */
 };
