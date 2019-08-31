@@ -36,10 +36,9 @@ struct node *node;
 %token	<s>	IMGSRC		IMGWIDTH	IMGHEIGHT	FIGURE				
 %token	<s>	FIGUREE 	FIGCAPTION 	FIGCAPTIONE	BORDER
 %token 	<s>	ATITLE		ANAME		COMMENT		IMGFIGCAPTION
+	
 
-
-
-%type	<node>	doc_start	content_head	content_title	content_body	alltags	text
+%type	<node>	doc_start	content_head	content_title	content_body	alltags	text	a_tag	a_attr
 	
 		
 	
@@ -56,10 +55,6 @@ doc_start 	:	HTML content_head content_body HTMLE 					{
 												root->nodetype=HTML_H;
 												addchildren(root,$2);
 												addchildren(root,$3);
-												
-												//cout<<$$->children[0]->children[0]->data<<endl;
-												//cout<<$$->children[0]->children[1]->data<<endl;
-												//cout<<$$->children[1]->children[0]->children[1]->nodetype<<endl;
 												}
 		;
 			
@@ -82,9 +77,9 @@ content_head	:	HEAD text content_title HEADE 						{
 			
 
 content_title	:	TITLE text TITLEE 							{
-												$$=makenode();
+												$$=makenode($2->data);
 												$$->nodetype=TITLE_H;
-												addchildren($$,$2);
+												
 												}
 		|										{
 												$$=makenode("");
@@ -114,12 +109,9 @@ alltags 	:	alltags	P alltags  PE  text						{
 												struct node* temp=makenode();
 												temp->nodetype=P_H;
 												addchildren(temp,$3);
-												if($1->data!="")
 												addchildren($$,$1);
 												addchildren($$,temp);
-												if($5->data!="")
 												addchildren($$,$5);
-
 												}
 												
 		|	alltags	CENTER alltags CENTERE text					{
@@ -128,16 +120,290 @@ alltags 	:	alltags	P alltags  PE  text						{
 												struct node* temp=makenode();
 												temp->nodetype=CENTER_H;
 												addchildren(temp,$3);
-												if($1->data!="")
 												addchildren($$,$1);
 												addchildren($$,temp);
-												if($5->data!="")
 												addchildren($$,$5);
-												//cout<<"altags CE"<<endl;
-												//cout<<$$->children[0]->data<<endl;
-												//cout<<$$->children[1]->nodetype<<endl;
+												}
+		|	 alltags	 H1 alltags  H1E text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=H1_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+
+		|	 alltags	 H2 alltags  H2E text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=H2_H;
+												addchildren(temp,$3);
+												
+												addchildren($$,$1);
+												addchildren($$,temp);
+												
+												addchildren($$,$5);
+												}
+
+		|	 alltags	 H3 alltags  H3E text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=H3_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+		|	 alltags	 H4 alltags  H4E text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=H4_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+		
+		|	 alltags	 a_tag text						{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=ALLTAG;
+												addchildren(temp,$2);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$3);
+												}
+									
+
+		|	 alltags	 FONT SIZE alltags  FONTE text				{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode($3);
+												temp->nodetype=FONT_H;
+												addchildren(temp,$4);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$6);
+												}
+												
+		|	 alltags	 U alltags  UE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=U_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+																
+		|	 alltags	 B alltags  BE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=B_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+																
+		|	 alltags	 I alltags  IE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=I_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+												
+		
+		|	 alltags	 EM alltags  EME text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=EM_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+																	
+		|	 alltags	 TT alltags  TTE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=TT_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}	
+																														
+		|	 alltags	 STRONG alltags  STRONGE text				{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=STRONG_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+
+		|	 alltags	 SMALL alltags  SMALLE text				{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=SMALL_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+												
+		|	 alltags	 SUB alltags  SUBE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=SUB_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+																
+		|	 alltags	 SUP alltags  SUPE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=SUP_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+												
+		
+																
+		|	 alltags	 DIV alltags  DIVE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=DIV_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+
+		|	 alltags	 UL alltags  ULE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=UL_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+																
+		|	 alltags	 LI alltags  LIE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=LI_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+
+		|	 alltags	 OL alltags  OLE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=OL_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+				
+		|	 alltags	 DL alltags  DLE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=DL_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+				
+		|	 alltags	 DT alltags  DTE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=DT_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+
+		|	alltags		DD alltags  DDE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=DD_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+												
+		|	alltags	FIGURE alltags  FIGUREE text					{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=FIG_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+															
+		|	alltags	FIGCAPTION alltags  FIGCAPTIONE text				{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=FIGC_H;
+												addchildren(temp,$3);
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$5);
+												}
+												
+		|	 alltags	 BR   text						{           
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode("");
+												temp->nodetype=BR_H;
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$3);
 												
 												}
+
 					
 		|	text 									{
 												$$=makenode($1->data);
@@ -147,8 +413,52 @@ alltags 	:	alltags	P alltags  PE  text						{
 				
 			   									
 		;
+		
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+a_tag		:	A a_attr alltags AE							{ 
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode($2->data);
+												temp->nodetype=A_H;
+												struct node* temp2=makenode($3->data);
+												temp2->nodetype=A_L;
+												addchildren($$,temp);
+												addchildren($$,temp2);
+												}
+
+a_attr		:	a_attr	HREF								{ 
+												string s;
+												s = $1->data + $2;
+												$$=makenode(s);
+												$$->nodetype=DATA_H;
+												}
+
+		|	a_attr	ATITLE								{ 
+												string s;
+												s = $1->data + "";
+												$$=makenode(s);
+												$$->nodetype=DATA_H;
+												}
+
+		|	a_attr	ANAME								{ 
+												string s;
+												s = $1->data + "";
+												$$=makenode(s);
+												$$->nodetype=DATA_H;
+												}
+
+					
+		|										{$$=makenode("");
+												$$->nodetype=DATA_H;}
+
+
+
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 text		:	text TEXT  								{

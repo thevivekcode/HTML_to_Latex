@@ -342,7 +342,7 @@ alltags 	:	 alltags	P alltags  PE  text					{
 												$$=s;
 												}
 
-		|	alltags	DD alltags  DDE text						{
+		|	alltags		DD alltags  DDE text						{
 												char *s= (char *)malloc(6000);
 												strcpy(s,$1);
 												strcat(s,"\n");
