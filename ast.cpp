@@ -12,7 +12,7 @@ using namespace std;
 string s="";
 map <int ,string > mymap
 {
-{0,"\\documentclass{article}\n\\usepackage{hyperref}\n\\usepackage{comment}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage{enumitem}\n\\usepackage{graphicx}"},
+{0,"\\documentclass{article}\n\\usepackage{hyperref}\n\\usepackage{comment}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage{enumitem}\n\\usepackage{graphicx}\n"},
 {1,""},
 {2,"\\title{"},
 {3,"\\begin{document}\n"},
