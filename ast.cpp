@@ -15,7 +15,7 @@ map <int ,string > mymap
 {0,"\\documentclass{article}\n\\usepackage{hyperref}\n\\usepackage{comment}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage{enumitem}\n\\usepackage{graphicx}\n"},
 {1,""},
 {2,"\\title{"},
-{3,"\\begin{document}\n"},
+{3,"\\begin{document}\n\\maketitle\n"},
 {4,"\\par "},
 {5,"\\begin{center}"},
 {7,""},
