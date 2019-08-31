@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.8.8)  31 AUG 2019 17:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.8.8)  31 AUG 2019 22:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -557,19 +557,78 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-
-LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <40> not available
-(Font)              size <35.83> substituted on input line 11.
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 17.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 17.
+Excluding 'comment' comment.
 ! Undefined control sequence.
-<recently read> \textt 
-                       
-l.17 ...xtit{ Italics text }\emph{ EM data }\textt
-                                                  { TT data }\textbf{ STRONG...
+l.41 \par \textt
+                {Alpha}: \ \Alpha \  , \ \Gamma \ \ \Theta \ \ \Xi \ \ \Pi \
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.41 \par \textt{Alpha}: \ \Alpha
+                                  \  , \ \Gamma \ \ \Theta \ \ \Xi \ \ \Pi \
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.41 \par \textt{Alpha}: \ \Alpha \  , \ \Gamma
+                                                \ \ \Theta \ \ \Xi \ \ \Pi \
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 41.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 41.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.42 \subsection
+                {LaTeX chars}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.43 \par { } _
+                ^ @ $ \ % ~ #
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing { inserted.
+<to be read again> 
+                   ^
+l.43 \par { } _ ^
+                  @ $ \ % ~ #
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.43 \par { } _ ^ @ $
+                      \ % ~ #
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+Excluding 'comment' comment.
+! Undefined control sequence.
+l.54 ...bf{lectus} id velit aliquet semper. \textt
+                                                  {Proin vitae} erat. Duis m...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -578,12 +637,34 @@ and I'll forget about whatever was undefined.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 17.
+(Font)              size <5> substituted on input line 55.
+
+
+LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <1> not available
+(Font)              size <5> substituted on input line 55.
+
+
+Package hyperref Warning: Suppressing empty link on input line 56.
+
+Excluding 'comment' comment. [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] <marley.jpg, id=78, 200.75
+pt x 171.64125pt>
+File: marley.jpg Graphic file (type jpg)
+ <use marley.jpg>
+Package pdftex.def Info: marley.jpg used on input line 63.
+(pdftex.def)             Requested size: 200.7495pt x 171.64081pt.
+
+<logo.png, id=79, 277.035pt x 110.4125pt>
+File: logo.png Graphic file (type png)
+ <use logo.png>
+Package pdftex.def Info: logo.png used on input line 64.
+(pdftex.def)             Requested size: 277.03432pt x 110.41222pt.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.18 \par H_
+l.67 \par H_
             {2}O, E = mc^{2}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -591,68 +672,68 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.19 \subsubsection
-                   {This is a heading in a div element}
+l.68 \section
+             {Hyperlinks}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 19.
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 22.
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 33.
+[2 <./marley.jpg> <./logo.png>]
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 80.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 35.
- [1
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 92.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 92.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 103.
+ [3]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 103.
  (./output.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 35.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 103.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 103.
 Package rerunfilecheck Info: File `output.out' has not changed.
-(rerunfilecheck)             Checksum: 2E1DC6499487D02F2C1BEC784E3047F1;312.
+(rerunfilecheck)             Checksum: 8573340204601BCD12EF17365924BAA6;807.
 
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 4.17pt have occurred.
+(Font)              up to 4.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 103.
  ) 
 Here is how much of TeX's memory you used:
- 5913 strings out of 494910
- 85566 string characters out of 6179837
- 164006 words of memory out of 5000000
- 9152 multiletter control sequences out of 15000+600000
- 13633 words of font info for 27 fonts, out of 8000000 for 9000
+ 5948 strings out of 494910
+ 85935 string characters out of 6179837
+ 163010 words of memory out of 5000000
+ 9170 multiletter control sequences out of 15000+600000
+ 13632 words of font info for 27 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 29i,4n,28p,308b,330s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/vivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1000.600pk> </home/v
-ivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </home/vivek/.texmf
--var/fonts/pk/ljfour/jknappen/ec/ecso1000.600pk> </home/vivek/.texmf-var/fonts/
-pk/ljfour/jknappen/ec/ecrm0500.600pk> </home/vivek/.texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecti1000.600pk> </home/vivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/
-ecbx1000.600pk> </home/vivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.60
-0pk> </home/vivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home
-/vivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm3583.600pk> </home/vivek/.tex
-mf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb>
-Output written on output.pdf (1 page, 78219 bytes).
+ 29i,4n,28p,308b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{img} has been referenced but does not exist, repl
+aced by a fixed one
+
+ </home/vivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1000.600pk> </home/viv
+ek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </home/vivek/.texmf-v
+ar/fonts/pk/ljfour/jknappen/ec/ecso1000.600pk> </home/vivek/.texmf-var/fonts/pk
+/ljfour/jknappen/ec/ecrm0500.600pk> </home/vivek/.texmf-var/fonts/pk/ljfour/jkn
+appen/ec/ecbx1000.600pk> </home/vivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
+ti1000.600pk> </home/vivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600p
+k> </home/vivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/v
+ivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/vivek/.texmf
+-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb>
+Output written on output.pdf (3 pages, 124252 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 363 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -455,9 +455,7 @@ a_attr		:	a_attr	HREF								{
 
 img_tag		:	IMG	img_attr 							{ 
 												char *s=(char *)malloc(6000);
-												strcpy(s,$2);									
-												//strcat(s,"\n");
-												//strcat(s,$3);
+												strcpy(s,$2);							
 												$$=s;
 												}
 

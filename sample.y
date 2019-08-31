@@ -38,7 +38,7 @@ struct node *node;
 %token 	<s>	ATITLE		ANAME		COMMENT		IMGFIGCAPTION
 	
 
-%type	<node>	doc_start	content_head	content_title	content_body	alltags	text	a_tag	a_attr
+%type	<node>	doc_start	content_head	content_title	content_body	alltags	text	a_tag	a_attr img_tag img_attr
 	
 		
 	
@@ -50,7 +50,7 @@ struct node *node;
 
 */
 doc_start 	:	HTML content_head content_body HTMLE 					{
-												cout<<"------------------GRAMMAR-----------------"<<endl;
+												cout<<"\n\n------------------GRAMMAR-----------------\n\n"<<endl;
 												root=makenode();
 												root->nodetype=HTML_H;
 												addchildren(root,$2);
@@ -392,6 +392,42 @@ alltags 	:	alltags	P alltags  PE  text						{
 												addchildren($$,temp);
 												addchildren($$,$5);
 												}
+		|	alltags img_tag text							{
+											$$=makenode();
+											$$->nodetype=ALLTAG;
+											struct node* temp=makenode();
+											temp->nodetype=IMG_H;
+											for(int i=0;i<$2->attribute.size();i++){
+											temp->attribute.push_back(make_pair($2->attribute[i].first,$2->attribute[i].second));
+												//cout<<"###########################################################"<<endl;
+											//cout<<temp->attribute[i].first <<"  "<< temp->attribute[i].second <<endl;
+								}
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$3);
+									
+												}
+
+		|	 alltags	GREEK	text						{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode($2);
+												temp->nodetype=GREEK_H;
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$3);
+												}
+												
+		|	 alltags	COMMENT	text						{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode($2);
+												temp->nodetype=COMMENT_H;
+												addchildren($$,$1);
+												addchildren($$,temp);
+												addchildren($$,$3);
+												}										
+		
 												
 		|	 alltags	 BR   text						{           
 												$$=makenode();
@@ -401,7 +437,6 @@ alltags 	:	alltags	P alltags  PE  text						{
 												addchildren($$,$1);
 												addchildren($$,temp);
 												addchildren($$,$3);
-												
 												}
 
 					
@@ -453,7 +488,36 @@ a_attr		:	a_attr	HREF								{
 		|										{$$=makenode("");
 												$$->nodetype=DATA_H;}
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+img_tag		:	IMG	img_attr 				{ 
+									$$=makenode();
+									$$->nodetype=IMG_H;
+									for(int i=0;i<$2->attribute.size();i++){
+									$$->attribute.push_back(make_pair($2->attribute[i].first,$2->attribute[i].second));
+									//cout<<"###########################################################"<<endl;
+									//cout<<$$->attribute[i].first <<"  "<< $$->attribute[i].second <<endl;
+									}
+									}
+
+												
+
+img_attr	:	img_attr	IMGSRC							{ 
+												$$->attribute.push_back(make_pair("src",$2));
+												}
+
+		|	img_attr	IMGWIDTH						{ 
+												$$->attribute.push_back(make_pair("width",$2));
+												}
+
+		|	img_attr	IMGHEIGHT						{ 
+												$$->attribute.push_back(make_pair("height",$2));
+												}
+		|										{
+												
+												
+												}
+		;
 
 
 

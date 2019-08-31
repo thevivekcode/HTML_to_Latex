@@ -33,7 +33,7 @@ map <int ,string > mymap
 {19,"\\emph{"},
 {20,"\\textt{"},
 {21,"\\textbf{"},
-{22,"{\\fontsize{4}{5}\\selectfont"},
+{22,"{\\fontsize{4}{5}\\selectfont  "},
 {23,"_{"},
 {24,"^{"},
 {25,""},
@@ -44,7 +44,10 @@ map <int ,string > mymap
 {30,"\\item["},
 {31,""},
 {32,"\\begin{figure}\n"},
-{33,"\\caption{"}
+{33,"\\caption{"},
+{34,"\\ "},
+{35,"\n\\begin{comment}\n"},
+{36,"\\includegraphics"}
 };
 
 map <int ,string > mymape
@@ -81,7 +84,10 @@ map <int ,string > mymape
 {30,"]"},
 {31,""},
 {32,"\\end{figure}\n"},
-{33,"}\n"}
+{33,"}\n"},
+{34,"\\ "},
+{35,"\n\\end{comment}\n"},
+{36,""}
 };
 
 
@@ -152,7 +158,7 @@ void traverse(node *root)
 	else if(root->nodetype==14) //FONT_H
 	{
 	 s=s+mymap[root->nodetype];
-	 s=s+root->data+"}"+"{"+to_string((int)(1.2*(stoi(root->data))))+"}"+"\\selectfont";
+	 s=s+root->data+"}"+"{"+to_string((int)(1.2*(stoi(root->data))))+"}"+"\\selectfont  ";
 	}
 	else if(root->nodetype==15) //U
 	{
@@ -238,8 +244,47 @@ void traverse(node *root)
 	else if(root->nodetype==33) //OL_H
 	{
 	s=s+mymap[root->nodetype];
-	
 	}
+	else if(root->nodetype==34) //GREEK_H
+	{
+	s=s+mymap[root->nodetype];
+	int len=root->data.length();
+	s=s+"\\"+root->data.substr(1,len-2)+" ";
+	}
+	else if(root->nodetype==35) //COMMENT_H
+	{
+	s=s+mymap[root->nodetype];
+	s=s+root->data;
+	}
+	else if(root->nodetype==36) //IMG_H
+	{
+	string attr1="";
+	string attr2="";
+	s=s+mymap[root->nodetype];
+
+	for(int i=root->attribute.size()-1;i>=0;i--)
+	{
+
+	if(root->attribute[i].first=="height" && attr1=="")
+	attr1=attr1+"["+"height"+"="+root->attribute[i].second+"cm";
+	else if(root->attribute[i].first=="height")
+	attr1=attr1+","+"height"+"="+root->attribute[i].second+"cm";
+
+	if(root->attribute[i].first=="width" && attr1=="")
+	attr1=attr1+"["+"width"+"="+root->attribute[i].second+"cm";
+	else if(root->attribute[i].first=="width")
+	attr1=attr1+","+"width"+"="+root->attribute[i].second+"cm";
+
+	if(root->attribute[i].first=="src")
+	attr2="{"+root->attribute[i].second +"}";
+	}
+	if(attr1!="")
+	s=s+attr1+"]"+attr2;
+	else 
+	s=s+attr2;
+	}
+	
+	
 		
 	else
 	  s=s+mymap[root->nodetype];
