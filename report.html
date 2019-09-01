@@ -1,0 +1,68 @@
+<html>
+<head><title> COP 701  HTML to LaTeX Converter 2019MCS2574</title>
+</head>
+
+<body>
+
+<h1> Details of lex and yacc operations : </h1>
+<h2> LEX file</h2>
+<ul>
+<li> Have used <b>flex</b> as tool for scanning the HTML file and generating tokens. </li>
+<li> The <b> lexer.l </b> file contains the code for lex operations. </li>
+<li> The lex file uses <b>caseless option</b> to tackle the case insenstivity of HTML. Have defined <b>spac, special, word, text & greek</b> type of regex to store information in tags. Some tags have attributes in it hence seperate tokens are generated for each attribute e.g for <b>a: name, src, title</b> etc. All HTML tags are tokenized passes to yacc file.</li>
+</ul>
+
+<h2> YACC file </h2>
+
+<ul>
+<li> Have used <b>Bison</b> for parsing the file and creating equivalent LaTeX document. </li>
+<li> The <b> parser.y </b> file contains the code for yacc operations. </li>
+<li> Yacc file returns an AST to <b> ast.cpp </b> file. Yacc file uses union of char* s and struct node as types of each non terminals. Tokens are used as terminals.</li>
+<li> Yacc file contains <b>Context free grammar (CFG)</b> for rule definition.</li>
+<li> ast.h file is included which contains information about structure of AST node. Function <b>makenode()</b> is used to create a new node. Function <b>addchildren()</b> takes two node pointer as argument and makes second node as child of first node. Root is assigned to <b>doc_start</b> which is starting production in grammar. </li>
+</ul>
+
+<h1> AST structure </h1>
+
+<ul>
+<li> AST structure is defined in <b> ast.h file.</b></li>
+<li> AST structure contains following in each node</li>
+<ol>
+	<li> <b>nodetype</b> to store the type of node which will help in recognition of each node.</li>
+	<li> <b>string data</b> to store the data </li>
+	<li> <b>vector children</b> , stores node which is used as children in Abstract Syntax tree. </li>
+	<li> <b>vector attribute</b> , is used to store attributes of HTML tags, in pair wise mapping. </li>
+	<li> <b>vector tdata </b> , to store list of information of a node .</li>
+	</ol>
+</ul>
+
+<h1> Translating the AST </h1>
+
+<ul>
+<li> After successful creation of AST from Grammar rules of yacc file we traverse the AST .</li>
+<li> Each Html tag data is stored in node with a nodetype for recognition while traversing AST.</li>
+<li> Tree traversal is DFS type traveral i.e from left to right. </li>
+<li> Mapping from each html node is done to equivalent LaTeX tags using a start map and end map for each AST node. </li>
+</ul>
+
+<h1> Programming Language used </h1>
+<ul>
+<li> <b>C++ 11</b> is used for compiling lex and yacc file </li>
+<li> <b>Flex</b> is used for lex operations. </li>
+<li> <b>Bison</b> is used for yacc operations. </li>
+<li> <b>lexer.l</b> is LEX file</li>
+<li> <b>parser.y</b> is YACC file.</li>
+<li> <b>ast.h</b> is header file </li>
+<li> <b>ast.cpp</b> contains main function for tree traversal and conversion.</li>
+<li> <b>run.sh</b> is shell file that takes two argument. First input Second output.</li>
+</ul>
+
+
+
+
+
+
+</body>
+</html>
+
+
