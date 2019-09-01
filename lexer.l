@@ -661,17 +661,9 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 <comment>{
 
 			[ \t\n]*({text}|{greek}|"<"|">")*[ \n\t]*"-->"			{ 
-											char *ss=yytext;
-											int len=strlen(ss);
-											char sc[len+1];
-											for(int i=0;i<=len-3;i++)
-											sc[i]=ss[i];
-											sc[len-3]='\0';
-											////printf("COMMENT\n");
-											yylval.s = (char *)malloc(sizeof(yytext));
-											yylval.s = strdup(sc);
-											BEGIN 0;
-											return COMMENT;
+											
+											BEGIN(INITIAL);
+											
 											}
 																										
 	}
@@ -680,9 +672,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 														
 "<meta"[^>]*">"						;
 
-.							{yylval.s = (char *)malloc(sizeof(yytext));
-							yylval.s = strdup(yytext);
-							return TEXT;}
+
 
 
 

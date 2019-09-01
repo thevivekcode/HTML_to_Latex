@@ -38,7 +38,7 @@ struct node *node;
 %token	<s>	TEXT		GREEK		HREF		SIZE		
 %token	<s>	IMGSRC		IMGWIDTH	IMGHEIGHT	FIGURE				
 %token	<s>	FIGUREE 	FIGCAPTION 	FIGCAPTIONE	BORDER
-%token 	<s>	ATITLE		ANAME		COMMENT		IMGFIGCAPTION
+%token 	<s>	ATITLE		ANAME				IMGFIGCAPTION
 	
 %type	<s>	table_border	table_caption
 %type	<node>	doc_start	content_head	content_title	content_body		alltags	
@@ -435,15 +435,7 @@ alltags 	:	alltags	P alltags  PE  text						{
 												addchildren($$,$3);
 												}
 												
-		|	 alltags	COMMENT	text						{
-												$$=makenode();
-												$$->nodetype=ALLTAG;
-												struct node* temp=makenode($2);
-												temp->nodetype=COMMENT_H;
-												addchildren($$,$1);
-												addchildren($$,temp);
-												addchildren($$,$3);
-												}										
+										
 		
 												
 		|	 alltags	 BR   text						{           

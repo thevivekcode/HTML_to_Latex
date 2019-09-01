@@ -7,9 +7,9 @@
 <h1> Details of lex and yacc operations : </h1>
 <h2> LEX file</h2>
 <ul>
-<li> Have used <b>flex</b> as tool for scanning the HTML file and generating tokens. </li>
+<li> Have used <b>flex</b> as a tool for scanning the HTML file and generating tokens. </li>
 <li> The <b> lexer.l </b> file contains the code for lex operations. </li>
-<li> The lex file uses <b>caseless option</b> to tackle the case insenstivity of HTML. Have defined <b>spac, special, word, text & greek</b> type of regex to store information in tags. Some tags have attributes in it hence seperate tokens are generated for each attribute e.g for <b>a: name, src, title</b> etc. All HTML tags are tokenized passes to yacc file.</li>
+<li> The lex file uses <b>caseless option</b> to tackle the case insensitivity of HTML. Have defined <b>spac, special words, text & greek</b> type of regex to store information in tags. Some tags have attributes in it hence separate tokens are generated for each attribute e.g for <b>a: name, src, title</b> etc. All HTML tags are tokenized passes to yacc file.</li>
 </ul>
 
 <h2> YACC file </h2>
@@ -19,7 +19,7 @@
 <li> The <b> parser.y </b> file contains the code for yacc operations. </li>
 <li> Yacc file returns an AST to <b> ast.cpp </b> file. Yacc file uses union of char* s and struct node as types of each non terminals. Tokens are used as terminals.</li>
 <li> Yacc file contains <b>Context free grammar (CFG)</b> for rule definition.</li>
-<li> ast.h file is included which contains information about structure of AST node. Function <b>makenode()</b> is used to create a new node. Function <b>addchildren()</b> takes two node pointer as argument and makes second node as child of first node. Root is assigned to <b>doc_start</b> which is starting production in grammar. </li>
+<li> ast.h file is included which contains information about the structure of AST node. Function <b>makenode()</b> is used to create a new node. Function <b>addchildren()</b> takes two node pointer as argument and makes second node as a child of the first node. Root is assigned to <b>doc_start</b> which is starting production in grammar. </li>
 </ul>
 
 <h1> AST structure </h1>
@@ -54,7 +54,7 @@
 <li> <b>parser.y</b> is YACC file.</li>
 <li> <b>ast.h</b> is header file </li>
 <li> <b>ast.cpp</b> contains main function for tree traversal and conversion.</li>
-<li> <b>run.sh</b> is shell file that takes two argument. First input Second output.</li>
+<li> <b>run.sh</b> is shell file that takes two arguments. First input Second output.</li>
 </ul>
 
 
@@ -64,5 +64,7 @@
 
 </body>
 </html>
+
+
 
 
