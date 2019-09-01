@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include<string.h>
-#include "sample.tab.h"
+#include "parser.tab.h"
 
 %}
 
@@ -77,7 +77,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 
 <img_tag>{
 
-			[ ]*"src=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]* 			{
+			[ ]*"src=\""([ =#.:_/]|[a-zA-Z0-9])*"\""[ ]* 			{
 											
 											char *ss =yytext;
 											int length=strlen(ss);
@@ -90,7 +90,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 											return IMGSRC;
 
 											}
-			[ ]*"src=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]* 			{
+			[ ]*"src=\'"([ =#.:_/]|[a-zA-Z0-9])*"\'"[ ]* 			{
 											
 											char *ss =yytext;
 											int length=strlen(ss);
@@ -107,7 +107,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 
 <img_tag>{
 		
-			[ ]*"width=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
+			[ ]*"width=\""([ =#.:_/]|[a-zA-Z0-9])*"\""[ ]*			{
 										
 											char *ss =yytext;
 											int length=strlen(ss);
@@ -120,7 +120,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 											return IMGWIDTH;
 											}
 
-			[ ]*"width=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
+			[ ]*"width=\'"([ =#.:_/]|[a-zA-Z0-9])*"\'"[ ]*			{
 										
 											char *ss =yytext;
 											int length=strlen(ss);
@@ -135,7 +135,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 	}
 
 <img_tag>{
-			[ ]*"height=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
+			[ ]*"height=\""([ =#.:_/]|[a-zA-Z0-9])*"\""[ ]*			{
 										
 											char *ss =yytext;
 											int length=strlen(ss);
@@ -147,7 +147,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 											//BEGIN a_tag;
 											return IMGHEIGHT;
 											}
-			[ ]*"height=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
+			[ ]*"height=\'"([ =#.:_/]|[a-zA-Z0-9])*"\'"[ ]*			{
 											char *ss =yytext;
 											int length=strlen(ss);
 											char link[length+5];
@@ -160,7 +160,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 											}
 	}
 
-<img_tag>[ ]*"/>"									{
+<img_tag>[ ]*[ /]?">"									{
 											BEGIN 0;
 											}
 
@@ -174,7 +174,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 
 <a_tag>{
 
-			[ ]*"href=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
+			[ ]*"href=\""([ =#.:_/]|[a-zA-Z0-9])*"\""[ ]*			{
 											
 											char *ss =yytext;
 											int length=strlen(ss);
@@ -187,7 +187,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 											return HREF;
 											}
 
-			[ ]*"href=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
+			[ ]*"href=\'"([ =#.:_/]|[a-zA-Z0-9])*"\'"[ ]*			{
 											
 											char *ss =yytext;
 											int length=strlen(ss);
@@ -203,7 +203,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 	}
 
 <a_tag>{
-			[ ]*"title=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
+			[ ]*"title=\""([ =#.:_/]|[a-zA-Z0-9])*"\""[ ]*			{
 											char *ss =yytext;
 											int length=strlen(ss);
 											char link[length+5];
@@ -215,7 +215,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 											return ATITLE;
 											}
 			
-			[ ]*"title=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
+			[ ]*"title=\'"([ =#.:_/]|[a-zA-Z0-9])*"\'"[ ]*			{
 											char *ss =yytext;
 											int length=strlen(ss);
 											char link[length+5];
@@ -229,7 +229,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 	}
 
 <a_tag>{
-			[ ]*"name=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
+			[ ]*"name=\""([ =#.:_/]|[a-zA-Z0-9])*"\""[ ]*			{
 											char *ss =yytext;
 											int length=strlen(ss);
 											char link[length+5];
@@ -241,7 +241,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 											return ANAME;
 											}
 			
-			[ ]*"name=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
+			[ ]*"name=\'"([ =#.:_/]|[a-zA-Z0-9])*"\'"[ ]*			{
 											char *ss =yytext;
 											int length=strlen(ss);
 											char link[length+5];
@@ -275,7 +275,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 <table_tag>{
 
 
-       			  [ ]*"border=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]* 		{
+       			  [ ]*"border=\""([ =#.:_/]|[a-zA-Z0-9])*"\""[ ]* 		{
 											char *ss =yytext;
 											int length=strlen(ss);
 											char link[length+5];
@@ -286,7 +286,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 											return BORDER;
 											}
 
-       			  [ ]*"border=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]* 		{
+       			  [ ]*"border=\'"([ =#.:_/]|[a-zA-Z0-9])*"\'"[ ]* 		{
 											char *ss =yytext;
 											int length=strlen(ss);
 											char link[length+5];
@@ -314,7 +314,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 											}
 							
 <font_tag>{
-			[ ]*"size=\""([ =#.:/]|[a-zA-Z0-9])*"\""[ ]*			{
+			[ ]*"size=\""([ =#.:_/]|[a-zA-Z0-9])*"\""[ ]*			{
 											char *ss =yytext;
 											int length=strlen(ss);
 											char link[length+5];
@@ -324,7 +324,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 											yylval.s = strdup(link);
 											return SIZE;
 											}
-			[ ]*"size=\'"([ =#.:/]|[a-zA-Z0-9])*"\'"[ ]*			{
+			[ ]*"size=\'"([ =#.:_/]|[a-zA-Z0-9])*"\'"[ ]*			{
 											char *ss =yytext;
 											int length=strlen(ss);
 											char link[length+5];
@@ -662,7 +662,7 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 											for(int i=0;i<=len-3;i++)
 											sc[i]=ss[i];
 											sc[len-3]='\0';
-											printf("COMMENT\n");
+											//printf("COMMENT\n");
 											yylval.s = (char *)malloc(sizeof(yytext));
 											yylval.s = strdup(sc);
 											BEGIN 0;
@@ -672,8 +672,12 @@ text			(({word}|{spac})+[\n]*)*({word}|{spac})+
 	}
 														
 "<!Doc"[^>]*">"						;
+														
+"<meta"[^>]*">"						;
 
-.							;
+.							{yylval.s = (char *)malloc(sizeof(yytext));
+							yylval.s = strdup(yytext);
+							return TEXT;}
 
 
 

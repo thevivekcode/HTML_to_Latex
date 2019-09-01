@@ -11,7 +11,7 @@ enum AST_Node_Type
 	BR_H,		EM_H,		TT_H,		STRONG_H,	SMALL_H,	SUB_H,
 	SUP_H,		DIV_H,		UL_H,		LI_H,		OL_H,		DL_H,
 	DT_H,		DD_H,		FIG_H,		FIGC_H,		GREEK_H,	COMMENT_H,
-	IMG_H
+	IMG_H,		TABLE_H,	TABLE_D,	T_T,		TR_D
 };
 
 
@@ -21,6 +21,7 @@ AST_Node_Type nodetype;
 string data;
 vector<node*> children;
 vector <pair<string,string> > attribute;
+vector <string> tdata;
 }node;
 
 

@@ -1,6 +1,6 @@
 %{
 #include<bits/stdc++.h>
-#include "import_file.h"
+#include "ast.h"
 using namespace std;
 void yyerror(const char *);
 FILE *fileout;  
@@ -37,8 +37,8 @@ struct node *node;
 %token	<s>	FIGUREE 	FIGCAPTION 	FIGCAPTIONE	BORDER
 %token 	<s>	ATITLE		ANAME		COMMENT		IMGFIGCAPTION
 	
-
-%type	<node>	doc_start	content_head	content_title	content_body	alltags	text	a_tag	a_attr img_tag img_attr
+%type	<s>	table_border	table_caption
+%type	<node>	doc_start	content_head	content_title	content_body	alltags	text	a_tag	a_attr img_tag img_attr table_tag table_data tr_data
 	
 		
 	
@@ -49,7 +49,7 @@ struct node *node;
                 ********************************************************
 
 */
-doc_start 	:	HTML content_head content_body HTMLE 					{
+doc_start 	:	 HTML content_head content_body HTMLE 					{
 												cout<<"\n\n------------------GRAMMAR-----------------\n\n"<<endl;
 												root=makenode();
 												root->nodetype=HTML_H;
@@ -60,7 +60,7 @@ doc_start 	:	HTML content_head content_body HTMLE 					{
 			
 			
 
-content_head	:	HEAD text content_title HEADE 						{
+content_head	:	  HEAD text content_title HEADE 						{
 												$$=makenode();
 												$$->nodetype=HEAD_H;
 												addchildren($$,$2);
@@ -392,21 +392,31 @@ alltags 	:	alltags	P alltags  PE  text						{
 												addchildren($$,temp);
 												addchildren($$,$5);
 												}
-		|	alltags img_tag text							{
+		|	alltags img_tag text						{
 											$$=makenode();
 											$$->nodetype=ALLTAG;
 											struct node* temp=makenode();
 											temp->nodetype=IMG_H;
-											for(int i=0;i<$2->attribute.size();i++){
+											for(int i=0;i<$2->attribute.size();i++)
+											{
 											temp->attribute.push_back(make_pair($2->attribute[i].first,$2->attribute[i].second));
-												//cout<<"###########################################################"<<endl;
-											//cout<<temp->attribute[i].first <<"  "<< temp->attribute[i].second <<endl;
-								}
+											}
+											addchildren($$,$1);
+											addchildren($$,temp);
+											addchildren($$,$3);
+											}
+
+		|	alltags	table_tag text							{
+												$$=makenode();
+												$$->nodetype=ALLTAG;
+												struct node* temp=makenode();
+												temp->nodetype=ALLTAG;
+												addchildren(temp,$2);
 												addchildren($$,$1);
 												addchildren($$,temp);
 												addchildren($$,$3);
-									
 												}
+
 
 		|	 alltags	GREEK	text						{
 												$$=makenode();
@@ -493,10 +503,9 @@ a_attr		:	a_attr	HREF								{
 img_tag		:	IMG	img_attr 				{ 
 									$$=makenode();
 									$$->nodetype=IMG_H;
-									for(int i=0;i<$2->attribute.size();i++){
+									for(int i=0;i<$2->attribute.size();i++)
+									{
 									$$->attribute.push_back(make_pair($2->attribute[i].first,$2->attribute[i].second));
-									//cout<<"###########################################################"<<endl;
-									//cout<<$$->attribute[i].first <<"  "<< $$->attribute[i].second <<endl;
 									}
 									}
 
@@ -513,13 +522,70 @@ img_attr	:	img_attr	IMGSRC							{
 		|	img_attr	IMGHEIGHT						{ 
 												$$->attribute.push_back(make_pair("height",$2));
 												}
-		|										{
+		|										{}
+		;
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+            /****** TABLE IS HANDLED HERE*******/
+
+table_tag	:	TABLE table_border table_caption table_data TABLEE 						{
+												$$=makenode();
+												$$->nodetype=T_T;
+												addchildren($$,$4);
+												$$->data=$3;
+												if($2 != "")
+												{
+													string sb =string($2);
+													if(sb[0]!='0')
+													{
+														$$->tdata.push_back($2);
+													}
+												}
 												
 												
 												}
+table_border	: BORDER									{$$=$1;}
+		|										{$$=(char *)"";}
+
+table_caption	: 	CAPTION TEXT CAPTIONE							{$$=$2;}
+		|										{$$=(char *)"";}
+														
+
+
+table_data	:	table_data TR tr_data TRE						{$$=makenode();
+												$$->nodetype=TABLE_H;
+												struct node* temp=makenode();
+												temp->nodetype=TABLE_D;
+												for(int i=0;i<$3->tdata.size();i++)
+												{
+												temp->tdata.push_back($3->tdata[i]);
+											
+												}
+												addchildren($$,$1);
+												addchildren($$,temp);
+												
+												
+												}
+
+
+
+		|                             							{$$=makenode();
+												$$->nodetype=ALLTAG;}
+
+tr_data		:	tr_data TH text THE 							{
+												
+												$$->tdata.push_back($3->data);
+												}
+
+		|	tr_data TD text TDE							{
+												
+												$$->tdata.push_back($3->data);
+												}
+
+		|										{$$=makenode();
+												$$->nodetype=TR_D;}
 		;
-
-
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -530,9 +596,9 @@ text		:	text TEXT  								{
 												s = $1->data + $2;
 												$$=makenode(s);
 												$$->nodetype=DATA_H;
-												//cout<<"text data"<<$$->data<<endl;
-											
 												}
+		
+		 
 		
 		|										{
 												$$=makenode("");

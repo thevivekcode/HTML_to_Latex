@@ -1,4 +1,4 @@
-bison -d  sample.y
-flex sample.l
-g++ -std=c++11 lex.yy.c sample.tab.c ast.cpp
-./a.out sample.html output.tex
+bison -d  parser.y
+flex lexer.l
+g++ -std=c++11 lex.yy.c parser.tab.c ast.cpp
+./a.out input.html output.tex

@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include "import_file.h"
+#include "ast.h"
 void yyerror(const char *);
                                                 
 extern FILE *yyin;
@@ -10,6 +10,7 @@ using namespace std;
 
 
 string s="";
+int flag=0,flag2=1,fborder=0;
 map <int ,string > mymap
 {
 {0,"\\documentclass{article}\n\\usepackage{hyperref}\n\\usepackage{comment}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage{enumitem}\n\\usepackage{graphicx}\n"},
@@ -47,7 +48,10 @@ map <int ,string > mymap
 {33,"\\caption{"},
 {34,"\\ "},
 {35,"\n\\begin{comment}\n"},
-{36,"\\includegraphics"}
+{36,"\\includegraphics"},
+{37,"\\begin{tabular}{"},
+{38,""},
+{39,"\\begin{table}\n\\centering\n"}
 };
 
 map <int ,string > mymape
@@ -87,7 +91,61 @@ map <int ,string > mymape
 {33,"}\n"},
 {34,"\\ "},
 {35,"\n\\end{comment}\n"},
-{36,""}
+{36,""},
+{37,""},
+{38,""},
+{39,"\\end{tabular}\n\\end{table}\n"}
+
+};
+
+map <string,string> special
+{
+{"&Alpha;","A"},
+{"&alpha;","\\alpha"},
+{"&Beta;","B"},
+{"&beta;","\\beta"},
+{"&Gamma;","\\Gamma"},
+{"&gamma;","\\gamma"},
+{"&Delta;","\\Delta"},
+{"&delta;","\\delta"},
+{"&Epsilon;","E"},
+{"&epsilon;","\\epsilon"},
+{"&Zeta;","Z"},
+{"&zeta;","zeta"},
+{"&Eta;","H"},
+{"&Theta;","\\Theta"},
+{"&theta;","\\theta"},
+{"&Iota;","I"},
+{"&iota;","i"},
+{"&Kappa;","K"},
+{"&kappa;","kappa"},
+{"&Lambda;","\\Lambda"},
+{"&lambda;","\\lambda"},
+{"&Mu;","M"},
+{"&mu;","\\mu"},
+{"&Nu;","N"},
+{"&nu;","nu"},
+{"&Xi;","\\Xi"},
+{"&xi;","\\xi"},
+{"&Omicron;","O"},
+{"&Pi;","\\Pi"},
+{"&pi;","\\pi"},
+{"&Rho;","P"},
+{"&rho;","\\rho"},
+{"&Sigma;","\\Sigma"},
+{"&sigma;","\\sigma"},
+{"&Tau;","T"},
+{"&tau;","\\tau"},
+{"&Upsilon;","\\Upsilon"},
+{"&upsilon;","\\upsilon"},
+{"&Phi;","\\Phi"},
+{"&phi;","\\phi"},
+{"&Chi;","X"},
+{"&chi;","\\chi"},
+{"&Psi;","\\Psi"},
+{"&psi;","\\psi"},
+{"&Omega;","\\Omega"},
+{"&omega;","\\omega"}
 };
 
 
@@ -114,8 +172,20 @@ void traverse(node *root)
 {
 //cout<<root->nodetype<<endl;
 	 if(root->nodetype==6)// DATA_H
-	{
-		s=s+root->data;
+	{	string sdata="";
+		string rdata=root->data;
+		for(int i=0;i<rdata.length();i++)
+		{
+		if(rdata[i]=='_'||rdata[i]=='#'||rdata[i]=='%'||rdata[i]=='$'||rdata[i]=='&'||rdata[i]=='{'||rdata[i]=='}')
+		sdata=sdata+"\\"+rdata[i];
+		else if(rdata[i]=='~')
+		sdata=sdata+"\\sim";
+		else if(rdata[i]=='^')
+		sdata=sdata+"\\hat{}";
+		else
+		sdata=sdata+rdata[i];
+		}
+		s=s+sdata;
 	}
 
 	else if(root->nodetype==2) //TITLE_H
@@ -248,8 +318,10 @@ void traverse(node *root)
 	else if(root->nodetype==34) //GREEK_H
 	{
 	s=s+mymap[root->nodetype];
-	int len=root->data.length();
-	s=s+"\\"+root->data.substr(1,len-2)+" ";
+	//int len=root->data.length();
+	//s=s+"\\"+root->data.substr(1,len-2)+" ";
+	s=s+special[root->data];
+	cout<<root->data<<"####################"<<endl;
 	}
 	else if(root->nodetype==35) //COMMENT_H
 	{
@@ -266,14 +338,14 @@ void traverse(node *root)
 	{
 
 	if(root->attribute[i].first=="height" && attr1=="")
-	attr1=attr1+"["+"height"+"="+root->attribute[i].second+"cm";
+	attr1=attr1+"["+"height"+"="+root->attribute[i].second+"px";
 	else if(root->attribute[i].first=="height")
-	attr1=attr1+","+"height"+"="+root->attribute[i].second+"cm";
+	attr1=attr1+","+"height"+"="+root->attribute[i].second+"px";
 
 	if(root->attribute[i].first=="width" && attr1=="")
-	attr1=attr1+"["+"width"+"="+root->attribute[i].second+"cm";
+	attr1=attr1+"["+"width"+"="+root->attribute[i].second+"px";
 	else if(root->attribute[i].first=="width")
-	attr1=attr1+","+"width"+"="+root->attribute[i].second+"cm";
+	attr1=attr1+","+"width"+"="+root->attribute[i].second+"px";
 
 	if(root->attribute[i].first=="src")
 	attr2="{"+root->attribute[i].second +"}";
@@ -284,9 +356,70 @@ void traverse(node *root)
 	s=s+attr2;
 	}
 	
+
+
+
+	else if(root->nodetype==37 && flag==0 && fborder==0) //TABLE_H
+	{
+	s=s+mymap[root->nodetype];
+
+	for(int i=0;i<root->children[1]->tdata.size();i++){
+	s=s+"c ";
 	
+	}
+	s=s+""+"}"+"\n";
+	flag=1;
+	}	
+
+	else if(root->nodetype==37 && flag==0 && fborder==1) //TABLE_H
+	{
+	s=s+mymap[root->nodetype];
+
+	for(int i=0;i<root->children[1]->tdata.size();i++){
+	s=s+"|c";
+	
+	}
+	s=s+"|"+"}"+"\n";
+	flag=1;
+	}
+
+	else if(root->nodetype==38 && fborder==0)   //TABLE_D
+	{
+	s=s+mymap[root->nodetype];
+	for(int i=0;i<root->tdata.size()-1;i++){
+	s=s+root->tdata[i]+"  &  ";
+	}
+	s=s+root->tdata[root->tdata.size()-1];
+	s=s+"  \\\\"+"\n";
+	}
+
+	else if(root->nodetype==38 && fborder==1)   //TABLE_D
+	{
+	s=s+mymap[root->nodetype];
+	s=s+"\\hline";
+	for(int i=0;i<root->tdata.size()-1;i++){
+	
+	s=s+root->tdata[i]+"  &  ";
+	}
+	s=s+root->tdata[root->tdata.size()-1];
+	s=s+"  \\\\"+"\n";
+	s=s+"\\hline";
+	}
 		
-	else
+	else if(root->nodetype==39 )
+	{
+	if(root->tdata.size()>0)
+	fborder=1;
+	if(root->data!="")
+	{
+	s=s+mymap[root->nodetype];
+	s=s+"\\caption{"+root->data+"}\n";
+	}
+	//cout<<root->tdata.size()<<"###########################################################"<<fborder<<root->tdata[0]<<endl;
+	}
+
+		
+	else if(root->nodetype!=37)
 	  s=s+mymap[root->nodetype];
 
 	 
@@ -294,7 +427,14 @@ void traverse(node *root)
 						{
 						 traverse(root->children[i]);
 						}
-
+       
+	
+	 if(root->nodetype==39){
+	 s=s+mymape[root->nodetype];
+	 fborder=0;
+	 flag=0;
+	 }
+ 	 else if(root->nodetype!=37)
 	s=s+mymape[root->nodetype];
  
 
@@ -310,7 +450,7 @@ fileout=fopen(argv[2],"w+");
 yyparse(); 
 ofstream fout(argv[2]);
 traverse(root);
-cout<<s;
+//cout<<s;
 fout<<s;                                                          
 
 }

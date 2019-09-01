@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.8.8)  31 AUG 2019 22:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.8.8)  1 SEP 2019 17:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -570,16 +570,7 @@ LaTeX Warning: No \author given.
 Excluding 'comment' comment.
 ! Undefined control sequence.
 l.43 \par \textt
-                {Alpha}: \ \Alpha \  , \ \Gamma \ \ \Theta \ \ \Xi \ \ \Pi \
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.43 \par \textt{Alpha}: \ \Alpha
-                                  \  , \ \Gamma \ \ \Theta \ \ \Xi \ \ \Pi \
+                {Alpha}: \ A\  , \ \Gamma\ \ \Theta\ \ \Xi\ \ \Pi\ \ E\ \ ze...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -589,8 +580,8 @@ and I'll forget about whatever was undefined.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.43 \par \textt{Alpha}: \ \Alpha \  , \ \Gamma
-                                                \ \ \Theta \ \ \Xi \ \ \Pi \
+l.43 \par \textt{Alpha}: \ A\  , \ \Gamma
+                                         \ \ \Theta\ \ \Xi\ \ \Pi\ \ E\ \ ze...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
@@ -609,31 +600,18 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.45 \par { } _
-                ^ @ $ \ % ~ #
+l.45 \par \{ \} \_ \hat
+                       {} @ \$ \ \% \sim \#
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.45 \par { } _ ^
-                  @ $ \ % ~ #
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
+! Missing $ inserted.
 <inserted text> 
-                }
-l.45 \par { } _ ^ @ $
-                      \ % ~ #
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
+                $
+l.46 \section
+             {LaTeX commands in HTML}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
 Excluding 'comment' comment. [1
 
@@ -658,22 +636,92 @@ LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <1> not available
 
 Package hyperref Warning: Suppressing empty link on input line 58.
 
-Excluding 'comment' comment. <marley.jpg, id=76, 200.75pt x 171.64125pt>
+Excluding 'comment' comment. <marley.jpg, id=77, 200.75pt x 171.64125pt>
 File: marley.jpg Graphic file (type jpg)
 
 <use marley.jpg>
 Package pdftex.def Info: marley.jpg used on input line 65.
 (pdftex.def)             Requested size: 200.7495pt x 171.64081pt.
- <logo.png, id=77, 277.035pt x 110.4125pt>
+ <logo.png, id=78, 277.035pt x 110.4125pt>
 File: logo.png Graphic file (type png)
  <use logo.png>
 Package pdftex.def Info: logo.png used on input line 66.
 (pdftex.def)             Requested size: 277.03432pt x 110.41222pt.
 
+! Too many }'s.
+\@endfloatbox ...pagefalse \outer@nobreak \egroup 
+                                                  \color@endbox 
+l.73 \end{table}
+                
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+
+! LaTeX Error: \begin{document} ended by \end{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 \end{table}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.73 \end{table}
+                
+Things are pretty mixed up, but I think the worst is over.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.74 \newline
+             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Too many }'s.
+\@endfloatbox ...pagefalse \outer@nobreak \egroup 
+                                                  \color@endbox 
+l.81 \end{table}
+                
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+
+! LaTeX Error: \begin{document} ended by \end{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 \end{table}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.81 \end{table}
+                
+Things are pretty mixed up, but I think the worst is over.
+
+[2 <./marley.jpg> <./logo.png>]
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.69 \par H_
+l.83 \par H_
             {2}O, E = mc^{2}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -681,47 +729,46 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.70 \section
+l.84 \section
              {Hyperlinks}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-[2 <./marley.jpg> <./logo.png>]
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 82.
-
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 96.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 94.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 108.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 94.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 105.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 108.
  [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 105.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 119.
+ [4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
  (./output.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 105.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 105.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 119.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 119.
 Package rerunfilecheck Info: File `output.out' has not changed.
 (rerunfilecheck)             Checksum: 8573340204601BCD12EF17365924BAA6;807.
-
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 4.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 105.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 119.
  ) 
 Here is how much of TeX's memory you used:
- 5970 strings out of 494910
- 86167 string characters out of 6179837
+ 5971 strings out of 494910
+ 86173 string characters out of 6179837
  164010 words of memory out of 5000000
  9183 multiletter control sequences out of 15000+600000
  17136 words of font info for 37 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 29i,6n,28p,308b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,6n,28p,308b,511s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{img} has been referenced but does not exist, repl
 aced by a fixed one
 
@@ -737,13 +784,12 @@ ivek/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/vivek/.texmf
 pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/vivek/.texmf-var/fonts/pk/ljfour/j
 knappen/ec/ecrm1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on output.pdf (3 pages, 131981 bytes).
+cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on output.pdf (4 pages, 131117 bytes).
 PDF statistics:
- 394 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
+ 404 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
  131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
